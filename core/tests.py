@@ -406,3 +406,20 @@ class BenchmarkComparisonTests(BaseData):
         self.assertEqual(result["time_to_hire"]["unit"], "дней")
         # KPI без данных — our может быть 0, но ключ есть.
         self.assertIn("our", result["time_to_hire"])
+
+
+class CandidateStatusVisibilityTests(BaseData):
+    """Замечание 3: кандидат должен видеть свои отклики и статусы."""
+
+    def test_candidate_sees_stage_and_status(self):
+        Application.objects.create(
+            candidate=self.cand, vacancy=self.vac,
+            stage=self.stage1, status=ApplicationStatus.IN_REVIEW,
+        )
+        self.client.login(username="cand", password="User#Unitcode2026")
+        resp = self.client.get(reverse("cand_applications"))
+        self.assertEqual(resp.status_code, 200)
+        self.assertContains(resp, "Скрининг")
+        self.assertContains(resp, "На рассмотрении")
+        self.assertContains(resp, "badge")
+        self.assertContains(resp, "Python-разработчик")
