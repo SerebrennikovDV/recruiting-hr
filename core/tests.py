@@ -248,3 +248,34 @@ class ScenarioTests(BaseData):
             "status": "open", "city": "Москва"}, follow=True)
         self.assertEqual(resp.status_code, 200)
         self.assertTrue(Vacancy.objects.filter(title="Новая вакансия").exists())
+
+
+# --------------------------------------------------------------------------
+#  Тесты модели бенчмарков и аналитики «наш показатель vs индустрия»
+# --------------------------------------------------------------------------
+class BenchmarkTests(BaseData):
+    """Замечание рецензента 11: HR-метрики должны сравниваться с отраслью."""
+
+    def test_benchmark_create_and_str(self):
+        from .models import IndustryBenchmark
+        bm = IndustryBenchmark.objects.create(
+            metric="time_to_hire", industry="ИТ в России",
+            value=30, unit="дней",
+            source="hh.ru research 2024", year=2024,
+        )
+        self.assertEqual(bm.metric, "time_to_hire")
+        self.assertIn("Время закрытия", str(bm))
+        self.assertIn("2024", str(bm))
+        self.assertEqual(IndustryBenchmark.objects.count(), 1)
+
+    def test_benchmark_uniqueness(self):
+        from .models import IndustryBenchmark
+        from django.db import IntegrityError, transaction
+        IndustryBenchmark.objects.create(
+            metric="time_to_hire", industry="ИТ в России",
+            value=30, unit="дней", source="A", year=2024)
+        with self.assertRaises(IntegrityError):
+            with transaction.atomic():
+                IndustryBenchmark.objects.create(
+                    metric="time_to_hire", industry="ИТ в России",
+                    value=31, unit="дней", source="B", year=2024)

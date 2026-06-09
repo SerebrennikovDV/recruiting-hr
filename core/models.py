@@ -569,3 +569,51 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse("news_detail", args=[self.slug])
+
+
+# ---------------------------------------------------------------------------
+#  Справочник отраслевых бенчмарков (для сравнения KPI с индустрией)
+# ---------------------------------------------------------------------------
+class IndustryBenchmark(models.Model):
+    """
+    Эталонное значение HR-метрики в отрасли. На дашборде HR-аналитики
+    рядом с собственным показателем выводится значение по индустрии и
+    разница в процентах — это устраняет замечание рецензента о том,
+    что метрики «оторваны от бизнес-целей и сравнения нет».
+
+    Заполняется фикстурами в management/commands/seed_demo.py — источниками
+    выступают открытые отчёты hh.ru research, AIHR, Хабр Карьера.
+    """
+
+    METRIC_CHOICES = [
+        ("time_to_hire", "Время закрытия вакансии"),
+        ("cost_per_hire", "Стоимость найма"),
+        ("conversion", "Конверсия из отклика в найм"),
+        ("offer_acceptance", "Доля принятых офферов"),
+    ]
+    metric = models.CharField("Метрика", max_length=40, choices=METRIC_CHOICES)
+    industry = models.CharField("Отрасль / сегмент", max_length=120,
+                                default="ИТ в России")
+    value = models.DecimalField("Эталонное значение", max_digits=10,
+                                decimal_places=2)
+    unit = models.CharField("Единица измерения", max_length=20,
+                            help_text="дней, %, ₽")
+    source = models.CharField("Источник данных", max_length=200,
+                              help_text="Например: AIHR Industry Report 2024")
+    year = models.PositiveSmallIntegerField("Год публикации")
+    is_published = models.BooleanField("Опубликован", default=True)
+
+    class Meta:
+        verbose_name = "Эталонное значение HR-метрики"
+        verbose_name_plural = "Эталонные значения HR-метрик"
+        ordering = ["metric", "-year"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["metric", "industry", "year"],
+                name="uniq_benchmark_metric_industry_year",
+            )
+        ]
+
+    def __str__(self):
+        return (f"{self.get_metric_display()} · {self.industry} · "
+                f"{self.year}: {self.value} {self.unit}")

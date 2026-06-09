@@ -19,9 +19,9 @@ from django.utils.text import slugify
 
 from core.models import (Application, ApplicationStatus, Article, Candidate,
                          CandidateSkill, Department, Evaluation, Feedback,
-                         Grade, Interview, InterviewResult, InterviewType,
-                         Offer, OfferStatus, Role, Skill, Source, Stage, User,
-                         Vacancy, VacancySkill, VacancyStatus)
+                         Grade, IndustryBenchmark, Interview, InterviewResult,
+                         InterviewType, Offer, OfferStatus, Role, Skill, Source,
+                         Stage, User, Vacancy, VacancySkill, VacancyStatus)
 
 # Транслитерация slug кириллицы для адресов новостей.
 def ru_slug(text, idx):
@@ -344,6 +344,30 @@ class Command(BaseCommand):
                 is_processed=rnd.random() < 0.4,
                 created_at=timezone.now() - timedelta(days=rnd.randint(0, 25)))
 
+        # Эталонные значения отраслевых HR-метрик для дашборда (замечание 11).
+        benchmarks = [
+            dict(metric="time_to_hire", industry="ИТ в России", value=30,
+                 unit="дней",
+                 source="hh.ru research 2024 «Рынок ИТ-найма»", year=2024),
+            dict(metric="time_to_hire", industry="Финтех", value=28,
+                 unit="дней",
+                 source="AIHR Industry Report 2024", year=2024),
+            dict(metric="cost_per_hire", industry="ИТ в России", value=85000,
+                 unit="₽",
+                 source="Хабр Карьера, обзор 2024", year=2024),
+            dict(metric="conversion", industry="ИТ в России", value=8.5,
+                 unit="%",
+                 source="hh.ru research 2024", year=2024),
+            dict(metric="offer_acceptance", industry="ИТ в России", value=72.0,
+                 unit="%",
+                 source="AIHR Industry Report 2024", year=2024),
+        ]
+        for b in benchmarks:
+            IndustryBenchmark.objects.update_or_create(
+                metric=b["metric"], industry=b["industry"], year=b["year"],
+                defaults=b,
+            )
+
         self.stdout.write(self.style.SUCCESS(
             "Демо-данные загружены: "
             f"пользователей={User.objects.count()}, "
@@ -353,7 +377,8 @@ class Command(BaseCommand):
             f"собеседований={Interview.objects.count()}, "
             f"офферов={Offer.objects.count()}, "
             f"новостей={Article.objects.count()}, "
-            f"обращений={Feedback.objects.count()}."))
+            f"обращений={Feedback.objects.count()}, "
+            f"бенчмарков={IndustryBenchmark.objects.count()}."))
 
     def _make_user(self, username, last, first, patr, role, password,
                    is_staff=False, is_superuser=False, email="", position=""):

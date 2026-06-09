@@ -11,9 +11,9 @@ from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils import timezone
 
 from .models import (Application, Article, Candidate, CandidateSkill,
-                     Department, Evaluation, Feedback, Interview, Offer, Role,
-                     ResumeFile, Skill, Source, Stage, User, Vacancy,
-                     VacancySkill, VacancyStatus)
+                     Department, Evaluation, Feedback, IndustryBenchmark,
+                     Interview, Offer, Role, ResumeFile, Skill, Source, Stage,
+                     User, Vacancy, VacancySkill, VacancyStatus)
 
 
 # ---------------------------------------------------------------------------
@@ -277,3 +277,16 @@ class ArticleAdmin(admin.ModelAdmin):
 class ResumeFileAdmin(admin.ModelAdmin):
     list_display = ("candidate", "title", "filename", "uploaded_at")
     search_fields = ("candidate__last_name", "title")
+
+
+# ---------------------------------------------------------------------------
+#  Эталонные значения HR-метрик (бенчмарки)
+# ---------------------------------------------------------------------------
+@admin.register(IndustryBenchmark)
+class IndustryBenchmarkAdmin(admin.ModelAdmin):
+    """Справочник отраслевых бенчмарков для сравнения собственных KPI."""
+
+    list_display = ("metric", "industry", "year", "value", "unit",
+                    "source", "is_published")
+    list_filter = ("metric", "industry", "year", "is_published")
+    search_fields = ("source", "industry")
