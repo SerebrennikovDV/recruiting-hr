@@ -345,3 +345,41 @@ class ResumeSecurityTests(BaseData):
         self.assertTrue(rf.file.name.endswith(".pdf"))
         # И почистим за собой файл из media/.
         rf.file.delete(save=False)
+
+
+# --------------------------------------------------------------------------
+#  Атомарность операций — смена этапа + закрытие вакансии (замечание 9)
+# --------------------------------------------------------------------------
+class ApplicationTransactionTests(BaseData):
+    """Перевод на терминальный этап + статус HIRED закрывает вакансию атомарно."""
+
+    def setUp(self):
+        self.app = Application.objects.create(
+            candidate=self.cand, vacancy=self.vac,
+            stage=self.stage1, status=ApplicationStatus.NEW,
+        )
+        self.client.login(username="rec", password="Hr#Unitcode2026")
+
+    def test_terminal_hired_closes_vacancy(self):
+        resp = self.client.post(
+            reverse("rec_application_edit", args=[self.app.pk]),
+            {"stage": self.stage_hire.pk,
+             "status": ApplicationStatus.HIRED,
+             "score": 90, "comment": ""},
+        )
+        self.assertEqual(resp.status_code, 302)
+        self.vac.refresh_from_db()
+        self.assertEqual(self.vac.status, VacancyStatus.CLOSED)
+        self.assertIsNotNone(self.vac.closed_at)
+
+    def test_non_terminal_does_not_close_vacancy(self):
+        resp = self.client.post(
+            reverse("rec_application_edit", args=[self.app.pk]),
+            {"stage": self.stage1.pk,
+             "status": ApplicationStatus.IN_REVIEW,
+             "score": 60, "comment": ""},
+        )
+        self.assertEqual(resp.status_code, 302)
+        self.vac.refresh_from_db()
+        self.assertEqual(self.vac.status, VacancyStatus.OPEN)
+        self.assertIsNone(self.vac.closed_at)

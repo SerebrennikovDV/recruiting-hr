@@ -16,6 +16,7 @@ from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.db import transaction
 from django.db.models import Count, Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
@@ -428,13 +429,30 @@ def rec_applications(request):
 
 @recruiter_required
 def rec_application_edit(request, pk):
-    """Изменить этап/статус/оценку отклика."""
+    """
+    Изменить этап/статус/оценку отклика.
+
+    Атомарность (замечание рецензента 9): при переводе на терминальный этап
+    воронки со статусом «Принят» одновременно с обновлением отклика
+    закрываем связанную вакансию. Обе операции — в одной транзакции;
+    либо изменения применятся целиком, либо ни одно не применится, что
+    гарантирует целостность данных подбора.
+    """
     app = get_object_or_404(
-        Application.objects.select_related("candidate", "vacancy"), pk=pk)
+        Application.objects.select_related("candidate", "vacancy", "stage"), pk=pk)
     if request.method == "POST":
         form = ApplicationStageForm(request.POST, instance=app)
         if form.is_valid():
-            form.save()
+            with transaction.atomic():
+                form.save()
+                # Перечитываем app, т.к. form.save() мог изменить stage/status.
+                app.refresh_from_db()
+                if (app.stage.is_terminal
+                        and app.status == ApplicationStatus.HIRED
+                        and app.vacancy.status != VacancyStatus.CLOSED):
+                    app.vacancy.status = VacancyStatus.CLOSED
+                    app.vacancy.closed_at = timezone.localdate()
+                    app.vacancy.save(update_fields=["status", "closed_at"])
             messages.success(request, "Отклик обновлён.")
             return redirect("rec_applications")
     else:
