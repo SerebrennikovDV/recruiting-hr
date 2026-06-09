@@ -279,3 +279,69 @@ class BenchmarkTests(BaseData):
                 IndustryBenchmark.objects.create(
                     metric="time_to_hire", industry="ИТ в России",
                     value=31, unit="дней", source="B", year=2024)
+
+
+# --------------------------------------------------------------------------
+#  Безопасность загрузки резюме (замечание рецензента 10)
+# --------------------------------------------------------------------------
+class ResumeSecurityTests(BaseData):
+    """Защита от подмены типа файла, превышения размера, пустых файлов."""
+
+    def setUp(self):
+        # Заранее создаём анкету кандидата для logged-in пользователя cand.
+        # _get_candidate в view создаёт её автоматически — но source может
+        # ещё не быть; гарантируем источник «Карьерный сайт».
+        from .models import Source
+        Source.objects.get_or_create(
+            name="Карьерный сайт",
+            defaults={"kind": "собственный сайт", "cost_per_contact": 0},
+        )
+        self.client.login(username="cand", password="User#Unitcode2026")
+
+    def _upload(self, name, content, content_type="application/pdf"):
+        from django.core.files.uploadedfile import SimpleUploadedFile
+        f = SimpleUploadedFile(name, content, content_type=content_type)
+        return self.client.post(
+            reverse("cand_resumes"),
+            {"title": "test", "file": f},
+        )
+
+    def test_rejects_php_extension(self):
+        from .models import ResumeFile
+        before = ResumeFile.objects.count()
+        self._upload("malware.php", b"<?php echo 'pwn'; ?>",
+                     content_type="application/x-php")
+        self.assertEqual(ResumeFile.objects.count(), before)
+
+    def test_rejects_oversized_file(self):
+        from .models import ResumeFile
+        before = ResumeFile.objects.count()
+        big = b"x" * (6 * 1024 * 1024)
+        self._upload("big.pdf", big)
+        self.assertEqual(ResumeFile.objects.count(), before)
+
+    def test_rejects_empty_file(self):
+        from .models import ResumeFile
+        before = ResumeFile.objects.count()
+        self._upload("empty.pdf", b"")
+        self.assertEqual(ResumeFile.objects.count(), before)
+
+    def test_rejects_mismatched_mime(self):
+        from .models import ResumeFile
+        before = ResumeFile.objects.count()
+        self._upload("resume.pdf", b"<html><script>x</script></html>",
+                     content_type="text/html")
+        self.assertEqual(ResumeFile.objects.count(), before)
+
+    def test_accepts_valid_pdf_with_uuid_rename(self):
+        from .models import ResumeFile
+        pdf = b"%PDF-1.4\n%EOF\n"
+        self._upload("resume.pdf", pdf)
+        self.assertEqual(ResumeFile.objects.count(), 1)
+        rf = ResumeFile.objects.first()
+        # Исходное имя не должно сохраниться в пути на ФС.
+        self.assertNotIn("resume.pdf", rf.file.name)
+        # Расширение сохраняется.
+        self.assertTrue(rf.file.name.endswith(".pdf"))
+        # И почистим за собой файл из media/.
+        rf.file.delete(save=False)

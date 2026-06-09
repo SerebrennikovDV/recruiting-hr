@@ -12,12 +12,33 @@
     Interview, Evaluation, Offer, ResumeFile, CandidateSkill, VacancySkill,
     Feedback, Article.
 """
+import os
+import uuid
+
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+
+
+# Белый список расширений резюме (используется и в форме, и в upload_to).
+RESUME_EXT_WHITELIST = (".pdf", ".doc", ".docx", ".rtf", ".odt")
+
+
+def resume_upload_path(instance, filename):
+    """
+    Случайное имя файла резюме (UUID-hex.ext) — защита от перебора чужих
+    резюме по предсказуемым URL и от XSS-атак через имя файла.
+
+    Замечание рецензента 10: без переименования атакующий мог бы загрузить
+    `malware.php.pdf` или файл с кириллицей-омоглифом в имени.
+    """
+    ext = os.path.splitext(filename)[1].lower()
+    if ext not in RESUME_EXT_WHITELIST:
+        ext = ".bin"
+    return f"resumes/{timezone.now().strftime('%Y/%m')}/{uuid.uuid4().hex}{ext}"
 
 
 # ---------------------------------------------------------------------------
@@ -455,7 +476,9 @@ class ResumeFile(models.Model):
 
     candidate = models.ForeignKey(Candidate, verbose_name="Кандидат",
                                   on_delete=models.CASCADE, related_name="resumes")
-    file = models.FileField("Файл резюме", upload_to="resumes/%Y/%m/")
+    # upload_to — callable: имя файла генерируется как UUID-hex.ext (см.
+    # resume_upload_path), исходное имя в файловую систему не попадает.
+    file = models.FileField("Файл резюме", upload_to=resume_upload_path)
     title = models.CharField("Название", max_length=150, blank=True)
     uploaded_at = models.DateTimeField("Дата загрузки", default=timezone.now)
 
@@ -468,7 +491,6 @@ class ResumeFile(models.Model):
         return self.title or f"Резюме {self.candidate}"
 
     def filename(self):
-        import os
         return os.path.basename(self.file.name) if self.file else ""
 
 

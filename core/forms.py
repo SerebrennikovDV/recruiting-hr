@@ -127,15 +127,34 @@ class ResumeUploadForm(BootstrapMixin, forms.ModelForm):
         fields = ["title", "file"]
 
     def clean_file(self):
+        """
+        Усиленная проверка загруженного резюме (замечание рецензента 10):
+            • расширение из белого списка;
+            • размер ≤ RESUME_MAX_SIZE_MB;
+            • файл не пустой;
+            • MIME-тип, заявленный клиентом, не противоречит расширению
+              (защита от обхода через переименование .exe → .pdf);
+            • переименование в UUID — выполняется уже в моменте сохранения
+              моделью через callable upload_to (см. core.models.resume_upload_path).
+        """
+        import mimetypes
         f = self.cleaned_data["file"]
         ext = os.path.splitext(f.name)[1].lower()
         if ext not in settings.RESUME_ALLOWED_EXT:
             raise forms.ValidationError(
-                "Допустимы файлы форматов: "
+                "Недопустимый формат файла. Допустимы: "
                 + ", ".join(settings.RESUME_ALLOWED_EXT))
         if f.size > settings.RESUME_MAX_SIZE_MB * 1024 * 1024:
             raise forms.ValidationError(
                 f"Размер файла не должен превышать {settings.RESUME_MAX_SIZE_MB} МБ.")
+        if f.size == 0:
+            raise forms.ValidationError("Файл пустой.")
+        expected, _ = mimetypes.guess_type(f.name)
+        declared = getattr(f, "content_type", None)
+        if expected and declared and declared not in (expected,
+                                                       "application/octet-stream"):
+            raise forms.ValidationError(
+                "Тип файла не соответствует его расширению.")
         return f
 
 
