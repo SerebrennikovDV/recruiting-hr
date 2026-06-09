@@ -191,8 +191,18 @@ RESUME_MAX_SIZE_MB = 5
 RESUME_ALLOWED_EXT = [".pdf", ".doc", ".docx", ".rtf", ".odt"]
 
 # В продакшене (DEBUG=False) включаем безопасные заголовки.
+# Cookie помечаем атрибутом Secure только если приложение реально работает
+# по HTTPS — иначе авторизация и CSRF по HTTP перестанут работать (cookie
+# не отправится). Управляется переменной окружения DJANGO_USE_HTTPS.
+# Для развёртывания UnitHire на Yandex Cloud по публичному IP без домена
+# используется HTTP, поэтому DJANGO_USE_HTTPS=False (см. .env.example).
 if not DEBUG:
-    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_BROWSER_XSS_FILTER = True
+    X_FRAME_OPTIONS = "DENY"
+    if env_bool("DJANGO_USE_HTTPS", False):
+        SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+        SESSION_COOKIE_SECURE = True
+        CSRF_COOKIE_SECURE = True
+        SECURE_HSTS_SECONDS = 60 * 60 * 24 * 30  # 30 дней
+        SECURE_HSTS_INCLUDE_SUBDOMAINS = True
