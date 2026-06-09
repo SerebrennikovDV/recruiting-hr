@@ -265,7 +265,10 @@ class Candidate(models.Model):
         verbose_name = "Кандидат"
         verbose_name_plural = "Кандидаты"
         ordering = ["-created_at"]
-        indexes = [models.Index(fields=["last_name", "first_name"])]
+        indexes = [
+            models.Index(fields=["last_name", "first_name"]),
+            models.Index(fields=["created_at"], name="cand_created_at_idx"),
+        ]
 
     def __str__(self):
         return self.full_name()
@@ -308,7 +311,11 @@ class Vacancy(models.Model):
         verbose_name = "Вакансия"
         verbose_name_plural = "Вакансии"
         ordering = ["-opened_at"]
-        indexes = [models.Index(fields=["status"])]
+        indexes = [
+            models.Index(fields=["status"]),
+            models.Index(fields=["opened_at"], name="vac_opened_at_idx"),
+            models.Index(fields=["closed_at"], name="vac_closed_at_idx"),
+        ]
 
     def __str__(self):
         return f"{self.title} ({self.get_grade_display()})"
@@ -366,6 +373,10 @@ class Application(models.Model):
         constraints = [
             models.UniqueConstraint(fields=["candidate", "vacancy"],
                                     name="uniq_candidate_vacancy")
+        ]
+        indexes = [
+            models.Index(fields=["applied_at"], name="app_applied_at_idx"),
+            models.Index(fields=["status"], name="app_status_idx"),
         ]
 
     def __str__(self):
@@ -480,7 +491,13 @@ class CandidateSkill(models.Model):
         verbose_name_plural = "Навыки кандидатов"
         constraints = [
             models.UniqueConstraint(fields=["candidate", "skill"],
-                                    name="uniq_candidate_skill")
+                                    name="uniq_candidate_skill"),
+            # DB-level проверка диапазона уровня (замечание рецензента 8):
+            # без CHECK любые прямые вставки SQL могут нарушить бизнес-правило.
+            models.CheckConstraint(
+                check=models.Q(level__gte=1, level__lte=4),
+                name="cand_skill_level_range",
+            ),
         ]
 
     def __str__(self):
