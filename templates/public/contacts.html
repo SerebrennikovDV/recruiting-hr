@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Контакты — {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<h2 class="section-title mb-4">Контакты и обратная связь</h2>
+<div class="row g-4">
+  <div class="col-lg-5">
+    <div class="card p-4 h-100">
+      <h5>ООО «ЮНИТКОД»</h5>
+      <p class="small mb-2"><i class="bi bi-geo-alt text-primary"></i> г. Москва, ул. Цифровая, д. 1</p>
+      <p class="small mb-2"><i class="bi bi-telephone text-primary"></i> +7 (495) 000-00-00</p>
+      <p class="small mb-2"><i class="bi bi-envelope text-primary"></i> hr@unitcode.ru</p>
+      <p class="small mb-2"><i class="bi bi-clock text-primary"></i> Пн–Пт, 10:00–19:00</p>
+      <hr>
+      <p class="small text-muted mb-0">Отдел подбора персонала (HR-отдел) отвечает
+        на обращения в течение одного рабочего дня.</p>
+    </div>
+  </div>
+  <div class="col-lg-7">
+    <div class="card p-4">
+      <h5 class="mb-3">Напишите нам</h5>
+      <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.website }}
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">{{ form.name.label }}</label>
+            {{ form.name }}
+            {% for e in form.name.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">{{ form.email.label }}</label>
+            {{ form.email }}
+            {% for e in form.email.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">{{ form.phone.label }}</label>
+            {{ form.phone }}
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">{{ form.subject.label }}</label>
+            {{ form.subject }}
+            {% for e in form.subject.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+          </div>
+          <div class="col-12">
+            <label class="form-label">{{ form.message.label }}</label>
+            {{ form.message }}
+            {% for e in form.message.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+          </div>
+        </div>
+        <button class="btn btn-primary mt-3"><i class="bi bi-send"></i> Отправить обращение</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

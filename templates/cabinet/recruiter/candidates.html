@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Кандидаты — кабинет рекрутёра{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-3">{% include 'partials/_recruiter_nav.html' with active='candidates' %}</div>
+  <div class="col-lg-9">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="section-title mb-0">База кандидатов</h3>
+      <a href="{% url 'rec_candidate_create' %}" class="btn btn-primary btn-sm">
+        <i class="bi bi-plus-lg"></i> Добавить кандидата</a>
+    </div>
+
+    <form class="row g-2 mb-3" method="get">
+      <div class="col-md-6"><input type="text" name="q" value="{{ query }}"
+        class="form-control" placeholder="Поиск по ФИО или email"></div>
+      <div class="col-md-4"><select name="grade" class="form-select">
+        <option value="">Любой грейд</option>
+        {% for val, label in grade_choices %}
+          <option value="{{ val }}" {% if grade == val %}selected{% endif %}>{{ label }}</option>{% endfor %}
+      </select></div>
+      <div class="col-md-2 d-grid"><button class="btn btn-outline-primary">Фильтр</button></div>
+    </form>
+
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-light"><tr>
+          <th>ФИО</th><th>Город</th><th>Грейд</th><th class="text-end">Опыт</th>
+          <th>Источник</th><th></th></tr></thead>
+        <tbody>
+          {% for c in page_obj %}
+          <tr>
+            <td><a href="{% url 'candidate_detail' c.pk %}" class="text-decoration-none">{{ c.full_name }}</a>
+              {% if c.is_archived %}<span class="badge bg-secondary">архив</span>{% endif %}</td>
+            <td class="small">{{ c.city }}</td>
+            <td><span class="badge badge-grade">{{ c.get_grade_display }}</span></td>
+            <td class="text-end">{{ c.experience_years }}</td>
+            <td class="small">{{ c.source.name }}</td>
+            <td class="text-end">
+              <a href="{% url 'candidate_detail' c.pk %}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-eye"></i></a>
+              <a href="{% url 'rec_candidate_edit' c.pk %}" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></a>
+              <a href="{% url 'export_candidate_docx' c.pk %}" class="btn btn-sm btn-outline-success"><i class="bi bi-file-earmark-word"></i></a>
+            </td></tr>
+          {% empty %}<tr><td colspan="6" class="text-muted">Кандидаты не найдены.</td></tr>{% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% include 'partials/_pagination.html' %}
+  </div>
+</div>
+{% endblock %}

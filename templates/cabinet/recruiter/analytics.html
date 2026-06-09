@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}HR-аналитика — кабинет рекрутёра{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-3">{% include 'partials/_recruiter_nav.html' with active='analytics' %}</div>
+  <div class="col-lg-9">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="section-title mb-0">HR-аналитика</h3>
+      <a href="{% url 'export_analytics_xlsx' %}" class="btn btn-sm btn-success">
+        <i class="bi bi-file-earmark-excel"></i> Выгрузить в Excel</a>
+    </div>
+
+    {# KPI #}
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-md-3"><div class="card kpi-card text-center p-3">
+        <div class="kpi-value">{{ kpi.open_vacancies }}</div><div class="kpi-label">Открытых вакансий</div></div></div>
+      <div class="col-6 col-md-3"><div class="card kpi-card text-center p-3">
+        <div class="kpi-value">{{ kpi.avg_time_to_hire }}</div><div class="kpi-label">Time-to-hire, дн.</div></div></div>
+      <div class="col-6 col-md-3"><div class="card kpi-card text-center p-3">
+        <div class="kpi-value">{{ kpi.conversion }}%</div><div class="kpi-label">Конверсия в найм</div></div></div>
+      <div class="col-6 col-md-3"><div class="card kpi-card text-center p-3">
+        <div class="kpi-value">{{ kpi.accepted_offers }}</div><div class="kpi-label">Принятых офферов</div></div></div>
+    </div>
+
+    {# Графики #}
+    <div class="row g-4 mb-4">
+      <div class="col-lg-6"><div class="card p-3 chart-box"><h6 class="fw-bold">Воронка подбора</h6>
+        <img src="{{ chart_funnel }}" alt="Воронка"></div></div>
+      <div class="col-lg-6"><div class="card p-3 chart-box"><h6 class="fw-bold">Источники привлечения</h6>
+        <img src="{{ chart_sources }}" alt="Источники"></div></div>
+      <div class="col-lg-6"><div class="card p-3 chart-box"><h6 class="fw-bold">Динамика откликов</h6>
+        <img src="{{ chart_dynamics }}" alt="Динамика"></div></div>
+      {% if chart_tth %}
+      <div class="col-lg-6"><div class="card p-3 chart-box"><h6 class="fw-bold">Время закрытия вакансий</h6>
+        <img src="{{ chart_tth }}" alt="Time-to-hire"></div></div>
+      {% endif %}
+    </div>
+
+    {# Таблица: загрузка рекрутёров #}
+    <h5 class="section-title mb-2">Загрузка рекрутёров</h5>
+    <div class="table-responsive mb-4">
+      <table class="table table-striped">
+        <thead class="table-light"><tr><th>Рекрутёр</th><th class="text-end">Открытых вакансий</th>
+          <th class="text-end">Активных заявок</th><th class="text-end">Собеседований</th>
+          <th class="text-end">Нанято</th></tr></thead>
+        <tbody>
+          {% for r in recruiter_load %}
+          <tr><td>{{ r.recruiter }}</td><td class="text-end">{{ r.open_vacancies }}</td>
+            <td class="text-end">{{ r.active_applications }}</td><td class="text-end">{{ r.interviews }}</td>
+            <td class="text-end">{{ r.hired }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {# Таблица: эффективность источников #}
+    <h5 class="section-title mb-2">Эффективность источников (cost-per-hire)</h5>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead class="table-light"><tr><th>Источник</th><th class="text-end">Кандидатов</th>
+          <th class="text-end">Нанято</th><th class="text-end">Конверсия</th>
+          <th class="text-end">Стоимость найма, ₽</th></tr></thead>
+        <tbody>
+          {% for s in sources %}
+          <tr><td>{{ s.source }}</td><td class="text-end">{{ s.candidates }}</td>
+            <td class="text-end">{{ s.hired }}</td><td class="text-end">{{ s.conversion }}%</td>
+            <td class="text-end">{% if s.cost_per_hire %}{{ s.cost_per_hire }}{% else %}—{% endif %}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

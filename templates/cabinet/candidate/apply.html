@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Отклик на вакансию — {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-7">
+    <h3 class="section-title mb-3">Отклик на вакансию</h3>
+    <div class="card p-4">
+      <h5>{{ vacancy.title }}</h5>
+      <p class="text-muted small">{{ vacancy.department.name }} · {{ vacancy.salary_range }}</p>
+      <hr>
+      <form method="post" novalidate>
+        {% csrf_token %}
+        <label class="form-label">{{ form.cover_letter.label }}</label>
+        {{ form.cover_letter }}
+        {% for e in form.cover_letter.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+        <div class="mt-3">
+          <button class="btn btn-primary"><i class="bi bi-send"></i> Отправить отклик</button>
+          <a href="{% url 'vacancy_detail' vacancy.pk %}" class="btn btn-outline-secondary">Назад</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

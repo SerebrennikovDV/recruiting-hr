@@ -1,0 +1,15 @@
+{# Боковое меню личного кабинета кандидата. Передайте active = имя маршрута. #}
+<div class="list-group cabinet-menu shadow-sm">
+  <a href="{% url 'cand_dashboard' %}" class="list-group-item list-group-item-action {% if active == 'dashboard' %}active{% endif %}">
+    <i class="bi bi-speedometer2 me-2"></i>Обзор</a>
+  <a href="{% url 'cand_profile' %}" class="list-group-item list-group-item-action {% if active == 'profile' %}active{% endif %}">
+    <i class="bi bi-person-badge me-2"></i>Профиль</a>
+  <a href="{% url 'cand_resumes' %}" class="list-group-item list-group-item-action {% if active == 'resumes' %}active{% endif %}">
+    <i class="bi bi-file-earmark-person me-2"></i>Мои резюме</a>
+  <a href="{% url 'cand_applications' %}" class="list-group-item list-group-item-action {% if active == 'applications' %}active{% endif %}">
+    <i class="bi bi-send me-2"></i>Мои отклики</a>
+  <a href="{% url 'cand_interviews' %}" class="list-group-item list-group-item-action {% if active == 'interviews' %}active{% endif %}">
+    <i class="bi bi-calendar-check me-2"></i>Собеседования</a>
+  <a href="{% url 'vacancies' %}" class="list-group-item list-group-item-action">
+    <i class="bi bi-search me-2"></i>Найти вакансии</a>
+</div>

@@ -1,0 +1,29 @@
+# Конфигурация развёртывания на бесплатном хостинге Render.com.
+# При подключении репозитория Render автоматически создаёт веб-сервис и
+# базу данных PostgreSQL по описанию ниже.
+services:
+  - type: web
+    name: unithire
+    runtime: python
+    plan: free
+    buildCommand: "bash ./build.sh"
+    startCommand: "gunicorn recruiting.wsgi:application"
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true          # Render сгенерирует случайный секрет
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: DB_SSL_REQUIRE
+        value: "True"
+      - key: DATABASE_URL              # строка подключения к БД ниже
+        fromDatabase:
+          name: unithire-db
+          property: connectionString
+
+databases:
+  - name: unithire-db
+    plan: free
+    databaseName: unithire
+    user: unithire

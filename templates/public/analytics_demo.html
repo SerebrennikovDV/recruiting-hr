@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}HR-аналитика — {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<h2 class="section-title mb-3">HR-аналитика подбора персонала</h2>
+<p class="text-muted">Демонстрация аналитических возможностей платформы на
+  обезличенных данных. Полные дашборды доступны рекрутёрам в личном кабинете.</p>
+
+<div class="row g-3 mb-4">
+  <div class="col-6 col-md-3"><div class="card kpi-card text-center p-3">
+    <div class="kpi-value">{{ kpi.applications }}</div><div class="kpi-label">Откликов всего</div></div></div>
+  <div class="col-6 col-md-3"><div class="card kpi-card text-center p-3">
+    <div class="kpi-value">{{ kpi.interviews }}</div><div class="kpi-label">Собеседований</div></div></div>
+  <div class="col-6 col-md-3"><div class="card kpi-card text-center p-3">
+    <div class="kpi-value">{{ kpi.hired }}</div><div class="kpi-label">Нанято</div></div></div>
+  <div class="col-6 col-md-3"><div class="card kpi-card text-center p-3">
+    <div class="kpi-value">{{ kpi.avg_time_to_hire }}</div><div class="kpi-label">Time-to-hire, дн.</div></div></div>
+</div>
+
+<div class="row g-4">
+  <div class="col-lg-6">
+    <div class="card p-3 chart-box h-100">
+      <h6 class="fw-bold">Воронка подбора</h6>
+      <img src="{{ chart_funnel }}" alt="Воронка подбора">
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card p-3 chart-box h-100">
+      <h6 class="fw-bold">Динамика откликов</h6>
+      <img src="{{ chart_dynamics }}" alt="Динамика откликов">
+    </div>
+  </div>
+</div>
+
+<h5 class="section-title mt-5 mb-3">Эффективность источников привлечения</h5>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead class="table-light"><tr>
+      <th>Источник</th><th class="text-end">Кандидатов</th><th class="text-end">Нанято</th>
+      <th class="text-end">Конверсия</th><th class="text-end">Стоимость найма, ₽</th></tr></thead>
+    <tbody>
+      {% for s in sources %}
+      <tr><td>{{ s.source }}</td><td class="text-end">{{ s.candidates }}</td>
+        <td class="text-end">{{ s.hired }}</td><td class="text-end">{{ s.conversion }}%</td>
+        <td class="text-end">{% if s.cost_per_hire %}{{ s.cost_per_hire }}{% else %}—{% endif %}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

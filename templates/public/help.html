@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Справка по системе — {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<h2 class="section-title mb-4">Справка по системе</h2>
+
+<div class="alert alert-info">
+  <strong>Информационная система:</strong> {{ SITE_NAME }} — {{ SITE_TAGLINE }}.<br>
+  <strong>Организация:</strong> {{ SITE_ORG }}.<br>
+  <strong>Автор работы:</strong> {{ SITE_AUTHOR_FULL }}.<br>
+  <strong>Тема ВКР:</strong> «Проектирование рекрутинговой информационной системы
+  на основе HR-аналитики».
+</div>
+
+<h5 class="mt-4">Роли пользователей</h5>
+<table class="table table-bordered">
+  <thead class="table-light"><tr><th>Роль</th><th>Возможности</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Администратор</strong></td>
+        <td>Полное управление данными и пользователями через панель администратора
+            (вакансии, кандидаты, отклики, справочники, массовые действия).</td></tr>
+    <tr><td><strong>Рекрутёр (HR-менеджер)</strong></td>
+        <td>Личный кабинет: вакансии, кандидаты, канбан откликов, собеседования,
+            HR-аналитика, выгрузка отчётов в Word/Excel.</td></tr>
+    <tr><td><strong>Кандидат (соискатель)</strong></td>
+        <td>Личный кабинет: профиль, загрузка резюме, отклики на вакансии и
+            отслеживание их статусов, расписание собеседований.</td></tr>
+  </tbody>
+</table>
+
+<h5 class="mt-4">Частые вопросы</h5>
+<div class="accordion" id="faq">
+  {% for q, a in faq %}
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#faq{{ forloop.counter }}">{{ q }}</button>
+    </h2>
+    <div id="faq{{ forloop.counter }}" class="accordion-collapse collapse" data-bs-parent="#faq">
+      <div class="accordion-body small">{{ a }}</div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<p class="text-muted small mt-4">
+  По остальным вопросам обращайтесь через <a href="{% url 'contacts' %}">форму обратной связи</a>.
+  Систему разработал {{ SITE_AUTHOR_FULL }}.
+</p>
+{% endblock %}

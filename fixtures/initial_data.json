@@ -1,0 +1,6804 @@
+[
+{
+  "model": "core.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$bPU6oyPLDMiNtJrW9P0fpz$HjE6WVI0XfrNKDHtw5BHMQcACycHj7uDWmIg3MaR5eY=",
+    "last_login": "2026-06-04T13:58:25.943Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "Дмитрий",
+    "last_name": "Серебренников",
+    "email": "admin@unitcode.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-06-04T13:44:55.926Z",
+    "patronymic": "Валерьевич",
+    "role": "admin",
+    "phone": "",
+    "position": "Системный администратор",
+    "department": null,
+    "created_at": "2026-06-04T13:44:55.926Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "core.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$TnvwGOZVhIOHrizAzmIy5k$JENMS9GhUSuj/c+Xb5MX+HbvsAOp+spZxwm1W0+K/Hs=",
+    "last_login": "2026-06-04T13:58:11.279Z",
+    "is_superuser": false,
+    "username": "recruiter",
+    "first_name": "Анна",
+    "last_name": "Соколова",
+    "email": "recruiter@unitcode.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-04T13:44:56.270Z",
+    "patronymic": "Игоревна",
+    "role": "recruiter",
+    "phone": "",
+    "position": "Ведущий HR-менеджер",
+    "department": 7,
+    "created_at": "2026-06-04T13:44:56.270Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "core.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$sQfaeQLH4Rlz1iUmkynFCW$hzeZnf1PpDRUL6Iq5W66SzZG7O04T8U6uJKAT3NERRg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "recruiter1",
+    "first_name": "Елена",
+    "last_name": "Морозова",
+    "email": "recruiter1@unitcode.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-04T13:44:56.386Z",
+    "patronymic": "Сергеевна",
+    "role": "recruiter",
+    "phone": "",
+    "position": "HR-менеджер",
+    "department": null,
+    "created_at": "2026-06-04T13:44:56.386Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "core.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$FGnlQQPYSML1HyauBcAhxq$pYOtQGgL7Y0u4aGf7D90ecJVaS9aSCxAdKo51uUtkY8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "recruiter2",
+    "first_name": "Артём",
+    "last_name": "Лебедев",
+    "email": "recruiter2@unitcode.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-04T13:44:56.562Z",
+    "patronymic": "Олегович",
+    "role": "recruiter",
+    "phone": "",
+    "position": "HR-менеджер",
+    "department": null,
+    "created_at": "2026-06-04T13:44:56.562Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "core.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$CvyyIgHeqmCUFl5i9NiMqa$mdPBvBIUnB9uYiylEW3g7/6W76HDT20lNybINUSF1x0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "recruiter3",
+    "first_name": "Ольга",
+    "last_name": "Киселёва",
+    "email": "recruiter3@unitcode.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-04T13:44:56.674Z",
+    "patronymic": "Дмитриевна",
+    "role": "recruiter",
+    "phone": "",
+    "position": "HR-менеджер",
+    "department": null,
+    "created_at": "2026-06-04T13:44:56.674Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "core.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$VhZA8Heyb2J5gIF8PdNTNX$Y4nHLCT+SNrfgi0OOC+8prNFfHsZBaBTfXixRrWL1Ic=",
+    "last_login": "2026-06-04T13:58:20.539Z",
+    "is_superuser": false,
+    "username": "candidate",
+    "first_name": "Максим",
+    "last_name": "Новиков",
+    "email": "candidate@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-04T13:44:56.835Z",
+    "patronymic": "Андреевич",
+    "role": "candidate",
+    "phone": "",
+    "position": "",
+    "department": null,
+    "created_at": "2026-06-04T13:44:56.835Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "core.department",
+  "pk": 1,
+  "fields": {
+    "name": "Отдел разработки",
+    "head": "Громов А. С.",
+    "headcount_plan": 11,
+    "description": "Подразделение «Отдел разработки» компании ООО «ЮНИТКОД»."
+  }
+},
+{
+  "model": "core.department",
+  "pk": 2,
+  "fields": {
+    "name": "Отдел аналитики",
+    "head": "Зайцева М. П.",
+    "headcount_plan": 18,
+    "description": "Подразделение «Отдел аналитики» компании ООО «ЮНИТКОД»."
+  }
+},
+{
+  "model": "core.department",
+  "pk": 3,
+  "fields": {
+    "name": "Отдел эксплуатации",
+    "head": "Фролов И. В.",
+    "headcount_plan": 24,
+    "description": "Подразделение «Отдел эксплуатации» компании ООО «ЮНИТКОД»."
+  }
+},
+{
+  "model": "core.department",
+  "pk": 4,
+  "fields": {
+    "name": "Отдел тестирования",
+    "head": "Сорокина Е. А.",
+    "headcount_plan": 24,
+    "description": "Подразделение «Отдел тестирования» компании ООО «ЮНИТКОД»."
+  }
+},
+{
+  "model": "core.department",
+  "pk": 5,
+  "fields": {
+    "name": "Отдел данных",
+    "head": "Власов Д. Н.",
+    "headcount_plan": 28,
+    "description": "Подразделение «Отдел данных» компании ООО «ЮНИТКОД»."
+  }
+},
+{
+  "model": "core.department",
+  "pk": 6,
+  "fields": {
+    "name": "Отдел проектного управления",
+    "head": "Гусева Н. И.",
+    "headcount_plan": 11,
+    "description": "Подразделение «Отдел проектного управления» компании ООО «ЮНИТКОД»."
+  }
+},
+{
+  "model": "core.department",
+  "pk": 7,
+  "fields": {
+    "name": "Отдел персонала",
+    "head": "Громов А. С.",
+    "headcount_plan": 15,
+    "description": "Подразделение «Отдел персонала» компании ООО «ЮНИТКОД»."
+  }
+},
+{
+  "model": "core.source",
+  "pk": 1,
+  "fields": {
+    "name": "hh.ru",
+    "kind": "джоб-борд",
+    "cost_per_contact": "1200.00",
+    "is_active": true
+  }
+},
+{
+  "model": "core.source",
+  "pk": 2,
+  "fields": {
+    "name": "Хабр Карьера",
+    "kind": "джоб-борд",
+    "cost_per_contact": "900.00",
+    "is_active": true
+  }
+},
+{
+  "model": "core.source",
+  "pk": 3,
+  "fields": {
+    "name": "Telegram-каналы",
+    "kind": "соцсеть",
+    "cost_per_contact": "300.00",
+    "is_active": true
+  }
+},
+{
+  "model": "core.source",
+  "pk": 4,
+  "fields": {
+    "name": "Реферальная программа",
+    "kind": "реферал",
+    "cost_per_contact": "500.00",
+    "is_active": true
+  }
+},
+{
+  "model": "core.source",
+  "pk": 5,
+  "fields": {
+    "name": "Карьерный сайт",
+    "kind": "собственный сайт",
+    "cost_per_contact": "0.00",
+    "is_active": true
+  }
+},
+{
+  "model": "core.source",
+  "pk": 6,
+  "fields": {
+    "name": "LinkedIn",
+    "kind": "соцсеть",
+    "cost_per_contact": "1500.00",
+    "is_active": true
+  }
+},
+{
+  "model": "core.source",
+  "pk": 7,
+  "fields": {
+    "name": "getmatch",
+    "kind": "джоб-борд",
+    "cost_per_contact": "2000.00",
+    "is_active": true
+  }
+},
+{
+  "model": "core.source",
+  "pk": 8,
+  "fields": {
+    "name": "Хантинг",
+    "kind": "прямой поиск",
+    "cost_per_contact": "4000.00",
+    "is_active": true
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 1,
+  "fields": {
+    "name": "Python",
+    "category": "lang",
+    "description": "Навык: Python"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 2,
+  "fields": {
+    "name": "JavaScript",
+    "category": "lang",
+    "description": "Навык: JavaScript"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 3,
+  "fields": {
+    "name": "TypeScript",
+    "category": "lang",
+    "description": "Навык: TypeScript"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 4,
+  "fields": {
+    "name": "Go",
+    "category": "lang",
+    "description": "Навык: Go"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 5,
+  "fields": {
+    "name": "SQL",
+    "category": "db",
+    "description": "Навык: SQL"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 6,
+  "fields": {
+    "name": "PostgreSQL",
+    "category": "db",
+    "description": "Навык: PostgreSQL"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 7,
+  "fields": {
+    "name": "Django",
+    "category": "framework",
+    "description": "Навык: Django"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 8,
+  "fields": {
+    "name": "React",
+    "category": "framework",
+    "description": "Навык: React"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 9,
+  "fields": {
+    "name": "FastAPI",
+    "category": "framework",
+    "description": "Навык: FastAPI"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 10,
+  "fields": {
+    "name": "Docker",
+    "category": "tool",
+    "description": "Навык: Docker"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 11,
+  "fields": {
+    "name": "Kubernetes",
+    "category": "tool",
+    "description": "Навык: Kubernetes"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 12,
+  "fields": {
+    "name": "Git",
+    "category": "tool",
+    "description": "Навык: Git"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 13,
+  "fields": {
+    "name": "Linux",
+    "category": "tool",
+    "description": "Навык: Linux"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 14,
+  "fields": {
+    "name": "CI/CD",
+    "category": "tool",
+    "description": "Навык: CI/CD"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 15,
+  "fields": {
+    "name": "Pandas",
+    "category": "framework",
+    "description": "Навык: Pandas"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 16,
+  "fields": {
+    "name": "Machine Learning",
+    "category": "tool",
+    "description": "Навык: Machine Learning"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 17,
+  "fields": {
+    "name": "REST API",
+    "category": "tool",
+    "description": "Навык: REST API"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 18,
+  "fields": {
+    "name": "Коммуникabельность",
+    "category": "soft",
+    "description": "Навык: Коммуникabельность"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 19,
+  "fields": {
+    "name": "Аналитическое мышление",
+    "category": "soft",
+    "description": "Навык: Аналитическое мышление"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 20,
+  "fields": {
+    "name": "Английский язык",
+    "category": "soft",
+    "description": "Навык: Английский язык"
+  }
+},
+{
+  "model": "core.stage",
+  "pk": 1,
+  "fields": {
+    "name": "Скрининг резюме",
+    "order": 1,
+    "description": "Этап воронки подбора: Скрининг резюме.",
+    "is_terminal": false
+  }
+},
+{
+  "model": "core.stage",
+  "pk": 2,
+  "fields": {
+    "name": "HR-интервью",
+    "order": 2,
+    "description": "Этап воронки подбора: HR-интервью.",
+    "is_terminal": false
+  }
+},
+{
+  "model": "core.stage",
+  "pk": 3,
+  "fields": {
+    "name": "Техническое собеседование",
+    "order": 3,
+    "description": "Этап воронки подбора: Техническое собеседование.",
+    "is_terminal": false
+  }
+},
+{
+  "model": "core.stage",
+  "pk": 4,
+  "fields": {
+    "name": "Финальное собеседование",
+    "order": 4,
+    "description": "Этап воронки подбора: Финальное собеседование.",
+    "is_terminal": false
+  }
+},
+{
+  "model": "core.stage",
+  "pk": 5,
+  "fields": {
+    "name": "Оффер",
+    "order": 5,
+    "description": "Этап воронки подбора: Оффер.",
+    "is_terminal": false
+  }
+},
+{
+  "model": "core.stage",
+  "pk": 6,
+  "fields": {
+    "name": "Принят в команду",
+    "order": 6,
+    "description": "Этап воронки подбора: Принят в команду.",
+    "is_terminal": true
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "candidate"
+    ],
+    "last_name": "Киселёв",
+    "first_name": "Кирилл",
+    "patronymic": "Олегович",
+    "email": "candidate1@example.com",
+    "phone": "+7 972 869-85-66",
+    "city": "Екатеринбург",
+    "desired_salary": 80000,
+    "experience_years": "4.1",
+    "grade": "middle",
+    "source": 2,
+    "summary": "Специалист уровня middle. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-04-17T13:44:56.986Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 2,
+  "fields": {
+    "user": null,
+    "last_name": "Новикова",
+    "first_name": "Екатерина",
+    "patronymic": "Михайловна",
+    "email": "candidate2@example.com",
+    "phone": "+7 991 178-53-21",
+    "city": "Краснодар",
+    "desired_salary": 220000,
+    "experience_years": "2.0",
+    "grade": "intern",
+    "source": 5,
+    "summary": "Специалист уровня intern. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-05-01T13:44:56.992Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 3,
+  "fields": {
+    "user": null,
+    "last_name": "Комаров",
+    "first_name": "Илья",
+    "patronymic": "Дмитриевич",
+    "email": "candidate3@example.com",
+    "phone": "+7 986 996-72-60",
+    "city": "Краснодар",
+    "desired_salary": 150000,
+    "experience_years": "1.0",
+    "grade": "intern",
+    "source": 7,
+    "summary": "Специалист уровня intern. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-04-15T13:44:56.999Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 4,
+  "fields": {
+    "user": null,
+    "last_name": "Кузнецов",
+    "first_name": "Михаил",
+    "patronymic": "Викторович",
+    "email": "candidate4@example.com",
+    "phone": "+7 942 673-61-95",
+    "city": "Казань",
+    "desired_salary": 220000,
+    "experience_years": "6.4",
+    "grade": "senior",
+    "source": 8,
+    "summary": "Специалист уровня senior. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-04-29T13:44:57.006Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 5,
+  "fields": {
+    "user": null,
+    "last_name": "Беляев",
+    "first_name": "Кирилл",
+    "patronymic": "Викторович",
+    "email": "candidate5@example.com",
+    "phone": "+7 947 424-68-22",
+    "city": "Воронеж",
+    "desired_salary": 260000,
+    "experience_years": "1.1",
+    "grade": "intern",
+    "source": 5,
+    "summary": "Специалист уровня intern. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-05-31T13:44:57.012Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 6,
+  "fields": {
+    "user": null,
+    "last_name": "Иванов",
+    "first_name": "Дмитрий",
+    "patronymic": "Александрович",
+    "email": "candidate6@example.com",
+    "phone": "+7 988 912-35-41",
+    "city": "Санкт-Петербург",
+    "desired_salary": 220000,
+    "experience_years": "1.2",
+    "grade": "intern",
+    "source": 1,
+    "summary": "Специалист уровня intern. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-05-28T13:44:57.020Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 7,
+  "fields": {
+    "user": null,
+    "last_name": "Андреева",
+    "first_name": "Елена",
+    "patronymic": "Сергеевна",
+    "email": "candidate7@example.com",
+    "phone": "+7 959 927-29-76",
+    "city": "Екатеринбург",
+    "desired_salary": 180000,
+    "experience_years": "3.6",
+    "grade": "middle",
+    "source": 1,
+    "summary": "Специалист уровня middle. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-05-07T13:44:57.025Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 8,
+  "fields": {
+    "user": null,
+    "last_name": "Тарасова",
+    "first_name": "Екатерина",
+    "patronymic": "Игоревна",
+    "email": "candidate8@example.com",
+    "phone": "+7 973 577-83-89",
+    "city": "Новосибирск",
+    "desired_salary": 120000,
+    "experience_years": "0.7",
+    "grade": "intern",
+    "source": 4,
+    "summary": "Специалист уровня intern. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-05-26T13:44:57.028Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 9,
+  "fields": {
+    "user": null,
+    "last_name": "Макаров",
+    "first_name": "Сергей",
+    "patronymic": "Викторович",
+    "email": "candidate9@example.com",
+    "phone": "+7 926 761-77-37",
+    "city": "Краснодар",
+    "desired_salary": 120000,
+    "experience_years": "6.9",
+    "grade": "senior",
+    "source": 3,
+    "summary": "Специалист уровня senior. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-06-01T13:44:57.035Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 10,
+  "fields": {
+    "user": null,
+    "last_name": "Новикова",
+    "first_name": "Татьяна",
+    "patronymic": "Викторовна",
+    "email": "candidate10@example.com",
+    "phone": "+7 951 631-71-66",
+    "city": "Санкт-Петербург",
+    "desired_salary": 220000,
+    "experience_years": "0.6",
+    "grade": "intern",
+    "source": 5,
+    "summary": "Специалист уровня intern. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-05-22T13:44:57.039Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 11,
+  "fields": {
+    "user": null,
+    "last_name": "Андреев",
+    "first_name": "Максим",
+    "patronymic": "Александрович",
+    "email": "candidate11@example.com",
+    "phone": "+7 981 803-83-78",
+    "city": "Екатеринбург",
+    "desired_salary": 80000,
+    "experience_years": "7.2",
+    "grade": "senior",
+    "source": 5,
+    "summary": "Специалист уровня senior. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-05-11T13:44:57.042Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 12,
+  "fields": {
+    "user": null,
+    "last_name": "Андреева",
+    "first_name": "Анна",
+    "patronymic": "Михайловна",
+    "email": "candidate12@example.com",
+    "phone": "+7 990 208-74-50",
+    "city": "Казань",
+    "desired_salary": 220000,
+    "experience_years": "7.1",
+    "grade": "senior",
+    "source": 2,
+    "summary": "Специалист уровня senior. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-04-22T13:44:57.046Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 13,
+  "fields": {
+    "user": null,
+    "last_name": "Козлова",
+    "first_name": "Анна",
+    "patronymic": "Игоревна",
+    "email": "candidate13@example.com",
+    "phone": "+7 983 978-54-50",
+    "city": "Воронеж",
+    "desired_salary": 220000,
+    "experience_years": "1.2",
+    "grade": "junior",
+    "source": 1,
+    "summary": "Специалист уровня junior. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-04-28T13:44:57.052Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 14,
+  "fields": {
+    "user": null,
+    "last_name": "Михайлов",
+    "first_name": "Александр",
+    "patronymic": "Игоревич",
+    "email": "candidate14@example.com",
+    "phone": "+7 925 404-63-50",
+    "city": "Пермь",
+    "desired_salary": 80000,
+    "experience_years": "6.2",
+    "grade": "senior",
+    "source": 6,
+    "summary": "Специалист уровня senior. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-04-17T13:44:57.057Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 15,
+  "fields": {
+    "user": null,
+    "last_name": "Киселёв",
+    "first_name": "Михаил",
+    "patronymic": "Игоревич",
+    "email": "candidate15@example.com",
+    "phone": "+7 955 525-59-58",
+    "city": "Екатеринбург",
+    "desired_salary": 300000,
+    "experience_years": "1.8",
+    "grade": "junior",
+    "source": 7,
+    "summary": "Специалист уровня junior. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-05-25T13:44:57.062Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 16,
+  "fields": {
+    "user": null,
+    "last_name": "Новикова",
+    "first_name": "Ирина",
+    "patronymic": "Викторовна",
+    "email": "candidate16@example.com",
+    "phone": "+7 927 741-85-21",
+    "city": "Новосибирск",
+    "desired_salary": 220000,
+    "experience_years": "0.5",
+    "grade": "intern",
+    "source": 1,
+    "summary": "Специалист уровня intern. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-05-13T13:44:57.066Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 17,
+  "fields": {
+    "user": null,
+    "last_name": "Фёдоров",
+    "first_name": "Роман",
+    "patronymic": "Михайлович",
+    "email": "candidate17@example.com",
+    "phone": "+7 953 981-35-57",
+    "city": "Нижний Новгород",
+    "desired_salary": 180000,
+    "experience_years": "4.1",
+    "grade": "middle",
+    "source": 8,
+    "summary": "Специалист уровня middle. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-05-16T13:44:57.071Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 18,
+  "fields": {
+    "user": null,
+    "last_name": "Алексеева",
+    "first_name": "Ирина",
+    "patronymic": "Игоревна",
+    "email": "candidate18@example.com",
+    "phone": "+7 912 646-37-99",
+    "city": "Пермь",
+    "desired_salary": 150000,
+    "experience_years": "4.4",
+    "grade": "middle",
+    "source": 1,
+    "summary": "Специалист уровня middle. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-05-27T13:44:57.076Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 19,
+  "fields": {
+    "user": null,
+    "last_name": "Андреев",
+    "first_name": "Сергей",
+    "patronymic": "Сергеевич",
+    "email": "candidate19@example.com",
+    "phone": "+7 955 237-59-34",
+    "city": "Москва",
+    "desired_salary": 300000,
+    "experience_years": "6.1",
+    "grade": "senior",
+    "source": 8,
+    "summary": "Специалист уровня senior. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-05-15T13:44:57.084Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 20,
+  "fields": {
+    "user": null,
+    "last_name": "Смирнов",
+    "first_name": "Алексей",
+    "patronymic": "Игоревич",
+    "email": "candidate20@example.com",
+    "phone": "+7 988 354-26-23",
+    "city": "Нижний Новгород",
+    "desired_salary": 180000,
+    "experience_years": "4.1",
+    "grade": "middle",
+    "source": 2,
+    "summary": "Специалист уровня middle. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-04-25T13:44:57.090Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 21,
+  "fields": {
+    "user": null,
+    "last_name": "Кузнецов",
+    "first_name": "Кирилл",
+    "patronymic": "Андреевич",
+    "email": "candidate21@example.com",
+    "phone": "+7 984 453-20-18",
+    "city": "Санкт-Петербург",
+    "desired_salary": 300000,
+    "experience_years": "6.9",
+    "grade": "senior",
+    "source": 8,
+    "summary": "Специалист уровня senior. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-05-04T13:44:57.093Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 22,
+  "fields": {
+    "user": null,
+    "last_name": "Беляева",
+    "first_name": "Ольга",
+    "patronymic": "Михайловна",
+    "email": "candidate22@example.com",
+    "phone": "+7 958 317-29-66",
+    "city": "Пермь",
+    "desired_salary": 260000,
+    "experience_years": "6.3",
+    "grade": "senior",
+    "source": 3,
+    "summary": "Специалист уровня senior. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-04-26T13:44:57.098Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 23,
+  "fields": {
+    "user": null,
+    "last_name": "Комаров",
+    "first_name": "Дмитрий",
+    "patronymic": "Игоревич",
+    "email": "candidate23@example.com",
+    "phone": "+7 961 509-12-80",
+    "city": "Нижний Новгород",
+    "desired_salary": 260000,
+    "experience_years": "6.6",
+    "grade": "senior",
+    "source": 7,
+    "summary": "Специалист уровня senior. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-04-23T13:44:57.104Z"
+  }
+},
+{
+  "model": "core.candidate",
+  "pk": 24,
+  "fields": {
+    "user": null,
+    "last_name": "Иванов",
+    "first_name": "Андрей",
+    "patronymic": "Игоревич",
+    "email": "candidate24@example.com",
+    "phone": "+7 988 524-70-71",
+    "city": "Нижний Новгород",
+    "desired_salary": 80000,
+    "experience_years": "3.7",
+    "grade": "middle",
+    "source": 1,
+    "summary": "Специалист уровня middle. Опыт коммерческой разработки и работы в команде.",
+    "is_archived": false,
+    "created_at": "2026-04-22T13:44:57.111Z"
+  }
+},
+{
+  "model": "core.vacancy",
+  "pk": 1,
+  "fields": {
+    "title": "Python-разработчик",
+    "department": 1,
+    "grade": "middle",
+    "salary_min": 120000,
+    "salary_max": 160000,
+    "status": "in_progress",
+    "recruiter": [
+      "recruiter"
+    ],
+    "description": "Мы ищем специалиста на позицию «Python-разработчик» в отдел разработки. Требуется опыт коммерческой разработки, умение работать в команде и желание профессионально расти.",
+    "city": "Новосибирск",
+    "is_remote": true,
+    "opened_at": "2026-05-15",
+    "planned_close": "2026-06-14",
+    "closed_at": null
+  }
+},
+{
+  "model": "core.vacancy",
+  "pk": 2,
+  "fields": {
+    "title": "Frontend-разработчик (React)",
+    "department": 1,
+    "grade": "middle",
+    "salary_min": 80000,
+    "salary_max": 160000,
+    "status": "open",
+    "recruiter": [
+      "recruiter3"
+    ],
+    "description": "Мы ищем специалиста на позицию «Frontend-разработчик (React)» в отдел разработки. Требуется опыт коммерческой разработки, умение работать в команде и желание профессионально расти.",
+    "city": "Москва",
+    "is_remote": true,
+    "opened_at": "2026-05-12",
+    "planned_close": "2026-06-11",
+    "closed_at": null
+  }
+},
+{
+  "model": "core.vacancy",
+  "pk": 3,
+  "fields": {
+    "title": "Бизнес-аналитик",
+    "department": 2,
+    "grade": "middle",
+    "salary_min": 180000,
+    "salary_max": 240000,
+    "status": "open",
+    "recruiter": [
+      "recruiter"
+    ],
+    "description": "Мы ищем специалиста на позицию «Бизнес-аналитик» в отдел аналитики. Требуется опыт коммерческой разработки, умение работать в команде и желание профессионально расти.",
+    "city": "Воронеж",
+    "is_remote": false,
+    "opened_at": "2026-05-04",
+    "planned_close": "2026-06-03",
+    "closed_at": null
+  }
+},
+{
+  "model": "core.vacancy",
+  "pk": 4,
+  "fields": {
+    "title": "Системный аналитик",
+    "department": 2,
+    "grade": "senior",
+    "salary_min": 150000,
+    "salary_max": 250000,
+    "status": "on_hold",
+    "recruiter": [
+      "recruiter"
+    ],
+    "description": "Мы ищем специалиста на позицию «Системный аналитик» в отдел аналитики. Требуется опыт коммерческой разработки, умение работать в команде и желание профессионально расти.",
+    "city": "Краснодар",
+    "is_remote": false,
+    "opened_at": "2026-04-18",
+    "planned_close": "2026-05-18",
+    "closed_at": null
+  }
+},
+{
+  "model": "core.vacancy",
+  "pk": 5,
+  "fields": {
+    "title": "DevOps-инженер",
+    "department": 3,
+    "grade": "senior",
+    "salary_min": 180000,
+    "salary_max": 220000,
+    "status": "in_progress",
+    "recruiter": [
+      "recruiter1"
+    ],
+    "description": "Мы ищем специалиста на позицию «DevOps-инженер» в отдел эксплуатации. Требуется опыт коммерческой разработки, умение работать в команде и желание профессионально расти.",
+    "city": "Москва",
+    "is_remote": true,
+    "opened_at": "2026-04-17",
+    "planned_close": "2026-05-17",
+    "closed_at": null
+  }
+},
+{
+  "model": "core.vacancy",
+  "pk": 6,
+  "fields": {
+    "title": "QA-инженер (автоматизация)",
+    "department": 4,
+    "grade": "middle",
+    "salary_min": 150000,
+    "salary_max": 230000,
+    "status": "in_progress",
+    "recruiter": [
+      "recruiter3"
+    ],
+    "description": "Мы ищем специалиста на позицию «QA-инженер (автоматизация)» в отдел тестирования. Требуется опыт коммерческой разработки, умение работать в команде и желание профессионально расти.",
+    "city": "Краснодар",
+    "is_remote": false,
+    "opened_at": "2026-04-19",
+    "planned_close": "2026-05-19",
+    "closed_at": null
+  }
+},
+{
+  "model": "core.vacancy",
+  "pk": 7,
+  "fields": {
+    "title": "Data Scientist",
+    "department": 5,
+    "grade": "senior",
+    "salary_min": 150000,
+    "salary_max": 210000,
+    "status": "open",
+    "recruiter": [
+      "recruiter1"
+    ],
+    "description": "Мы ищем специалиста на позицию «Data Scientist» в отдел данных. Требуется опыт коммерческой разработки, умение работать в команде и желание профессионально расти.",
+    "city": "Казань",
+    "is_remote": false,
+    "opened_at": "2026-05-18",
+    "planned_close": "2026-06-17",
+    "closed_at": null
+  }
+},
+{
+  "model": "core.vacancy",
+  "pk": 8,
+  "fields": {
+    "title": "Менеджер проектов",
+    "department": 6,
+    "grade": "senior",
+    "salary_min": 120000,
+    "salary_max": 200000,
+    "status": "open",
+    "recruiter": [
+      "recruiter"
+    ],
+    "description": "Мы ищем специалиста на позицию «Менеджер проектов» в отдел проектного управления. Требуется опыт коммерческой разработки, умение работать в команде и желание профессионально расти.",
+    "city": "Воронеж",
+    "is_remote": false,
+    "opened_at": "2026-05-19",
+    "planned_close": "2026-06-18",
+    "closed_at": null
+  }
+},
+{
+  "model": "core.vacancy",
+  "pk": 9,
+  "fields": {
+    "title": "UX/UI-дизайнер",
+    "department": 1,
+    "grade": "middle",
+    "salary_min": 120000,
+    "salary_max": 160000,
+    "status": "in_progress",
+    "recruiter": [
+      "recruiter3"
+    ],
+    "description": "Мы ищем специалиста на позицию «UX/UI-дизайнер» в отдел разработки. Требуется опыт коммерческой разработки, умение работать в команде и желание профессионально расти.",
+    "city": "Самара",
+    "is_remote": true,
+    "opened_at": "2026-05-19",
+    "planned_close": "2026-06-18",
+    "closed_at": null
+  }
+},
+{
+  "model": "core.vacancy",
+  "pk": 10,
+  "fields": {
+    "title": "Технический писатель",
+    "department": 2,
+    "grade": "junior",
+    "salary_min": 120000,
+    "salary_max": 200000,
+    "status": "open",
+    "recruiter": [
+      "recruiter3"
+    ],
+    "description": "Мы ищем специалиста на позицию «Технический писатель» в отдел аналитики. Требуется опыт коммерческой разработки, умение работать в команде и желание профессионально расти.",
+    "city": "Краснодар",
+    "is_remote": false,
+    "opened_at": "2026-04-21",
+    "planned_close": "2026-05-21",
+    "closed_at": null
+  }
+},
+{
+  "model": "core.vacancy",
+  "pk": 11,
+  "fields": {
+    "title": "Backend-разработчик (Go)",
+    "department": 1,
+    "grade": "senior",
+    "salary_min": 120000,
+    "salary_max": 180000,
+    "status": "open",
+    "recruiter": [
+      "recruiter3"
+    ],
+    "description": "Мы ищем специалиста на позицию «Backend-разработчик (Go)» в отдел разработки. Требуется опыт коммерческой разработки, умение работать в команде и желание профессионально расти.",
+    "city": "Екатеринбург",
+    "is_remote": false,
+    "opened_at": "2026-05-10",
+    "planned_close": "2026-06-09",
+    "closed_at": null
+  }
+},
+{
+  "model": "core.vacancy",
+  "pk": 12,
+  "fields": {
+    "title": "Младший Python-разработчик",
+    "department": 1,
+    "grade": "junior",
+    "salary_min": 120000,
+    "salary_max": 180000,
+    "status": "open",
+    "recruiter": [
+      "recruiter2"
+    ],
+    "description": "Мы ищем специалиста на позицию «Младший Python-разработчик» в отдел разработки. Требуется опыт коммерческой разработки, умение работать в команде и желание профессионально расти.",
+    "city": "Воронеж",
+    "is_remote": true,
+    "opened_at": "2026-05-12",
+    "planned_close": "2026-06-11",
+    "closed_at": null
+  }
+},
+{
+  "model": "core.vacancy",
+  "pk": 13,
+  "fields": {
+    "title": "Инженер по данным (ETL)",
+    "department": 5,
+    "grade": "middle",
+    "salary_min": 80000,
+    "salary_max": 160000,
+    "status": "in_progress",
+    "recruiter": [
+      "recruiter2"
+    ],
+    "description": "Мы ищем специалиста на позицию «Инженер по данным (ETL)» в отдел данных. Требуется опыт коммерческой разработки, умение работать в команде и желание профессионально расти.",
+    "city": "Москва",
+    "is_remote": true,
+    "opened_at": "2026-04-16",
+    "planned_close": "2026-05-16",
+    "closed_at": null
+  }
+},
+{
+  "model": "core.vacancy",
+  "pk": 14,
+  "fields": {
+    "title": "HR-бизнес-партнёр",
+    "department": 7,
+    "grade": "middle",
+    "salary_min": 180000,
+    "salary_max": 220000,
+    "status": "closed",
+    "recruiter": [
+      "recruiter1"
+    ],
+    "description": "Мы ищем специалиста на позицию «HR-бизнес-партнёр» в отдел персонала. Требуется опыт коммерческой разработки, умение работать в команде и желание профессионально расти.",
+    "city": "Нижний Новгород",
+    "is_remote": true,
+    "opened_at": "2026-04-14",
+    "planned_close": "2026-05-14",
+    "closed_at": "2026-05-15"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 1,
+  "fields": {
+    "candidate": 24,
+    "vacancy": 2,
+    "stage": 4,
+    "status": "interview",
+    "score": 49,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-12T15:44:57.181Z",
+    "updated_at": "2026-06-04T13:44:57.182Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 2,
+  "fields": {
+    "candidate": 2,
+    "vacancy": 8,
+    "stage": 1,
+    "status": "in_review",
+    "score": 77,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-22T10:44:57.187Z",
+    "updated_at": "2026-06-04T13:44:57.187Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 3,
+  "fields": {
+    "candidate": 13,
+    "vacancy": 8,
+    "stage": 3,
+    "status": "interview",
+    "score": 86,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-21T01:44:57.188Z",
+    "updated_at": "2026-06-04T13:44:57.188Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 4,
+  "fields": {
+    "candidate": 20,
+    "vacancy": 14,
+    "stage": 3,
+    "status": "interview",
+    "score": 63,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-26T19:44:57.193Z",
+    "updated_at": "2026-06-04T13:44:57.193Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 5,
+  "fields": {
+    "candidate": 2,
+    "vacancy": 5,
+    "stage": 4,
+    "status": "rejected",
+    "score": 45,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-17T02:44:57.198Z",
+    "updated_at": "2026-06-04T13:44:57.198Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 6,
+  "fields": {
+    "candidate": 2,
+    "vacancy": 4,
+    "stage": 4,
+    "status": "interview",
+    "score": 97,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-04-29T10:44:57.199Z",
+    "updated_at": "2026-06-04T13:44:57.199Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 7,
+  "fields": {
+    "candidate": 10,
+    "vacancy": 2,
+    "stage": 1,
+    "status": "rejected",
+    "score": 58,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-21T13:44:57.204Z",
+    "updated_at": "2026-06-04T13:44:57.204Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 8,
+  "fields": {
+    "candidate": 9,
+    "vacancy": 2,
+    "stage": 5,
+    "status": "offer",
+    "score": 80,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-23T20:44:57.205Z",
+    "updated_at": "2026-06-04T13:44:57.205Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 9,
+  "fields": {
+    "candidate": 3,
+    "vacancy": 8,
+    "stage": 3,
+    "status": "rejected",
+    "score": 75,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-19T08:44:57.211Z",
+    "updated_at": "2026-06-04T13:44:57.211Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 10,
+  "fields": {
+    "candidate": 11,
+    "vacancy": 7,
+    "stage": 1,
+    "status": "in_review",
+    "score": 45,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-23T23:44:57.212Z",
+    "updated_at": "2026-06-04T13:44:57.212Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 11,
+  "fields": {
+    "candidate": 3,
+    "vacancy": 12,
+    "stage": 4,
+    "status": "interview",
+    "score": 89,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-04-27T21:44:57.213Z",
+    "updated_at": "2026-06-04T13:44:57.213Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 12,
+  "fields": {
+    "candidate": 16,
+    "vacancy": 11,
+    "stage": 2,
+    "status": "in_review",
+    "score": 45,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-02T02:44:57.219Z",
+    "updated_at": "2026-06-04T13:44:57.219Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 13,
+  "fields": {
+    "candidate": 19,
+    "vacancy": 1,
+    "stage": 3,
+    "status": "interview",
+    "score": 59,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-10T06:44:57.219Z",
+    "updated_at": "2026-06-04T13:44:57.220Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 14,
+  "fields": {
+    "candidate": 8,
+    "vacancy": 11,
+    "stage": 2,
+    "status": "in_review",
+    "score": 82,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-04-25T21:44:57.225Z",
+    "updated_at": "2026-06-04T13:44:57.225Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 15,
+  "fields": {
+    "candidate": 3,
+    "vacancy": 3,
+    "stage": 1,
+    "status": "in_review",
+    "score": 56,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-25T00:44:57.225Z",
+    "updated_at": "2026-06-04T13:44:57.225Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 16,
+  "fields": {
+    "candidate": 20,
+    "vacancy": 5,
+    "stage": 6,
+    "status": "hired",
+    "score": 68,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-04-24T13:44:57.226Z",
+    "updated_at": "2026-06-04T13:44:57.226Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 17,
+  "fields": {
+    "candidate": 14,
+    "vacancy": 8,
+    "stage": 1,
+    "status": "in_review",
+    "score": 79,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-24T10:44:57.231Z",
+    "updated_at": "2026-06-04T13:44:57.231Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 18,
+  "fields": {
+    "candidate": 7,
+    "vacancy": 4,
+    "stage": 6,
+    "status": "hired",
+    "score": 95,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-09T06:44:57.231Z",
+    "updated_at": "2026-06-04T13:44:57.231Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 19,
+  "fields": {
+    "candidate": 13,
+    "vacancy": 12,
+    "stage": 1,
+    "status": "in_review",
+    "score": 51,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-06T06:44:57.238Z",
+    "updated_at": "2026-06-04T13:44:57.238Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 20,
+  "fields": {
+    "candidate": 2,
+    "vacancy": 12,
+    "stage": 3,
+    "status": "interview",
+    "score": 82,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-24T00:44:57.238Z",
+    "updated_at": "2026-06-04T13:44:57.239Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 21,
+  "fields": {
+    "candidate": 10,
+    "vacancy": 14,
+    "stage": 2,
+    "status": "in_review",
+    "score": 96,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-04-23T20:44:57.244Z",
+    "updated_at": "2026-06-04T13:44:57.244Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 22,
+  "fields": {
+    "candidate": 17,
+    "vacancy": 5,
+    "stage": 4,
+    "status": "interview",
+    "score": 62,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-04-24T21:44:57.245Z",
+    "updated_at": "2026-06-04T13:44:57.245Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 23,
+  "fields": {
+    "candidate": 19,
+    "vacancy": 7,
+    "stage": 2,
+    "status": "in_review",
+    "score": 55,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-06-02T10:44:57.250Z",
+    "updated_at": "2026-06-04T13:44:57.251Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 24,
+  "fields": {
+    "candidate": 16,
+    "vacancy": 10,
+    "stage": 2,
+    "status": "in_review",
+    "score": 72,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-24T00:44:57.251Z",
+    "updated_at": "2026-06-04T13:44:57.251Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 25,
+  "fields": {
+    "candidate": 1,
+    "vacancy": 9,
+    "stage": 1,
+    "status": "rejected",
+    "score": 47,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-21T01:44:57.252Z",
+    "updated_at": "2026-06-04T13:44:57.252Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 26,
+  "fields": {
+    "candidate": 12,
+    "vacancy": 11,
+    "stage": 2,
+    "status": "in_review",
+    "score": 55,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-28T00:44:57.252Z",
+    "updated_at": "2026-06-04T13:44:57.252Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 27,
+  "fields": {
+    "candidate": 1,
+    "vacancy": 2,
+    "stage": 5,
+    "status": "offer",
+    "score": 69,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-04-22T09:44:57.253Z",
+    "updated_at": "2026-06-04T13:44:57.253Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 28,
+  "fields": {
+    "candidate": 4,
+    "vacancy": 9,
+    "stage": 4,
+    "status": "interview",
+    "score": 41,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-26T11:44:57.260Z",
+    "updated_at": "2026-06-04T13:44:57.260Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 29,
+  "fields": {
+    "candidate": 6,
+    "vacancy": 7,
+    "stage": 3,
+    "status": "interview",
+    "score": 55,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-04-29T21:44:57.266Z",
+    "updated_at": "2026-06-04T13:44:57.266Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 30,
+  "fields": {
+    "candidate": 12,
+    "vacancy": 13,
+    "stage": 1,
+    "status": "in_review",
+    "score": 89,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-28T19:44:57.273Z",
+    "updated_at": "2026-06-04T13:44:57.273Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 31,
+  "fields": {
+    "candidate": 19,
+    "vacancy": 5,
+    "stage": 1,
+    "status": "in_review",
+    "score": 73,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-01T08:44:57.274Z",
+    "updated_at": "2026-06-04T13:44:57.274Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 32,
+  "fields": {
+    "candidate": 2,
+    "vacancy": 9,
+    "stage": 3,
+    "status": "interview",
+    "score": 87,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-16T00:44:57.275Z",
+    "updated_at": "2026-06-04T13:44:57.275Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 33,
+  "fields": {
+    "candidate": 4,
+    "vacancy": 14,
+    "stage": 3,
+    "status": "rejected",
+    "score": 78,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-21T18:44:57.282Z",
+    "updated_at": "2026-06-04T13:44:57.282Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 34,
+  "fields": {
+    "candidate": 11,
+    "vacancy": 12,
+    "stage": 6,
+    "status": "hired",
+    "score": 65,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-04-22T03:44:57.283Z",
+    "updated_at": "2026-06-04T13:44:57.283Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 35,
+  "fields": {
+    "candidate": 24,
+    "vacancy": 6,
+    "stage": 4,
+    "status": "interview",
+    "score": 66,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-06-03T02:44:57.289Z",
+    "updated_at": "2026-06-04T13:44:57.289Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 36,
+  "fields": {
+    "candidate": 9,
+    "vacancy": 1,
+    "stage": 1,
+    "status": "rejected",
+    "score": 43,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-20T08:44:57.295Z",
+    "updated_at": "2026-06-04T13:44:57.295Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 37,
+  "fields": {
+    "candidate": 20,
+    "vacancy": 9,
+    "stage": 2,
+    "status": "in_review",
+    "score": 80,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-04-29T21:44:57.296Z",
+    "updated_at": "2026-06-04T13:44:57.296Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 38,
+  "fields": {
+    "candidate": 10,
+    "vacancy": 3,
+    "stage": 1,
+    "status": "in_review",
+    "score": 44,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-26T15:44:57.297Z",
+    "updated_at": "2026-06-04T13:44:57.297Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 39,
+  "fields": {
+    "candidate": 3,
+    "vacancy": 10,
+    "stage": 5,
+    "status": "offer",
+    "score": 68,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-06-01T09:44:57.298Z",
+    "updated_at": "2026-06-04T13:44:57.298Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 40,
+  "fields": {
+    "candidate": 18,
+    "vacancy": 3,
+    "stage": 3,
+    "status": "interview",
+    "score": 76,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-29T23:44:57.304Z",
+    "updated_at": "2026-06-04T13:44:57.305Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 41,
+  "fields": {
+    "candidate": 24,
+    "vacancy": 8,
+    "stage": 3,
+    "status": "rejected",
+    "score": 88,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-14T08:44:57.319Z",
+    "updated_at": "2026-06-04T13:44:57.319Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 42,
+  "fields": {
+    "candidate": 10,
+    "vacancy": 1,
+    "stage": 5,
+    "status": "offer",
+    "score": 63,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-10T11:44:57.320Z",
+    "updated_at": "2026-06-04T13:44:57.320Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 43,
+  "fields": {
+    "candidate": 18,
+    "vacancy": 2,
+    "stage": 5,
+    "status": "rejected",
+    "score": 75,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-19T23:44:57.329Z",
+    "updated_at": "2026-06-04T13:44:57.329Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 44,
+  "fields": {
+    "candidate": 5,
+    "vacancy": 3,
+    "stage": 1,
+    "status": "in_review",
+    "score": 64,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-04-21T10:44:57.330Z",
+    "updated_at": "2026-06-04T13:44:57.330Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 45,
+  "fields": {
+    "candidate": 21,
+    "vacancy": 8,
+    "stage": 2,
+    "status": "in_review",
+    "score": 70,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-23T02:44:57.331Z",
+    "updated_at": "2026-06-04T13:44:57.331Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 46,
+  "fields": {
+    "candidate": 21,
+    "vacancy": 10,
+    "stage": 1,
+    "status": "in_review",
+    "score": 75,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-04-30T12:44:57.332Z",
+    "updated_at": "2026-06-04T13:44:57.332Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 47,
+  "fields": {
+    "candidate": 8,
+    "vacancy": 12,
+    "stage": 1,
+    "status": "in_review",
+    "score": 49,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-06-01T04:44:57.333Z",
+    "updated_at": "2026-06-04T13:44:57.334Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 48,
+  "fields": {
+    "candidate": 13,
+    "vacancy": 13,
+    "stage": 6,
+    "status": "hired",
+    "score": 47,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-21T04:44:57.335Z",
+    "updated_at": "2026-06-04T13:44:57.335Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 49,
+  "fields": {
+    "candidate": 18,
+    "vacancy": 1,
+    "stage": 1,
+    "status": "in_review",
+    "score": 93,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-06-01T17:44:57.345Z",
+    "updated_at": "2026-06-04T13:44:57.345Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 50,
+  "fields": {
+    "candidate": 9,
+    "vacancy": 8,
+    "stage": 6,
+    "status": "hired",
+    "score": 74,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-04-21T03:44:57.346Z",
+    "updated_at": "2026-06-04T13:44:57.346Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 51,
+  "fields": {
+    "candidate": 18,
+    "vacancy": 5,
+    "stage": 3,
+    "status": "interview",
+    "score": 95,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-08T20:44:57.354Z",
+    "updated_at": "2026-06-04T13:44:57.354Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 52,
+  "fields": {
+    "candidate": 4,
+    "vacancy": 12,
+    "stage": 6,
+    "status": "hired",
+    "score": 47,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-27T05:44:57.360Z",
+    "updated_at": "2026-06-04T13:44:57.360Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 53,
+  "fields": {
+    "candidate": 21,
+    "vacancy": 3,
+    "stage": 4,
+    "status": "interview",
+    "score": 59,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-15T08:44:57.367Z",
+    "updated_at": "2026-06-04T13:44:57.367Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 54,
+  "fields": {
+    "candidate": 18,
+    "vacancy": 12,
+    "stage": 3,
+    "status": "interview",
+    "score": 89,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-03T05:44:57.373Z",
+    "updated_at": "2026-06-04T13:44:57.373Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 55,
+  "fields": {
+    "candidate": 24,
+    "vacancy": 13,
+    "stage": 1,
+    "status": "in_review",
+    "score": 93,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-07T23:44:57.379Z",
+    "updated_at": "2026-06-04T13:44:57.379Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 56,
+  "fields": {
+    "candidate": 9,
+    "vacancy": 14,
+    "stage": 6,
+    "status": "hired",
+    "score": 45,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-15T15:44:57.380Z",
+    "updated_at": "2026-06-04T13:44:57.380Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 57,
+  "fields": {
+    "candidate": 5,
+    "vacancy": 4,
+    "stage": 6,
+    "status": "hired",
+    "score": 56,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-05-14T06:44:57.387Z",
+    "updated_at": "2026-06-04T13:44:57.387Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 58,
+  "fields": {
+    "candidate": 9,
+    "vacancy": 13,
+    "stage": 1,
+    "status": "rejected",
+    "score": 79,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-09T11:44:57.394Z",
+    "updated_at": "2026-06-04T13:44:57.394Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 59,
+  "fields": {
+    "candidate": 1,
+    "vacancy": 12,
+    "stage": 3,
+    "status": "rejected",
+    "score": 42,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-06-01T15:44:57.395Z",
+    "updated_at": "2026-06-04T13:44:57.395Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 60,
+  "fields": {
+    "candidate": 1,
+    "vacancy": 1,
+    "stage": 2,
+    "status": "in_review",
+    "score": 68,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "Перспективный кандидат.",
+    "applied_at": "2026-04-27T10:44:57.395Z",
+    "updated_at": "2026-06-04T13:44:57.395Z"
+  }
+},
+{
+  "model": "core.application",
+  "pk": 61,
+  "fields": {
+    "candidate": 7,
+    "vacancy": 13,
+    "stage": 4,
+    "status": "rejected",
+    "score": 42,
+    "cover_letter": "Заинтересован в данной позиции, готов обсудить детали.",
+    "comment": "",
+    "applied_at": "2026-05-22T06:44:57.396Z",
+    "updated_at": "2026-06-04T13:44:57.396Z"
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 1,
+  "fields": {
+    "application": 1,
+    "kind": "hr",
+    "scheduled_at": "2026-05-17T15:44:57.181Z",
+    "interviewer": [
+      "recruiter3"
+    ],
+    "result": "failed",
+    "score": 7,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 2,
+  "fields": {
+    "application": 1,
+    "kind": "tech",
+    "scheduled_at": "2026-05-20T15:44:57.181Z",
+    "interviewer": [
+      "recruiter3"
+    ],
+    "result": "passed",
+    "score": 6,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 3,
+  "fields": {
+    "application": 3,
+    "kind": "hr",
+    "scheduled_at": "2026-05-25T01:44:57.188Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "failed",
+    "score": 7,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 4,
+  "fields": {
+    "application": 3,
+    "kind": "tech",
+    "scheduled_at": "2026-05-29T01:44:57.188Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "scheduled",
+    "score": 10,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 5,
+  "fields": {
+    "application": 4,
+    "kind": "hr",
+    "scheduled_at": "2026-06-05T19:44:57.193Z",
+    "interviewer": [
+      "recruiter1"
+    ],
+    "result": "passed",
+    "score": 6,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 6,
+  "fields": {
+    "application": 4,
+    "kind": "tech",
+    "scheduled_at": "2026-06-03T19:44:57.193Z",
+    "interviewer": [
+      "recruiter1"
+    ],
+    "result": "passed",
+    "score": 8,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 7,
+  "fields": {
+    "application": 6,
+    "kind": "hr",
+    "scheduled_at": "2026-05-06T10:44:57.199Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "passed",
+    "score": 10,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 8,
+  "fields": {
+    "application": 6,
+    "kind": "tech",
+    "scheduled_at": "2026-05-04T10:44:57.199Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "passed",
+    "score": 10,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 9,
+  "fields": {
+    "application": 8,
+    "kind": "hr",
+    "scheduled_at": "2026-06-01T20:44:57.205Z",
+    "interviewer": [
+      "recruiter3"
+    ],
+    "result": "passed",
+    "score": 5,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 10,
+  "fields": {
+    "application": 8,
+    "kind": "tech",
+    "scheduled_at": "2026-06-01T20:44:57.205Z",
+    "interviewer": [
+      "recruiter3"
+    ],
+    "result": "failed",
+    "score": 5,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 11,
+  "fields": {
+    "application": 11,
+    "kind": "hr",
+    "scheduled_at": "2026-05-01T21:44:57.213Z",
+    "interviewer": [
+      "recruiter2"
+    ],
+    "result": "failed",
+    "score": 10,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 12,
+  "fields": {
+    "application": 11,
+    "kind": "tech",
+    "scheduled_at": "2026-05-01T21:44:57.213Z",
+    "interviewer": [
+      "recruiter2"
+    ],
+    "result": "passed",
+    "score": 5,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 13,
+  "fields": {
+    "application": 13,
+    "kind": "hr",
+    "scheduled_at": "2026-05-16T06:44:57.219Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "passed",
+    "score": 10,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 14,
+  "fields": {
+    "application": 13,
+    "kind": "tech",
+    "scheduled_at": "2026-05-14T06:44:57.219Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "scheduled",
+    "score": 10,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 15,
+  "fields": {
+    "application": 16,
+    "kind": "hr",
+    "scheduled_at": "2026-04-29T13:44:57.226Z",
+    "interviewer": [
+      "recruiter1"
+    ],
+    "result": "passed",
+    "score": 7,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 16,
+  "fields": {
+    "application": 16,
+    "kind": "tech",
+    "scheduled_at": "2026-05-03T13:44:57.226Z",
+    "interviewer": [
+      "recruiter1"
+    ],
+    "result": "scheduled",
+    "score": 8,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 17,
+  "fields": {
+    "application": 18,
+    "kind": "hr",
+    "scheduled_at": "2026-05-13T06:44:57.231Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "scheduled",
+    "score": 5,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 18,
+  "fields": {
+    "application": 18,
+    "kind": "tech",
+    "scheduled_at": "2026-05-19T06:44:57.231Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "scheduled",
+    "score": 8,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 19,
+  "fields": {
+    "application": 20,
+    "kind": "hr",
+    "scheduled_at": "2026-06-01T00:44:57.238Z",
+    "interviewer": [
+      "recruiter2"
+    ],
+    "result": "failed",
+    "score": 10,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 20,
+  "fields": {
+    "application": 20,
+    "kind": "tech",
+    "scheduled_at": "2026-05-26T00:44:57.238Z",
+    "interviewer": [
+      "recruiter2"
+    ],
+    "result": "scheduled",
+    "score": 9,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 21,
+  "fields": {
+    "application": 22,
+    "kind": "hr",
+    "scheduled_at": "2026-05-02T21:44:57.245Z",
+    "interviewer": [
+      "recruiter1"
+    ],
+    "result": "scheduled",
+    "score": 9,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 22,
+  "fields": {
+    "application": 22,
+    "kind": "tech",
+    "scheduled_at": "2026-05-02T21:44:57.245Z",
+    "interviewer": [
+      "recruiter1"
+    ],
+    "result": "failed",
+    "score": 9,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 23,
+  "fields": {
+    "application": 27,
+    "kind": "hr",
+    "scheduled_at": "2026-04-25T09:44:57.253Z",
+    "interviewer": [
+      "recruiter3"
+    ],
+    "result": "passed",
+    "score": 6,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 24,
+  "fields": {
+    "application": 27,
+    "kind": "tech",
+    "scheduled_at": "2026-04-25T09:44:57.253Z",
+    "interviewer": [
+      "recruiter3"
+    ],
+    "result": "passed",
+    "score": 5,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 25,
+  "fields": {
+    "application": 28,
+    "kind": "hr",
+    "scheduled_at": "2026-05-29T11:44:57.260Z",
+    "interviewer": [
+      "recruiter3"
+    ],
+    "result": "failed",
+    "score": 8,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 26,
+  "fields": {
+    "application": 28,
+    "kind": "tech",
+    "scheduled_at": "2026-06-02T11:44:57.260Z",
+    "interviewer": [
+      "recruiter3"
+    ],
+    "result": "failed",
+    "score": 10,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 27,
+  "fields": {
+    "application": 29,
+    "kind": "hr",
+    "scheduled_at": "2026-05-03T21:44:57.266Z",
+    "interviewer": [
+      "recruiter1"
+    ],
+    "result": "scheduled",
+    "score": 5,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 28,
+  "fields": {
+    "application": 29,
+    "kind": "tech",
+    "scheduled_at": "2026-05-05T21:44:57.266Z",
+    "interviewer": [
+      "recruiter1"
+    ],
+    "result": "scheduled",
+    "score": 8,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 29,
+  "fields": {
+    "application": 32,
+    "kind": "hr",
+    "scheduled_at": "2026-05-21T00:44:57.275Z",
+    "interviewer": [
+      "recruiter3"
+    ],
+    "result": "scheduled",
+    "score": 10,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 30,
+  "fields": {
+    "application": 32,
+    "kind": "tech",
+    "scheduled_at": "2026-05-23T00:44:57.275Z",
+    "interviewer": [
+      "recruiter3"
+    ],
+    "result": "passed",
+    "score": 9,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 31,
+  "fields": {
+    "application": 34,
+    "kind": "hr",
+    "scheduled_at": "2026-04-30T03:44:57.283Z",
+    "interviewer": [
+      "recruiter2"
+    ],
+    "result": "failed",
+    "score": 10,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 32,
+  "fields": {
+    "application": 34,
+    "kind": "tech",
+    "scheduled_at": "2026-04-29T03:44:57.283Z",
+    "interviewer": [
+      "recruiter2"
+    ],
+    "result": "failed",
+    "score": 9,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 33,
+  "fields": {
+    "application": 35,
+    "kind": "hr",
+    "scheduled_at": "2026-06-09T02:44:57.289Z",
+    "interviewer": [
+      "recruiter3"
+    ],
+    "result": "passed",
+    "score": 9,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 34,
+  "fields": {
+    "application": 35,
+    "kind": "tech",
+    "scheduled_at": "2026-06-11T02:44:57.289Z",
+    "interviewer": [
+      "recruiter3"
+    ],
+    "result": "scheduled",
+    "score": 7,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 35,
+  "fields": {
+    "application": 39,
+    "kind": "hr",
+    "scheduled_at": "2026-06-07T09:44:57.298Z",
+    "interviewer": [
+      "recruiter3"
+    ],
+    "result": "passed",
+    "score": 8,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 36,
+  "fields": {
+    "application": 39,
+    "kind": "tech",
+    "scheduled_at": "2026-06-06T09:44:57.298Z",
+    "interviewer": [
+      "recruiter3"
+    ],
+    "result": "failed",
+    "score": 5,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 37,
+  "fields": {
+    "application": 40,
+    "kind": "hr",
+    "scheduled_at": "2026-06-07T23:44:57.304Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "failed",
+    "score": 10,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 38,
+  "fields": {
+    "application": 40,
+    "kind": "tech",
+    "scheduled_at": "2026-06-01T23:44:57.304Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "scheduled",
+    "score": 6,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 39,
+  "fields": {
+    "application": 42,
+    "kind": "hr",
+    "scheduled_at": "2026-05-12T11:44:57.320Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "passed",
+    "score": 7,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 40,
+  "fields": {
+    "application": 42,
+    "kind": "tech",
+    "scheduled_at": "2026-05-20T11:44:57.320Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "scheduled",
+    "score": 6,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 41,
+  "fields": {
+    "application": 48,
+    "kind": "hr",
+    "scheduled_at": "2026-05-24T04:44:57.335Z",
+    "interviewer": [
+      "recruiter2"
+    ],
+    "result": "failed",
+    "score": 8,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 42,
+  "fields": {
+    "application": 48,
+    "kind": "tech",
+    "scheduled_at": "2026-05-23T04:44:57.335Z",
+    "interviewer": [
+      "recruiter2"
+    ],
+    "result": "passed",
+    "score": 5,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 43,
+  "fields": {
+    "application": 50,
+    "kind": "hr",
+    "scheduled_at": "2026-04-23T03:44:57.346Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "passed",
+    "score": 7,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 44,
+  "fields": {
+    "application": 50,
+    "kind": "tech",
+    "scheduled_at": "2026-04-30T03:44:57.346Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "failed",
+    "score": 10,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 45,
+  "fields": {
+    "application": 51,
+    "kind": "hr",
+    "scheduled_at": "2026-05-16T20:44:57.354Z",
+    "interviewer": [
+      "recruiter1"
+    ],
+    "result": "passed",
+    "score": 8,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 46,
+  "fields": {
+    "application": 51,
+    "kind": "tech",
+    "scheduled_at": "2026-05-17T20:44:57.354Z",
+    "interviewer": [
+      "recruiter1"
+    ],
+    "result": "passed",
+    "score": 6,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 47,
+  "fields": {
+    "application": 52,
+    "kind": "hr",
+    "scheduled_at": "2026-06-01T05:44:57.360Z",
+    "interviewer": [
+      "recruiter2"
+    ],
+    "result": "passed",
+    "score": 7,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 48,
+  "fields": {
+    "application": 52,
+    "kind": "tech",
+    "scheduled_at": "2026-05-30T05:44:57.360Z",
+    "interviewer": [
+      "recruiter2"
+    ],
+    "result": "passed",
+    "score": 5,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 49,
+  "fields": {
+    "application": 53,
+    "kind": "hr",
+    "scheduled_at": "2026-05-23T08:44:57.367Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "scheduled",
+    "score": 8,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 50,
+  "fields": {
+    "application": 53,
+    "kind": "tech",
+    "scheduled_at": "2026-05-23T08:44:57.367Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "passed",
+    "score": 8,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 51,
+  "fields": {
+    "application": 54,
+    "kind": "hr",
+    "scheduled_at": "2026-05-10T05:44:57.373Z",
+    "interviewer": [
+      "recruiter2"
+    ],
+    "result": "passed",
+    "score": 9,
+    "notes": "Соответствует требованиям позиции."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 52,
+  "fields": {
+    "application": 54,
+    "kind": "tech",
+    "scheduled_at": "2026-05-07T05:44:57.373Z",
+    "interviewer": [
+      "recruiter2"
+    ],
+    "result": "scheduled",
+    "score": 5,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 53,
+  "fields": {
+    "application": 56,
+    "kind": "hr",
+    "scheduled_at": "2026-05-24T15:44:57.380Z",
+    "interviewer": [
+      "recruiter1"
+    ],
+    "result": "scheduled",
+    "score": 7,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 54,
+  "fields": {
+    "application": 56,
+    "kind": "tech",
+    "scheduled_at": "2026-05-22T15:44:57.380Z",
+    "interviewer": [
+      "recruiter1"
+    ],
+    "result": "failed",
+    "score": 8,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 55,
+  "fields": {
+    "application": 57,
+    "kind": "hr",
+    "scheduled_at": "2026-05-16T06:44:57.387Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "scheduled",
+    "score": 10,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.interview",
+  "pk": 56,
+  "fields": {
+    "application": 57,
+    "kind": "tech",
+    "scheduled_at": "2026-05-23T06:44:57.387Z",
+    "interviewer": [
+      "recruiter"
+    ],
+    "result": "scheduled",
+    "score": 7,
+    "notes": "Есть замечания."
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 1,
+  "fields": {
+    "interview": 1,
+    "criterion": "Технические навыки",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 2,
+  "fields": {
+    "interview": 1,
+    "criterion": "Коммуникация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 3,
+  "fields": {
+    "interview": 1,
+    "criterion": "Мотивация",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 4,
+  "fields": {
+    "interview": 2,
+    "criterion": "Технические навыки",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 5,
+  "fields": {
+    "interview": 2,
+    "criterion": "Коммуникация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 6,
+  "fields": {
+    "interview": 2,
+    "criterion": "Мотивация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 7,
+  "fields": {
+    "interview": 3,
+    "criterion": "Технические навыки",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 8,
+  "fields": {
+    "interview": 3,
+    "criterion": "Коммуникация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 9,
+  "fields": {
+    "interview": 3,
+    "criterion": "Мотивация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 10,
+  "fields": {
+    "interview": 4,
+    "criterion": "Технические навыки",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 11,
+  "fields": {
+    "interview": 4,
+    "criterion": "Коммуникация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 12,
+  "fields": {
+    "interview": 4,
+    "criterion": "Мотивация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 13,
+  "fields": {
+    "interview": 5,
+    "criterion": "Технические навыки",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 14,
+  "fields": {
+    "interview": 5,
+    "criterion": "Коммуникация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 15,
+  "fields": {
+    "interview": 5,
+    "criterion": "Мотивация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 16,
+  "fields": {
+    "interview": 6,
+    "criterion": "Технические навыки",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 17,
+  "fields": {
+    "interview": 6,
+    "criterion": "Коммуникация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 18,
+  "fields": {
+    "interview": 6,
+    "criterion": "Мотивация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 19,
+  "fields": {
+    "interview": 7,
+    "criterion": "Технические навыки",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 20,
+  "fields": {
+    "interview": 7,
+    "criterion": "Коммуникация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 21,
+  "fields": {
+    "interview": 7,
+    "criterion": "Мотивация",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 22,
+  "fields": {
+    "interview": 8,
+    "criterion": "Технические навыки",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 23,
+  "fields": {
+    "interview": 8,
+    "criterion": "Коммуникация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 24,
+  "fields": {
+    "interview": 8,
+    "criterion": "Мотивация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 25,
+  "fields": {
+    "interview": 9,
+    "criterion": "Технические навыки",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 26,
+  "fields": {
+    "interview": 9,
+    "criterion": "Коммуникация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 27,
+  "fields": {
+    "interview": 9,
+    "criterion": "Мотивация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 28,
+  "fields": {
+    "interview": 10,
+    "criterion": "Технические навыки",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 29,
+  "fields": {
+    "interview": 10,
+    "criterion": "Коммуникация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 30,
+  "fields": {
+    "interview": 10,
+    "criterion": "Мотивация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 31,
+  "fields": {
+    "interview": 11,
+    "criterion": "Технические навыки",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 32,
+  "fields": {
+    "interview": 11,
+    "criterion": "Коммуникация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 33,
+  "fields": {
+    "interview": 11,
+    "criterion": "Мотивация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 34,
+  "fields": {
+    "interview": 12,
+    "criterion": "Технические навыки",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 35,
+  "fields": {
+    "interview": 12,
+    "criterion": "Коммуникация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 36,
+  "fields": {
+    "interview": 12,
+    "criterion": "Мотивация",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 37,
+  "fields": {
+    "interview": 13,
+    "criterion": "Технические навыки",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 38,
+  "fields": {
+    "interview": 13,
+    "criterion": "Коммуникация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 39,
+  "fields": {
+    "interview": 13,
+    "criterion": "Мотивация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 40,
+  "fields": {
+    "interview": 14,
+    "criterion": "Технические навыки",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 41,
+  "fields": {
+    "interview": 14,
+    "criterion": "Коммуникация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 42,
+  "fields": {
+    "interview": 14,
+    "criterion": "Мотивация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 43,
+  "fields": {
+    "interview": 15,
+    "criterion": "Технические навыки",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 44,
+  "fields": {
+    "interview": 15,
+    "criterion": "Коммуникация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 45,
+  "fields": {
+    "interview": 15,
+    "criterion": "Мотивация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 46,
+  "fields": {
+    "interview": 16,
+    "criterion": "Технические навыки",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 47,
+  "fields": {
+    "interview": 16,
+    "criterion": "Коммуникация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 48,
+  "fields": {
+    "interview": 16,
+    "criterion": "Мотивация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 49,
+  "fields": {
+    "interview": 17,
+    "criterion": "Технические навыки",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 50,
+  "fields": {
+    "interview": 17,
+    "criterion": "Коммуникация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 51,
+  "fields": {
+    "interview": 17,
+    "criterion": "Мотивация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 52,
+  "fields": {
+    "interview": 18,
+    "criterion": "Технические навыки",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 53,
+  "fields": {
+    "interview": 18,
+    "criterion": "Коммуникация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 54,
+  "fields": {
+    "interview": 18,
+    "criterion": "Мотивация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 55,
+  "fields": {
+    "interview": 19,
+    "criterion": "Технические навыки",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 56,
+  "fields": {
+    "interview": 19,
+    "criterion": "Коммуникация",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 57,
+  "fields": {
+    "interview": 19,
+    "criterion": "Мотивация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 58,
+  "fields": {
+    "interview": 20,
+    "criterion": "Технические навыки",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 59,
+  "fields": {
+    "interview": 20,
+    "criterion": "Коммуникация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 60,
+  "fields": {
+    "interview": 20,
+    "criterion": "Мотивация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 61,
+  "fields": {
+    "interview": 21,
+    "criterion": "Технические навыки",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 62,
+  "fields": {
+    "interview": 21,
+    "criterion": "Коммуникация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 63,
+  "fields": {
+    "interview": 21,
+    "criterion": "Мотивация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 64,
+  "fields": {
+    "interview": 22,
+    "criterion": "Технические навыки",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 65,
+  "fields": {
+    "interview": 22,
+    "criterion": "Коммуникация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 66,
+  "fields": {
+    "interview": 22,
+    "criterion": "Мотивация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 67,
+  "fields": {
+    "interview": 23,
+    "criterion": "Технические навыки",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 68,
+  "fields": {
+    "interview": 23,
+    "criterion": "Коммуникация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 69,
+  "fields": {
+    "interview": 23,
+    "criterion": "Мотивация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 70,
+  "fields": {
+    "interview": 24,
+    "criterion": "Технические навыки",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 71,
+  "fields": {
+    "interview": 24,
+    "criterion": "Коммуникация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 72,
+  "fields": {
+    "interview": 24,
+    "criterion": "Мотивация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 73,
+  "fields": {
+    "interview": 25,
+    "criterion": "Технические навыки",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 74,
+  "fields": {
+    "interview": 25,
+    "criterion": "Коммуникация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 75,
+  "fields": {
+    "interview": 25,
+    "criterion": "Мотивация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 76,
+  "fields": {
+    "interview": 26,
+    "criterion": "Технические навыки",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 77,
+  "fields": {
+    "interview": 26,
+    "criterion": "Коммуникация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 78,
+  "fields": {
+    "interview": 26,
+    "criterion": "Мотивация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 79,
+  "fields": {
+    "interview": 27,
+    "criterion": "Технические навыки",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 80,
+  "fields": {
+    "interview": 27,
+    "criterion": "Коммуникация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 81,
+  "fields": {
+    "interview": 27,
+    "criterion": "Мотивация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 82,
+  "fields": {
+    "interview": 28,
+    "criterion": "Технические навыки",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 83,
+  "fields": {
+    "interview": 28,
+    "criterion": "Коммуникация",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 84,
+  "fields": {
+    "interview": 28,
+    "criterion": "Мотивация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 85,
+  "fields": {
+    "interview": 29,
+    "criterion": "Технические навыки",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 86,
+  "fields": {
+    "interview": 29,
+    "criterion": "Коммуникация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 87,
+  "fields": {
+    "interview": 29,
+    "criterion": "Мотивация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 88,
+  "fields": {
+    "interview": 30,
+    "criterion": "Технические навыки",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 89,
+  "fields": {
+    "interview": 30,
+    "criterion": "Коммуникация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 90,
+  "fields": {
+    "interview": 30,
+    "criterion": "Мотивация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 91,
+  "fields": {
+    "interview": 31,
+    "criterion": "Технические навыки",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 92,
+  "fields": {
+    "interview": 31,
+    "criterion": "Коммуникация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 93,
+  "fields": {
+    "interview": 31,
+    "criterion": "Мотивация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 94,
+  "fields": {
+    "interview": 32,
+    "criterion": "Технические навыки",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 95,
+  "fields": {
+    "interview": 32,
+    "criterion": "Коммуникация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 96,
+  "fields": {
+    "interview": 32,
+    "criterion": "Мотивация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 97,
+  "fields": {
+    "interview": 33,
+    "criterion": "Технические навыки",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 98,
+  "fields": {
+    "interview": 33,
+    "criterion": "Коммуникация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 99,
+  "fields": {
+    "interview": 33,
+    "criterion": "Мотивация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 100,
+  "fields": {
+    "interview": 34,
+    "criterion": "Технические навыки",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 101,
+  "fields": {
+    "interview": 34,
+    "criterion": "Коммуникация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 102,
+  "fields": {
+    "interview": 34,
+    "criterion": "Мотивация",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 103,
+  "fields": {
+    "interview": 35,
+    "criterion": "Технические навыки",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 104,
+  "fields": {
+    "interview": 35,
+    "criterion": "Коммуникация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 105,
+  "fields": {
+    "interview": 35,
+    "criterion": "Мотивация",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 106,
+  "fields": {
+    "interview": 36,
+    "criterion": "Технические навыки",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 107,
+  "fields": {
+    "interview": 36,
+    "criterion": "Коммуникация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 108,
+  "fields": {
+    "interview": 36,
+    "criterion": "Мотивация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 109,
+  "fields": {
+    "interview": 37,
+    "criterion": "Технические навыки",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 110,
+  "fields": {
+    "interview": 37,
+    "criterion": "Коммуникация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 111,
+  "fields": {
+    "interview": 37,
+    "criterion": "Мотивация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 112,
+  "fields": {
+    "interview": 38,
+    "criterion": "Технические навыки",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 113,
+  "fields": {
+    "interview": 38,
+    "criterion": "Коммуникация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 114,
+  "fields": {
+    "interview": 38,
+    "criterion": "Мотивация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 115,
+  "fields": {
+    "interview": 39,
+    "criterion": "Технические навыки",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 116,
+  "fields": {
+    "interview": 39,
+    "criterion": "Коммуникация",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 117,
+  "fields": {
+    "interview": 39,
+    "criterion": "Мотивация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 118,
+  "fields": {
+    "interview": 40,
+    "criterion": "Технические навыки",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 119,
+  "fields": {
+    "interview": 40,
+    "criterion": "Коммуникация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 120,
+  "fields": {
+    "interview": 40,
+    "criterion": "Мотивация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 121,
+  "fields": {
+    "interview": 41,
+    "criterion": "Технические навыки",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 122,
+  "fields": {
+    "interview": 41,
+    "criterion": "Коммуникация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 123,
+  "fields": {
+    "interview": 41,
+    "criterion": "Мотивация",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 124,
+  "fields": {
+    "interview": 42,
+    "criterion": "Технические навыки",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 125,
+  "fields": {
+    "interview": 42,
+    "criterion": "Коммуникация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 126,
+  "fields": {
+    "interview": 42,
+    "criterion": "Мотивация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 127,
+  "fields": {
+    "interview": 43,
+    "criterion": "Технические навыки",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 128,
+  "fields": {
+    "interview": 43,
+    "criterion": "Коммуникация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 129,
+  "fields": {
+    "interview": 43,
+    "criterion": "Мотивация",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 130,
+  "fields": {
+    "interview": 44,
+    "criterion": "Технические навыки",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 131,
+  "fields": {
+    "interview": 44,
+    "criterion": "Коммуникация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 132,
+  "fields": {
+    "interview": 44,
+    "criterion": "Мотивация",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 133,
+  "fields": {
+    "interview": 45,
+    "criterion": "Технические навыки",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 134,
+  "fields": {
+    "interview": 45,
+    "criterion": "Коммуникация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 135,
+  "fields": {
+    "interview": 45,
+    "criterion": "Мотивация",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 136,
+  "fields": {
+    "interview": 46,
+    "criterion": "Технические навыки",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 137,
+  "fields": {
+    "interview": 46,
+    "criterion": "Коммуникация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 138,
+  "fields": {
+    "interview": 46,
+    "criterion": "Мотивация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 139,
+  "fields": {
+    "interview": 47,
+    "criterion": "Технические навыки",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 140,
+  "fields": {
+    "interview": 47,
+    "criterion": "Коммуникация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 141,
+  "fields": {
+    "interview": 47,
+    "criterion": "Мотивация",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 142,
+  "fields": {
+    "interview": 48,
+    "criterion": "Технические навыки",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 143,
+  "fields": {
+    "interview": 48,
+    "criterion": "Коммуникация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 144,
+  "fields": {
+    "interview": 48,
+    "criterion": "Мотивация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 145,
+  "fields": {
+    "interview": 49,
+    "criterion": "Технические навыки",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 146,
+  "fields": {
+    "interview": 49,
+    "criterion": "Коммуникация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 147,
+  "fields": {
+    "interview": 49,
+    "criterion": "Мотивация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 148,
+  "fields": {
+    "interview": 50,
+    "criterion": "Технические навыки",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 149,
+  "fields": {
+    "interview": 50,
+    "criterion": "Коммуникация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 150,
+  "fields": {
+    "interview": 50,
+    "criterion": "Мотивация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 151,
+  "fields": {
+    "interview": 51,
+    "criterion": "Технические навыки",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 152,
+  "fields": {
+    "interview": 51,
+    "criterion": "Коммуникация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 153,
+  "fields": {
+    "interview": 51,
+    "criterion": "Мотивация",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 154,
+  "fields": {
+    "interview": 52,
+    "criterion": "Технические навыки",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 155,
+  "fields": {
+    "interview": 52,
+    "criterion": "Коммуникация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 156,
+  "fields": {
+    "interview": 52,
+    "criterion": "Мотивация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 157,
+  "fields": {
+    "interview": 53,
+    "criterion": "Технические навыки",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 158,
+  "fields": {
+    "interview": 53,
+    "criterion": "Коммуникация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 159,
+  "fields": {
+    "interview": 53,
+    "criterion": "Мотивация",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 160,
+  "fields": {
+    "interview": 54,
+    "criterion": "Технические навыки",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 161,
+  "fields": {
+    "interview": 54,
+    "criterion": "Коммуникация",
+    "score": 5,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 162,
+  "fields": {
+    "interview": 54,
+    "criterion": "Мотивация",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 163,
+  "fields": {
+    "interview": 55,
+    "criterion": "Технические навыки",
+    "score": 7,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 164,
+  "fields": {
+    "interview": 55,
+    "criterion": "Коммуникация",
+    "score": 6,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 165,
+  "fields": {
+    "interview": 55,
+    "criterion": "Мотивация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 166,
+  "fields": {
+    "interview": 56,
+    "criterion": "Технические навыки",
+    "score": 8,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 167,
+  "fields": {
+    "interview": 56,
+    "criterion": "Коммуникация",
+    "score": 9,
+    "comment": ""
+  }
+},
+{
+  "model": "core.evaluation",
+  "pk": 168,
+  "fields": {
+    "interview": 56,
+    "criterion": "Мотивация",
+    "score": 10,
+    "comment": ""
+  }
+},
+{
+  "model": "core.offer",
+  "pk": 1,
+  "fields": {
+    "application": 8,
+    "salary": 132000,
+    "start_date": "2026-06-23",
+    "status": "sent",
+    "sent_at": "2026-05-26",
+    "comment": ""
+  }
+},
+{
+  "model": "core.offer",
+  "pk": 2,
+  "fields": {
+    "application": 16,
+    "salary": 208000,
+    "start_date": "2026-07-04",
+    "status": "accepted",
+    "sent_at": "2026-05-25",
+    "comment": ""
+  }
+},
+{
+  "model": "core.offer",
+  "pk": 3,
+  "fields": {
+    "application": 18,
+    "salary": 188000,
+    "start_date": "2026-06-28",
+    "status": "accepted",
+    "sent_at": "2026-05-26",
+    "comment": ""
+  }
+},
+{
+  "model": "core.offer",
+  "pk": 4,
+  "fields": {
+    "application": 27,
+    "salary": 136000,
+    "start_date": "2026-06-25",
+    "status": "sent",
+    "sent_at": "2026-05-21",
+    "comment": ""
+  }
+},
+{
+  "model": "core.offer",
+  "pk": 5,
+  "fields": {
+    "application": 34,
+    "salary": 168000,
+    "start_date": "2026-06-22",
+    "status": "accepted",
+    "sent_at": "2026-05-28",
+    "comment": ""
+  }
+},
+{
+  "model": "core.offer",
+  "pk": 6,
+  "fields": {
+    "application": 39,
+    "salary": 154000,
+    "start_date": "2026-07-01",
+    "status": "sent",
+    "sent_at": "2026-05-20",
+    "comment": ""
+  }
+},
+{
+  "model": "core.offer",
+  "pk": 7,
+  "fields": {
+    "application": 42,
+    "salary": 125000,
+    "start_date": "2026-06-20",
+    "status": "sent",
+    "sent_at": "2026-05-26",
+    "comment": ""
+  }
+},
+{
+  "model": "core.offer",
+  "pk": 8,
+  "fields": {
+    "application": 48,
+    "salary": 105000,
+    "start_date": "2026-07-01",
+    "status": "accepted",
+    "sent_at": "2026-05-31",
+    "comment": ""
+  }
+},
+{
+  "model": "core.offer",
+  "pk": 9,
+  "fields": {
+    "application": 50,
+    "salary": 163000,
+    "start_date": "2026-06-22",
+    "status": "accepted",
+    "sent_at": "2026-05-31",
+    "comment": ""
+  }
+},
+{
+  "model": "core.offer",
+  "pk": 10,
+  "fields": {
+    "application": 52,
+    "salary": 142000,
+    "start_date": "2026-06-16",
+    "status": "accepted",
+    "sent_at": "2026-05-28",
+    "comment": ""
+  }
+},
+{
+  "model": "core.offer",
+  "pk": 11,
+  "fields": {
+    "application": 56,
+    "salary": 197000,
+    "start_date": "2026-06-14",
+    "status": "accepted",
+    "sent_at": "2026-05-23",
+    "comment": ""
+  }
+},
+{
+  "model": "core.offer",
+  "pk": 12,
+  "fields": {
+    "application": 57,
+    "salary": 244000,
+    "start_date": "2026-06-13",
+    "status": "accepted",
+    "sent_at": "2026-05-22",
+    "comment": ""
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 1,
+  "fields": {
+    "candidate": 1,
+    "skill": 10,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 2,
+  "fields": {
+    "candidate": 1,
+    "skill": 4,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 3,
+  "fields": {
+    "candidate": 1,
+    "skill": 15,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 4,
+  "fields": {
+    "candidate": 2,
+    "skill": 15,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 5,
+  "fields": {
+    "candidate": 2,
+    "skill": 5,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 6,
+  "fields": {
+    "candidate": 2,
+    "skill": 10,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 7,
+  "fields": {
+    "candidate": 2,
+    "skill": 1,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 8,
+  "fields": {
+    "candidate": 2,
+    "skill": 12,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 9,
+  "fields": {
+    "candidate": 3,
+    "skill": 17,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 10,
+  "fields": {
+    "candidate": 3,
+    "skill": 20,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 11,
+  "fields": {
+    "candidate": 3,
+    "skill": 1,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 12,
+  "fields": {
+    "candidate": 3,
+    "skill": 8,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 13,
+  "fields": {
+    "candidate": 3,
+    "skill": 5,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 14,
+  "fields": {
+    "candidate": 3,
+    "skill": 14,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 15,
+  "fields": {
+    "candidate": 4,
+    "skill": 14,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 16,
+  "fields": {
+    "candidate": 4,
+    "skill": 7,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 17,
+  "fields": {
+    "candidate": 4,
+    "skill": 10,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 18,
+  "fields": {
+    "candidate": 4,
+    "skill": 9,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 19,
+  "fields": {
+    "candidate": 4,
+    "skill": 1,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 20,
+  "fields": {
+    "candidate": 4,
+    "skill": 16,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 21,
+  "fields": {
+    "candidate": 5,
+    "skill": 6,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 22,
+  "fields": {
+    "candidate": 5,
+    "skill": 14,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 23,
+  "fields": {
+    "candidate": 5,
+    "skill": 16,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 24,
+  "fields": {
+    "candidate": 5,
+    "skill": 3,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 25,
+  "fields": {
+    "candidate": 5,
+    "skill": 9,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 26,
+  "fields": {
+    "candidate": 5,
+    "skill": 15,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 27,
+  "fields": {
+    "candidate": 6,
+    "skill": 12,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 28,
+  "fields": {
+    "candidate": 6,
+    "skill": 5,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 29,
+  "fields": {
+    "candidate": 6,
+    "skill": 1,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 30,
+  "fields": {
+    "candidate": 6,
+    "skill": 11,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 31,
+  "fields": {
+    "candidate": 6,
+    "skill": 16,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 32,
+  "fields": {
+    "candidate": 7,
+    "skill": 13,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 33,
+  "fields": {
+    "candidate": 7,
+    "skill": 3,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 34,
+  "fields": {
+    "candidate": 7,
+    "skill": 2,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 35,
+  "fields": {
+    "candidate": 8,
+    "skill": 20,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 36,
+  "fields": {
+    "candidate": 8,
+    "skill": 11,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 37,
+  "fields": {
+    "candidate": 8,
+    "skill": 15,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 38,
+  "fields": {
+    "candidate": 8,
+    "skill": 8,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 39,
+  "fields": {
+    "candidate": 8,
+    "skill": 3,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 40,
+  "fields": {
+    "candidate": 8,
+    "skill": 9,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 41,
+  "fields": {
+    "candidate": 9,
+    "skill": 13,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 42,
+  "fields": {
+    "candidate": 9,
+    "skill": 9,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 43,
+  "fields": {
+    "candidate": 9,
+    "skill": 14,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 44,
+  "fields": {
+    "candidate": 9,
+    "skill": 18,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 45,
+  "fields": {
+    "candidate": 10,
+    "skill": 7,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 46,
+  "fields": {
+    "candidate": 10,
+    "skill": 8,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 47,
+  "fields": {
+    "candidate": 10,
+    "skill": 1,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 48,
+  "fields": {
+    "candidate": 11,
+    "skill": 19,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 49,
+  "fields": {
+    "candidate": 11,
+    "skill": 10,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 50,
+  "fields": {
+    "candidate": 11,
+    "skill": 9,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 51,
+  "fields": {
+    "candidate": 11,
+    "skill": 5,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 52,
+  "fields": {
+    "candidate": 12,
+    "skill": 11,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 53,
+  "fields": {
+    "candidate": 12,
+    "skill": 6,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 54,
+  "fields": {
+    "candidate": 12,
+    "skill": 9,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 55,
+  "fields": {
+    "candidate": 12,
+    "skill": 18,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 56,
+  "fields": {
+    "candidate": 12,
+    "skill": 3,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 57,
+  "fields": {
+    "candidate": 13,
+    "skill": 11,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 58,
+  "fields": {
+    "candidate": 13,
+    "skill": 7,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 59,
+  "fields": {
+    "candidate": 13,
+    "skill": 15,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 60,
+  "fields": {
+    "candidate": 13,
+    "skill": 14,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 61,
+  "fields": {
+    "candidate": 13,
+    "skill": 4,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 62,
+  "fields": {
+    "candidate": 13,
+    "skill": 20,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 63,
+  "fields": {
+    "candidate": 14,
+    "skill": 18,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 64,
+  "fields": {
+    "candidate": 14,
+    "skill": 2,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 65,
+  "fields": {
+    "candidate": 14,
+    "skill": 4,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 66,
+  "fields": {
+    "candidate": 14,
+    "skill": 6,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 67,
+  "fields": {
+    "candidate": 15,
+    "skill": 5,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 68,
+  "fields": {
+    "candidate": 15,
+    "skill": 6,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 69,
+  "fields": {
+    "candidate": 15,
+    "skill": 18,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 70,
+  "fields": {
+    "candidate": 15,
+    "skill": 1,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 71,
+  "fields": {
+    "candidate": 16,
+    "skill": 11,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 72,
+  "fields": {
+    "candidate": 16,
+    "skill": 17,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 73,
+  "fields": {
+    "candidate": 16,
+    "skill": 20,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 74,
+  "fields": {
+    "candidate": 16,
+    "skill": 2,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 75,
+  "fields": {
+    "candidate": 16,
+    "skill": 1,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 76,
+  "fields": {
+    "candidate": 17,
+    "skill": 19,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 77,
+  "fields": {
+    "candidate": 17,
+    "skill": 10,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 78,
+  "fields": {
+    "candidate": 17,
+    "skill": 7,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 79,
+  "fields": {
+    "candidate": 17,
+    "skill": 6,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 80,
+  "fields": {
+    "candidate": 17,
+    "skill": 14,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 81,
+  "fields": {
+    "candidate": 17,
+    "skill": 3,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 82,
+  "fields": {
+    "candidate": 18,
+    "skill": 13,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 83,
+  "fields": {
+    "candidate": 18,
+    "skill": 18,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 84,
+  "fields": {
+    "candidate": 18,
+    "skill": 17,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 85,
+  "fields": {
+    "candidate": 18,
+    "skill": 6,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 86,
+  "fields": {
+    "candidate": 18,
+    "skill": 4,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 87,
+  "fields": {
+    "candidate": 18,
+    "skill": 2,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 88,
+  "fields": {
+    "candidate": 19,
+    "skill": 12,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 89,
+  "fields": {
+    "candidate": 19,
+    "skill": 18,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 90,
+  "fields": {
+    "candidate": 19,
+    "skill": 6,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 91,
+  "fields": {
+    "candidate": 19,
+    "skill": 17,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 92,
+  "fields": {
+    "candidate": 19,
+    "skill": 1,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 93,
+  "fields": {
+    "candidate": 19,
+    "skill": 3,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 94,
+  "fields": {
+    "candidate": 20,
+    "skill": 13,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 95,
+  "fields": {
+    "candidate": 20,
+    "skill": 9,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 96,
+  "fields": {
+    "candidate": 20,
+    "skill": 10,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 97,
+  "fields": {
+    "candidate": 21,
+    "skill": 9,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 98,
+  "fields": {
+    "candidate": 21,
+    "skill": 8,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 99,
+  "fields": {
+    "candidate": 21,
+    "skill": 6,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 100,
+  "fields": {
+    "candidate": 21,
+    "skill": 11,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 101,
+  "fields": {
+    "candidate": 21,
+    "skill": 14,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 102,
+  "fields": {
+    "candidate": 22,
+    "skill": 9,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 103,
+  "fields": {
+    "candidate": 22,
+    "skill": 11,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 104,
+  "fields": {
+    "candidate": 22,
+    "skill": 4,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 105,
+  "fields": {
+    "candidate": 22,
+    "skill": 19,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 106,
+  "fields": {
+    "candidate": 22,
+    "skill": 20,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 107,
+  "fields": {
+    "candidate": 22,
+    "skill": 14,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 108,
+  "fields": {
+    "candidate": 23,
+    "skill": 4,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 109,
+  "fields": {
+    "candidate": 23,
+    "skill": 16,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 110,
+  "fields": {
+    "candidate": 23,
+    "skill": 18,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 111,
+  "fields": {
+    "candidate": 23,
+    "skill": 17,
+    "level": 1
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 112,
+  "fields": {
+    "candidate": 23,
+    "skill": 7,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 113,
+  "fields": {
+    "candidate": 24,
+    "skill": 4,
+    "level": 2
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 114,
+  "fields": {
+    "candidate": 24,
+    "skill": 9,
+    "level": 4
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 115,
+  "fields": {
+    "candidate": 24,
+    "skill": 11,
+    "level": 3
+  }
+},
+{
+  "model": "core.candidateskill",
+  "pk": 116,
+  "fields": {
+    "candidate": 24,
+    "skill": 1,
+    "level": 3
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 1,
+  "fields": {
+    "vacancy": 1,
+    "skill": 15,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 2,
+  "fields": {
+    "vacancy": 1,
+    "skill": 7,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 3,
+  "fields": {
+    "vacancy": 1,
+    "skill": 6,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 4,
+  "fields": {
+    "vacancy": 1,
+    "skill": 10,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 5,
+  "fields": {
+    "vacancy": 2,
+    "skill": 16,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 6,
+  "fields": {
+    "vacancy": 2,
+    "skill": 11,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 7,
+  "fields": {
+    "vacancy": 2,
+    "skill": 19,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 8,
+  "fields": {
+    "vacancy": 2,
+    "skill": 12,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 9,
+  "fields": {
+    "vacancy": 3,
+    "skill": 15,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 10,
+  "fields": {
+    "vacancy": 3,
+    "skill": 7,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 11,
+  "fields": {
+    "vacancy": 3,
+    "skill": 12,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 12,
+  "fields": {
+    "vacancy": 3,
+    "skill": 9,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 13,
+  "fields": {
+    "vacancy": 3,
+    "skill": 13,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 14,
+  "fields": {
+    "vacancy": 4,
+    "skill": 16,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 15,
+  "fields": {
+    "vacancy": 4,
+    "skill": 11,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 16,
+  "fields": {
+    "vacancy": 4,
+    "skill": 19,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 17,
+  "fields": {
+    "vacancy": 4,
+    "skill": 12,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 18,
+  "fields": {
+    "vacancy": 4,
+    "skill": 6,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 19,
+  "fields": {
+    "vacancy": 5,
+    "skill": 14,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 20,
+  "fields": {
+    "vacancy": 5,
+    "skill": 17,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 21,
+  "fields": {
+    "vacancy": 5,
+    "skill": 19,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 22,
+  "fields": {
+    "vacancy": 5,
+    "skill": 5,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 23,
+  "fields": {
+    "vacancy": 6,
+    "skill": 5,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 24,
+  "fields": {
+    "vacancy": 6,
+    "skill": 18,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 25,
+  "fields": {
+    "vacancy": 6,
+    "skill": 20,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 26,
+  "fields": {
+    "vacancy": 6,
+    "skill": 19,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 27,
+  "fields": {
+    "vacancy": 7,
+    "skill": 5,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 28,
+  "fields": {
+    "vacancy": 7,
+    "skill": 15,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 29,
+  "fields": {
+    "vacancy": 7,
+    "skill": 6,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 30,
+  "fields": {
+    "vacancy": 7,
+    "skill": 18,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 31,
+  "fields": {
+    "vacancy": 7,
+    "skill": 2,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 32,
+  "fields": {
+    "vacancy": 8,
+    "skill": 5,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 33,
+  "fields": {
+    "vacancy": 8,
+    "skill": 11,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 34,
+  "fields": {
+    "vacancy": 8,
+    "skill": 20,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 35,
+  "fields": {
+    "vacancy": 8,
+    "skill": 17,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 36,
+  "fields": {
+    "vacancy": 8,
+    "skill": 2,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 37,
+  "fields": {
+    "vacancy": 8,
+    "skill": 8,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 38,
+  "fields": {
+    "vacancy": 9,
+    "skill": 8,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 39,
+  "fields": {
+    "vacancy": 9,
+    "skill": 20,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 40,
+  "fields": {
+    "vacancy": 9,
+    "skill": 16,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 41,
+  "fields": {
+    "vacancy": 9,
+    "skill": 7,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 42,
+  "fields": {
+    "vacancy": 10,
+    "skill": 7,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 43,
+  "fields": {
+    "vacancy": 10,
+    "skill": 20,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 44,
+  "fields": {
+    "vacancy": 10,
+    "skill": 4,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 45,
+  "fields": {
+    "vacancy": 11,
+    "skill": 1,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 46,
+  "fields": {
+    "vacancy": 11,
+    "skill": 18,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 47,
+  "fields": {
+    "vacancy": 11,
+    "skill": 5,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 48,
+  "fields": {
+    "vacancy": 11,
+    "skill": 9,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 49,
+  "fields": {
+    "vacancy": 11,
+    "skill": 10,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 50,
+  "fields": {
+    "vacancy": 11,
+    "skill": 12,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 51,
+  "fields": {
+    "vacancy": 12,
+    "skill": 18,
+    "is_required": false
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 52,
+  "fields": {
+    "vacancy": 12,
+    "skill": 11,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 53,
+  "fields": {
+    "vacancy": 12,
+    "skill": 9,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 54,
+  "fields": {
+    "vacancy": 13,
+    "skill": 3,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 55,
+  "fields": {
+    "vacancy": 13,
+    "skill": 17,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 56,
+  "fields": {
+    "vacancy": 13,
+    "skill": 15,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 57,
+  "fields": {
+    "vacancy": 14,
+    "skill": 13,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 58,
+  "fields": {
+    "vacancy": 14,
+    "skill": 3,
+    "is_required": true
+  }
+},
+{
+  "model": "core.vacancyskill",
+  "pk": 59,
+  "fields": {
+    "vacancy": 14,
+    "skill": 6,
+    "is_required": false
+  }
+},
+{
+  "model": "core.feedback",
+  "pk": 1,
+  "fields": {
+    "name": "Артём Смирнов",
+    "email": "user1@example.com",
+    "phone": "+7 923 412-00-00",
+    "subject": "Консультация",
+    "message": "Здравствуйте! Прошу предоставить дополнительную информацию по интересующему вопросу. Заранее благодарю.",
+    "is_processed": true,
+    "created_at": "2026-06-02T13:44:57.409Z"
+  }
+},
+{
+  "model": "core.feedback",
+  "pk": 2,
+  "fields": {
+    "name": "Дмитрий Иванов",
+    "email": "user2@example.com",
+    "phone": "+7 933 129-00-00",
+    "subject": "Технический вопрос",
+    "message": "Здравствуйте! Прошу предоставить дополнительную информацию по интересующему вопросу. Заранее благодарю.",
+    "is_processed": false,
+    "created_at": "2026-06-03T13:44:57.410Z"
+  }
+},
+{
+  "model": "core.feedback",
+  "pk": 3,
+  "fields": {
+    "name": "Александр Морозов",
+    "email": "user3@example.com",
+    "phone": "+7 910 744-00-00",
+    "subject": "Технический вопрос",
+    "message": "Здравствуйте! Прошу предоставить дополнительную информацию по интересующему вопросу. Заранее благодарю.",
+    "is_processed": true,
+    "created_at": "2026-06-04T13:44:57.410Z"
+  }
+},
+{
+  "model": "core.feedback",
+  "pk": 4,
+  "fields": {
+    "name": "Андрей Попов",
+    "email": "user4@example.com",
+    "phone": "+7 959 301-00-00",
+    "subject": "Запрос на демонстрацию",
+    "message": "Здравствуйте! Прошу предоставить дополнительную информацию по интересующему вопросу. Заранее благодарю.",
+    "is_processed": false,
+    "created_at": "2026-05-22T13:44:57.411Z"
+  }
+},
+{
+  "model": "core.feedback",
+  "pk": 5,
+  "fields": {
+    "name": "Илья Кузнецов",
+    "email": "user5@example.com",
+    "phone": "+7 953 459-00-00",
+    "subject": "Партнёрство",
+    "message": "Здравствуйте! Прошу предоставить дополнительную информацию по интересующему вопросу. Заранее благодарю.",
+    "is_processed": false,
+    "created_at": "2026-05-28T13:44:57.411Z"
+  }
+},
+{
+  "model": "core.feedback",
+  "pk": 6,
+  "fields": {
+    "name": "Александр Смирнов",
+    "email": "user6@example.com",
+    "phone": "+7 927 528-00-00",
+    "subject": "Запрос на демонстрацию",
+    "message": "Здравствуйте! Прошу предоставить дополнительную информацию по интересующему вопросу. Заранее благодарю.",
+    "is_processed": true,
+    "created_at": "2026-05-13T13:44:57.411Z"
+  }
+},
+{
+  "model": "core.feedback",
+  "pk": 7,
+  "fields": {
+    "name": "Дмитрий Соколов",
+    "email": "user7@example.com",
+    "phone": "+7 987 982-00-00",
+    "subject": "Запрос на демонстрацию",
+    "message": "Здравствуйте! Прошу предоставить дополнительную информацию по интересующему вопросу. Заранее благодарю.",
+    "is_processed": false,
+    "created_at": "2026-05-25T13:44:57.412Z"
+  }
+},
+{
+  "model": "core.feedback",
+  "pk": 8,
+  "fields": {
+    "name": "Илья Киселёв",
+    "email": "user8@example.com",
+    "phone": "+7 932 698-00-00",
+    "subject": "Прочее",
+    "message": "Здравствуйте! Прошу предоставить дополнительную информацию по интересующему вопросу. Заранее благодарю.",
+    "is_processed": false,
+    "created_at": "2026-05-29T13:44:57.412Z"
+  }
+},
+{
+  "model": "core.feedback",
+  "pk": 9,
+  "fields": {
+    "name": "Никита Белов",
+    "email": "user9@example.com",
+    "phone": "+7 918 852-00-00",
+    "subject": "Технический вопрос",
+    "message": "Здравствуйте! Прошу предоставить дополнительную информацию по интересующему вопросу. Заранее благодарю.",
+    "is_processed": true,
+    "created_at": "2026-06-03T13:44:57.413Z"
+  }
+},
+{
+  "model": "core.feedback",
+  "pk": 10,
+  "fields": {
+    "name": "Максим Тарасов",
+    "email": "user10@example.com",
+    "phone": "+7 997 981-00-00",
+    "subject": "Сотрудничество",
+    "message": "Здравствуйте! Прошу предоставить дополнительную информацию по интересующему вопросу. Заранее благодарю.",
+    "is_processed": false,
+    "created_at": "2026-06-01T13:44:57.413Z"
+  }
+},
+{
+  "model": "core.feedback",
+  "pk": 11,
+  "fields": {
+    "name": "Алексей Комаров",
+    "email": "user11@example.com",
+    "phone": "+7 925 238-00-00",
+    "subject": "Стажировка",
+    "message": "Здравствуйте! Прошу предоставить дополнительную информацию по интересующему вопросу. Заранее благодарю.",
+    "is_processed": false,
+    "created_at": "2026-05-16T13:44:57.414Z"
+  }
+},
+{
+  "model": "core.feedback",
+  "pk": 12,
+  "fields": {
+    "name": "Никита Кузнецов",
+    "email": "user12@example.com",
+    "phone": "+7 947 600-00-00",
+    "subject": "Вопрос по вакансии",
+    "message": "Здравствуйте! Прошу предоставить дополнительную информацию по интересующему вопросу. Заранее благодарю.",
+    "is_processed": false,
+    "created_at": "2026-05-20T13:44:57.415Z"
+  }
+},
+{
+  "model": "core.feedback",
+  "pk": 13,
+  "fields": {
+    "name": "Алексей Волков",
+    "email": "user13@example.com",
+    "phone": "+7 943 657-00-00",
+    "subject": "Отклик на позицию",
+    "message": "Здравствуйте! Прошу предоставить дополнительную информацию по интересующему вопросу. Заранее благодарю.",
+    "is_processed": true,
+    "created_at": "2026-05-23T13:44:57.415Z"
+  }
+},
+{
+  "model": "core.feedback",
+  "pk": 14,
+  "fields": {
+    "name": "Сергей Волков",
+    "email": "user14@example.com",
+    "phone": "+7 922 504-00-00",
+    "subject": "Запрос на демонстрацию",
+    "message": "Здравствуйте! Прошу предоставить дополнительную информацию по интересующему вопросу. Заранее благодарю.",
+    "is_processed": false,
+    "created_at": "2026-05-19T13:44:57.416Z"
+  }
+},
+{
+  "model": "core.article",
+  "pk": 1,
+  "fields": {
+    "title": "ЮНИТКОД запускает платформу UnitHire для автоматизации найма",
+    "slug": "unithire-1",
+    "summary": "Компания внедрила собственную рекрутинговую систему с HR-аналитикой.",
+    "body": "Компания внедрила собственную рекрутинговую систему с HR-аналитикой.\n\nКоманда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных.",
+    "author_name": "Пресс-служба ЮНИТКОД",
+    "published_at": "2026-05-01",
+    "is_published": true
+  }
+},
+{
+  "model": "core.article",
+  "pk": 2,
+  "fields": {
+    "title": "Как мы сократили время закрытия вакансий на 35%",
+    "slug": "35-2",
+    "summary": "Опыт перехода от Excel-таблиц к сквозной воронке подбора.",
+    "body": "Опыт перехода от Excel-таблиц к сквозной воронке подбора.\n\nКоманда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных.",
+    "author_name": "Пресс-служба ЮНИТКОД",
+    "published_at": "2026-05-02",
+    "is_published": true
+  }
+},
+{
+  "model": "core.article",
+  "pk": 3,
+  "fields": {
+    "title": "5 метрик рекрутинга, которые стоит отслеживать",
+    "slug": "5-3",
+    "summary": "Разбираем time-to-hire, cost-per-hire, конверсию воронки и не только.",
+    "body": "Разбираем time-to-hire, cost-per-hire, конверсию воронки и не только.\n\nКоманда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных.",
+    "author_name": "Пресс-служба ЮНИТКОД",
+    "published_at": "2026-05-04",
+    "is_published": true
+  }
+},
+{
+  "model": "core.article",
+  "pk": 4,
+  "fields": {
+    "title": "Источники кандидатов: где мы находим лучших разработчиков",
+    "slug": "news-3-4",
+    "summary": "Сравнение эффективности джоб-бордов, рефералов и прямого поиска.",
+    "body": "Сравнение эффективности джоб-бордов, рефералов и прямого поиска.\n\nКоманда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных.",
+    "author_name": "Пресс-служба ЮНИТКОД",
+    "published_at": "2026-05-06",
+    "is_published": true
+  }
+},
+{
+  "model": "core.article",
+  "pk": 5,
+  "fields": {
+    "title": "Что такое cost-per-hire и как его снижать",
+    "slug": "cost-per-hire-5",
+    "summary": "Считаем стоимость найма и оптимизируем бюджет подбора.",
+    "body": "Считаем стоимость найма и оптимизируем бюджет подбора.\n\nКоманда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных.",
+    "author_name": "Пресс-служба ЮНИТКОД",
+    "published_at": "2026-04-20",
+    "is_published": true
+  }
+},
+{
+  "model": "core.article",
+  "pk": 6,
+  "fields": {
+    "title": "Структурированное интервью: чек-лист для рекрутёра",
+    "slug": "news-5-6",
+    "summary": "Делимся шаблоном оценки кандидатов по критериям.",
+    "body": "Делимся шаблоном оценки кандидатов по критериям.\n\nКоманда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных.",
+    "author_name": "Пресс-служба ЮНИТКОД",
+    "published_at": "2026-05-01",
+    "is_published": true
+  }
+},
+{
+  "model": "core.article",
+  "pk": 7,
+  "fields": {
+    "title": "HR-аналитика на службе бизнеса",
+    "slug": "hr-7",
+    "summary": "Как данные о подборе помогают принимать управленческие решения.",
+    "body": "Как данные о подборе помогают принимать управленческие решения.\n\nКоманда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных.",
+    "author_name": "Пресс-служба ЮНИТКОД",
+    "published_at": "2026-04-20",
+    "is_published": true
+  }
+},
+{
+  "model": "core.article",
+  "pk": 8,
+  "fields": {
+    "title": "Онбординг в ЮНИТКОД: первые 90 дней",
+    "slug": "90-8",
+    "summary": "Рассказываем, как устроена адаптация новых сотрудников.",
+    "body": "Рассказываем, как устроена адаптация новых сотрудников.\n\nКоманда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных.",
+    "author_name": "Пресс-служба ЮНИТКОД",
+    "published_at": "2026-04-15",
+    "is_published": true
+  }
+},
+{
+  "model": "core.article",
+  "pk": 9,
+  "fields": {
+    "title": "Реферальная программа: сотрудники рекомендуют коллег",
+    "slug": "news-8-9",
+    "summary": "Почему рекомендации дают самых лояльных кандидатов.",
+    "body": "Почему рекомендации дают самых лояльных кандидатов.\n\nКоманда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных.",
+    "author_name": "Пресс-служба ЮНИТКОД",
+    "published_at": "2026-05-28",
+    "is_published": true
+  }
+},
+{
+  "model": "core.article",
+  "pk": 10,
+  "fields": {
+    "title": "Открытые вакансии месяца",
+    "slug": "news-9-10",
+    "summary": "Подборка актуальных позиций в командах разработки и аналитики.",
+    "body": "Подборка актуальных позиций в командах разработки и аналитики.\n\nКоманда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных.",
+    "author_name": "Пресс-служба ЮНИТКОД",
+    "published_at": "2026-04-07",
+    "is_published": true
+  }
+},
+{
+  "model": "core.article",
+  "pk": 11,
+  "fields": {
+    "title": "Как устроена воронка подбора в UnitHire",
+    "slug": "unithire-11",
+    "summary": "Подробно о шести этапах от скрининга до выхода на работу.",
+    "body": "Подробно о шести этапах от скрининга до выхода на работу.\n\nКоманда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных.",
+    "author_name": "Пресс-служба ЮНИТКОД",
+    "published_at": "2026-05-08",
+    "is_published": true
+  }
+},
+{
+  "model": "core.article",
+  "pk": 12,
+  "fields": {
+    "title": "Карьерный трек разработчика в ЮНИТКОД",
+    "slug": "news-11-12",
+    "summary": "От стажёра до техлида: грейды и ожидания.",
+    "body": "От стажёра до техлида: грейды и ожидания.\n\nКоманда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных. Команда ООО «ЮНИТКОД» развивает собственные инструменты автоматизации подбора персонала. Платформа UnitHire объединяет управление вакансиями, кандидатами и аналитику в едином окне. Это позволяет сократить рутину рекрутёров и принимать решения на основе данных.",
+    "author_name": "Пресс-служба ЮНИТКОД",
+    "published_at": "2026-04-19",
+    "is_published": true
+  }
+}
+]

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Кабинет рекрутёра — {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-3">{% include 'partials/_recruiter_nav.html' with active='dashboard' %}</div>
+  <div class="col-lg-9">
+    <h3 class="section-title mb-3">Сводка подбора</h3>
+
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-md-3"><div class="card kpi-card text-center p-3">
+        <div class="kpi-value">{{ kpi.open_vacancies }}</div><div class="kpi-label">Открытых вакансий</div></div></div>
+      <div class="col-6 col-md-3"><div class="card kpi-card text-center p-3">
+        <div class="kpi-value">{{ kpi.applications }}</div><div class="kpi-label">Откликов</div></div></div>
+      <div class="col-6 col-md-3"><div class="card kpi-card text-center p-3">
+        <div class="kpi-value">{{ kpi.interviews }}</div><div class="kpi-label">Собеседований</div></div></div>
+      <div class="col-6 col-md-3"><div class="card kpi-card text-center p-3">
+        <div class="kpi-value">{{ kpi.hired }}</div><div class="kpi-label">Нанято</div></div></div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card h-100"><div class="card-body">
+          <h6 class="fw-bold">Мои вакансии</h6>
+          <ul class="list-group list-group-flush">
+            {% for v in my_vacancies %}
+              <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                <a href="{% url 'rec_vacancy_edit' v.pk %}" class="text-decoration-none">{{ v.title }}</a>
+                <span class="badge bg-light text-dark">{{ v.get_status_display }}</span></li>
+            {% empty %}<li class="list-group-item px-0 text-muted">Нет назначенных вакансий.</li>{% endfor %}
+          </ul>
+          <a href="{% url 'rec_vacancy_create' %}" class="btn btn-sm btn-primary mt-2">
+            <i class="bi bi-plus-lg"></i> Новая вакансия</a>
+        </div></div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100"><div class="card-body">
+          <h6 class="fw-bold">Новые отклики</h6>
+          <ul class="list-group list-group-flush">
+            {% for a in new_applications %}
+              <li class="list-group-item px-0">
+                <a href="{% url 'rec_application_edit' a.pk %}" class="text-decoration-none">
+                  {{ a.candidate.full_name }}</a>
+                <span class="small text-muted">→ {{ a.vacancy.title }}</span></li>
+            {% empty %}<li class="list-group-item px-0 text-muted">Новых откликов нет.</li>{% endfor %}
+          </ul>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="card mt-4"><div class="card-body">
+      <h6 class="fw-bold">Ближайшие собеседования</h6>
+      <table class="table table-sm mb-0">
+        <thead><tr><th>Кандидат</th><th>Тип</th><th>Когда</th></tr></thead>
+        <tbody>
+          {% for iv in upcoming_interviews %}
+            <tr><td>{{ iv.application.candidate.full_name }}</td>
+              <td>{{ iv.get_kind_display }}</td>
+              <td>{{ iv.scheduled_at|date:"d.m.Y H:i" }}</td></tr>
+          {% empty %}<tr><td colspan="3" class="text-muted">Запланированных собеседований нет.</td></tr>{% endfor %}
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+</div>
+{% endblock %}

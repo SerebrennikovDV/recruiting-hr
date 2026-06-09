@@ -1,0 +1,31 @@
+# Виртуальное окружение
+.venv/
+venv/
+env/
+
+# Кэш Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Рабочая база данных (снимок для проверки лежит в db/database.sqlite3)
+/db.sqlite3
+
+# Собранная статика (создаётся командой collectstatic)
+/staticfiles/
+
+# Загруженные пользователями файлы (резюме)
+/media/
+
+# Секреты окружения
+.env
+
+# Служебные файлы ОС и IDE
+.DS_Store
+.idea/
+.vscode/
+*.log
+.venv/
+db.sqlite3
+staticfiles/
+__pycache__/

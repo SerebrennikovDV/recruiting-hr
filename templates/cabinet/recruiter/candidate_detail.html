@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}{{ candidate.full_name }} — кабинет рекрутёра{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-3">{% include 'partials/_recruiter_nav.html' with active='candidates' %}</div>
+  <div class="col-lg-9">
+    <div class="d-flex justify-content-between align-items-start mb-3">
+      <h3 class="section-title mb-0">{{ candidate.full_name }}</h3>
+      <div>
+        <a href="{% url 'export_candidate_docx' candidate.pk %}" class="btn btn-sm btn-success">
+          <i class="bi bi-file-earmark-word"></i> Карточка в Word</a>
+        <a href="{% url 'rec_candidate_edit' candidate.pk %}" class="btn btn-sm btn-outline-primary">
+          <i class="bi bi-pencil"></i> Редактировать</a>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-5">
+        <div class="card p-3">
+          <h6 class="fw-bold">Контакты и параметры</h6>
+          <ul class="list-unstyled small mb-0">
+            <li><i class="bi bi-envelope"></i> {{ candidate.email }}</li>
+            <li><i class="bi bi-telephone"></i> {{ candidate.phone|default:"—" }}</li>
+            <li><i class="bi bi-geo-alt"></i> {{ candidate.city|default:"—" }}</li>
+            <li><i class="bi bi-bar-chart-steps"></i> Грейд: {{ candidate.get_grade_display }}</li>
+            <li><i class="bi bi-clock-history"></i> Опыт: {{ candidate.experience_years }} лет</li>
+            <li><i class="bi bi-cash"></i> Желаемая ЗП: {{ candidate.desired_salary }} ₽</li>
+            <li><i class="bi bi-diagram-2"></i> Источник: {{ candidate.source.name }}</li>
+          </ul>
+        </div>
+        <div class="card p-3 mt-3">
+          <h6 class="fw-bold">Навыки</h6>
+          {% for cs in skills %}
+            <span class="badge badge-grade p-2 me-1 mb-1">{{ cs.skill.name }} · {{ cs.get_level_display }}</span>
+          {% empty %}<span class="text-muted small">Навыки не указаны.</span>{% endfor %}
+        </div>
+        <div class="card p-3 mt-3">
+          <h6 class="fw-bold">Резюме</h6>
+          {% for r in resumes %}
+            <a href="{{ r.file.url }}" class="d-block small"><i class="bi bi-file-earmark"></i> {{ r.filename }}</a>
+          {% empty %}<span class="text-muted small">Файлы резюме не загружены.</span>{% endfor %}
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="card p-3">
+          <h6 class="fw-bold">О кандидате</h6>
+          <p class="small">{{ candidate.summary|default:"—" }}</p>
+        </div>
+        <div class="card p-3 mt-3">
+          <h6 class="fw-bold">Отклики</h6>
+          <table class="table table-sm mb-0">
+            <thead><tr><th>Вакансия</th><th>Этап</th><th>Статус</th><th>Оценка</th></tr></thead>
+            <tbody>
+              {% for a in apps %}
+                <tr><td><a href="{% url 'rec_application_edit' a.pk %}">{{ a.vacancy.title }}</a></td>
+                  <td class="small">{{ a.stage.name }}</td>
+                  <td><span class="badge bg-light text-dark">{{ a.get_status_display }}</span></td>
+                  <td>{{ a.score }}</td></tr>
+              {% empty %}<tr><td colspan="4" class="text-muted">Откликов нет.</td></tr>{% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

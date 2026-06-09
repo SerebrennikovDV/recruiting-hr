@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block title %}{{ SITE_NAME }} — подбор персонала с HR-аналитикой{% endblock %}
+{% block content %}
+
+<section class="hero mb-4">
+  <div class="row align-items-center">
+    <div class="col-lg-7">
+      <h1 class="display-6">Нанимайте лучших — на основе данных</h1>
+      <p class="lead">{{ SITE_NAME }} — рекрутинговая платформа ООО «ЮНИТКОД»: единая
+        воронка подбора, управление вакансиями и кандидатами, сквозная HR-аналитика
+        (time-to-hire, cost-per-hire, конверсия источников).</p>
+      <a href="{% url 'vacancies' %}" class="btn btn-light btn-lg me-2">
+        <i class="bi bi-briefcase"></i> Смотреть вакансии</a>
+      <a href="{% url 'register' %}" class="btn btn-outline-light btn-lg">
+        Создать профиль</a>
+    </div>
+    <div class="col-lg-5 text-center d-none d-lg-block">
+      <i class="bi bi-graph-up-arrow" style="font-size:8rem;opacity:.85"></i>
+    </div>
+  </div>
+</section>
+
+{# KPI-показатели #}
+<div class="row g-3 mb-4">
+  {% with kpi as k %}
+  <div class="col-6 col-md-3">
+    <div class="card kpi-card text-center p-3">
+      <div class="kpi-value">{{ k.open_vacancies }}</div>
+      <div class="kpi-label">Открытых вакансий</div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card kpi-card text-center p-3">
+      <div class="kpi-value">{{ k.candidates }}</div>
+      <div class="kpi-label">Кандидатов в базе</div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card kpi-card text-center p-3">
+      <div class="kpi-value">{{ k.avg_time_to_hire }}</div>
+      <div class="kpi-label">Среднее время найма, дн.</div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card kpi-card text-center p-3">
+      <div class="kpi-value">{{ k.conversion }}%</div>
+      <div class="kpi-label">Конверсия в найм</div>
+    </div>
+  </div>
+  {% endwith %}
+</div>
+
+{# Свежие вакансии #}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h3 class="section-title mb-0">Актуальные вакансии</h3>
+  <a href="{% url 'vacancies' %}" class="btn btn-sm btn-outline-primary">Все вакансии</a>
+</div>
+<div class="row g-3 mb-4">
+  {% for v in fresh_vacancies %}
+    <div class="col-md-6 col-lg-4">{% include 'partials/_vacancy_card.html' %}</div>
+  {% empty %}
+    <p class="text-muted">Открытых вакансий пока нет.</p>
+  {% endfor %}
+</div>
+
+{# Преимущества + востребованные навыки #}
+<div class="row g-4 mb-4">
+  <div class="col-lg-7">
+    <h3 class="section-title mb-3">Почему UnitHire</h3>
+    <div class="row g-3">
+      <div class="col-md-6"><div class="card h-100 p-3">
+        <i class="bi bi-funnel text-primary fs-3"></i>
+        <h6 class="mt-2">Прозрачная воронка</h6>
+        <p class="small text-muted mb-0">Шесть этапов от скрининга до выхода — видно, где «застревают» кандидаты.</p></div></div>
+      <div class="col-md-6"><div class="card h-100 p-3">
+        <i class="bi bi-bar-chart-line text-primary fs-3"></i>
+        <h6 class="mt-2">HR-аналитика</h6>
+        <p class="small text-muted mb-0">Дашборды по времени и стоимости найма, эффективности источников.</p></div></div>
+      <div class="col-md-6"><div class="card h-100 p-3">
+        <i class="bi bi-shield-lock text-primary fs-3"></i>
+        <h6 class="mt-2">Роли и доступ</h6>
+        <p class="small text-muted mb-0">Разграничение прав: администратор, рекрутёр, кандидат.</p></div></div>
+      <div class="col-md-6"><div class="card h-100 p-3">
+        <i class="bi bi-file-earmark-arrow-down text-primary fs-3"></i>
+        <h6 class="mt-2">Выгрузка отчётов</h6>
+        <p class="small text-muted mb-0">Карточки и аналитика экспортируются в Word и Excel.</p></div></div>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <h3 class="section-title mb-3">Востребованные навыки</h3>
+    <div class="card p-3">
+      {% for s in top_skills %}
+        <span class="badge badge-grade me-1 mb-1 p-2">{{ s.name }} · {{ s.n }}</span>
+      {% empty %}
+        <p class="text-muted small mb-0">Данные появятся после публикации вакансий.</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{# Свежие новости #}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h3 class="section-title mb-0">Новости компании</h3>
+  <a href="{% url 'news' %}" class="btn btn-sm btn-outline-primary">Все новости</a>
+</div>
+<div class="row g-3">
+  {% for a in fresh_news %}
+    <div class="col-md-4"><div class="card h-100">
+      <div class="card-body">
+        <p class="small text-muted mb-1">{{ a.published_at }}</p>
+        <h6><a class="text-decoration-none" href="{{ a.get_absolute_url }}">{{ a.title }}</a></h6>
+        <p class="small text-muted mb-0">{{ a.summary }}</p>
+      </div></div></div>
+  {% endfor %}
+</div>
+
+{% endblock %}

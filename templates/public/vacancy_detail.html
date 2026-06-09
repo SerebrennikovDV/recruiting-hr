@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}{{ vacancy.title }} — {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start">
+          <h2 class="mb-1">{{ vacancy.title }}</h2>
+          <span class="badge badge-grade fs-6">{{ vacancy.get_grade_display }}</span>
+        </div>
+        <p class="text-muted">
+          <i class="bi bi-building"></i> {{ vacancy.department.name }} ·
+          <i class="bi bi-geo-alt"></i> {{ vacancy.city }}
+          {% if vacancy.is_remote %} · <span class="badge badge-soft">удалённо</span>{% endif %}
+        </p>
+        <h4 class="text-primary">{{ vacancy.salary_range }}</h4>
+        <hr>
+        <h5>Описание и требования</h5>
+        <p style="white-space:pre-line">{{ vacancy.description }}</p>
+
+        <h5 class="mt-4">Требуемые навыки</h5>
+        <div>
+          {% for vs in required_skills %}
+            <span class="badge {% if vs.is_required %}badge-grade{% else %}badge-soft{% endif %} p-2 me-1 mb-1">
+              {{ vs.skill.name }}{% if vs.is_required %} *{% endif %}</span>
+          {% empty %}
+            <span class="text-muted">Навыки не указаны.</span>
+          {% endfor %}
+        </div>
+        <p class="small text-muted mt-2">* — обязательный навык</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h6 class="fw-bold">Отклик на вакансию</h6>
+        {% if user.is_authenticated and user.role == 'candidate' %}
+          {% if already_applied %}
+            <div class="alert alert-info small mb-0">Вы уже откликнулись на эту вакансию.</div>
+          {% else %}
+            <a href="{% url 'cand_apply' vacancy.pk %}" class="btn btn-primary w-100">
+              <i class="bi bi-send"></i> Откликнуться</a>
+          {% endif %}
+        {% elif user.is_authenticated %}
+          <p class="small text-muted mb-0">Отклики доступны соискателям.</p>
+        {% else %}
+          <p class="small text-muted">Войдите как соискатель, чтобы откликнуться.</p>
+          <a href="{% url 'login' %}" class="btn btn-outline-primary w-100 mb-2">Войти</a>
+          <a href="{% url 'register' %}" class="btn btn-primary w-100">Регистрация</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h6 class="fw-bold">Параметры</h6>
+        <ul class="list-unstyled small mb-0">
+          <li><strong>Статус:</strong> {{ vacancy.get_status_display }}</li>
+          <li><strong>Открыта:</strong> {{ vacancy.opened_at }}</li>
+          <li><strong>Откликов:</strong> {{ vacancy.applications.count }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if similar %}
+<h4 class="section-title mt-5 mb-3">Похожие вакансии</h4>
+<div class="row g-3">
+  {% for v in similar %}<div class="col-md-6 col-lg-3">{% include 'partials/_vacancy_card.html' %}</div>{% endfor %}
+</div>
+{% endif %}
+{% endblock %}

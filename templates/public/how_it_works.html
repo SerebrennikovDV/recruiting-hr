@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Как это работает — {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<h2 class="section-title mb-4">Как работает подбор в {{ SITE_NAME }}</h2>
+<p class="text-muted">Процесс подбора проходит шесть последовательных этапов воронки.
+  Система фиксирует движение каждого кандидата и автоматически считает метрики.</p>
+
+<div class="row g-3 my-2">
+  {% for n, title, text in steps %}
+  <div class="col-md-6 col-lg-4">
+    <div class="card h-100 p-3">
+      <div class="d-flex align-items-center mb-2">
+        <div class="step-circle me-3">{{ n }}</div>
+        <h6 class="mb-0">{{ title }}</h6>
+      </div>
+      <p class="small text-muted mb-0">{{ text }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<h4 class="section-title mt-5 mb-3">Для кого платформа</h4>
+<div class="row g-3">
+  <div class="col-md-4"><div class="card p-3 h-100"><i class="bi bi-person-badge fs-3 text-primary"></i>
+    <h6 class="mt-2">Соискателям</h6><p class="small text-muted mb-0">Личный кабинет, загрузка резюме, отклики и отслеживание статусов.</p></div></div>
+  <div class="col-md-4"><div class="card p-3 h-100"><i class="bi bi-people fs-3 text-primary"></i>
+    <h6 class="mt-2">Рекрутёрам</h6><p class="small text-muted mb-0">Управление вакансиями, канбан откликов, собеседования, аналитика.</p></div></div>
+  <div class="col-md-4"><div class="card p-3 h-100"><i class="bi bi-gear fs-3 text-primary"></i>
+    <h6 class="mt-2">Администраторам</h6><p class="small text-muted mb-0">Полное управление данными и пользователями через панель администратора.</p></div></div>
+</div>
+{% endblock %}

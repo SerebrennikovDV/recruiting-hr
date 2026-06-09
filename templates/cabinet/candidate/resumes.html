@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Мои резюме — личный кабинет{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-3">{% include 'partials/_candidate_nav.html' with active='resumes' %}</div>
+  <div class="col-lg-9">
+    <h3 class="section-title mb-3">Мои резюме</h3>
+
+    <div class="card p-4 mb-4">
+      <h6 class="fw-bold mb-3">Загрузить резюме</h6>
+      <form method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        <div class="row g-3 align-items-end">
+          <div class="col-md-5">
+            <label class="form-label">{{ form.title.label }}</label>
+            {{ form.title }}
+          </div>
+          <div class="col-md-5">
+            <label class="form-label">{{ form.file.label }}</label>
+            {{ form.file }}
+            {% for e in form.file.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+          </div>
+          <div class="col-md-2 d-grid">
+            <button class="btn btn-primary"><i class="bi bi-upload"></i> Загрузить</button>
+          </div>
+        </div>
+        <p class="form-text small mt-2">Допустимые форматы: PDF, DOC, DOCX, RTF, ODT. Размер до 5 МБ.</p>
+      </form>
+    </div>
+
+    <div class="card p-3">
+      <h6 class="fw-bold">Загруженные файлы</h6>
+      <table class="table table-sm mb-0">
+        <thead><tr><th>Название</th><th>Файл</th><th>Дата</th><th></th></tr></thead>
+        <tbody>
+          {% for r in resumes %}
+          <tr>
+            <td>{{ r.title|default:"Резюме" }}</td>
+            <td><a href="{{ r.file.url }}"><i class="bi bi-file-earmark"></i> {{ r.filename }}</a></td>
+            <td class="small">{{ r.uploaded_at|date:"d.m.Y H:i" }}</td>
+            <td class="text-end">
+              <form method="post" action="{% url 'cand_resume_delete' r.pk %}" class="d-inline"
+                    onsubmit="return confirm('Удалить резюме?');">
+                {% csrf_token %}
+                <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+              </form>
+            </td></tr>
+          {% empty %}<tr><td colspan="4" class="text-muted">Файлы не загружены.</td></tr>{% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

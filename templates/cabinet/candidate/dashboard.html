@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Личный кабинет — {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-3">{% include 'partials/_candidate_nav.html' with active='dashboard' %}</div>
+  <div class="col-lg-9">
+    <h3 class="section-title mb-3">Здравствуйте, {{ candidate.first_name }}!</h3>
+
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-md-4"><div class="card kpi-card text-center p-3">
+        <div class="kpi-value">{{ apps_count }}</div><div class="kpi-label">Откликов</div></div></div>
+      <div class="col-6 col-md-4"><div class="card kpi-card text-center p-3">
+        <div class="kpi-value">{{ resumes_count }}</div><div class="kpi-label">Резюме загружено</div></div></div>
+      <div class="col-6 col-md-4"><div class="card kpi-card text-center p-3">
+        <div class="kpi-value">{{ interviews|length }}</div><div class="kpi-label">Собеседований</div></div></div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-7">
+        <div class="card h-100"><div class="card-body">
+          <h6 class="fw-bold">Мои отклики</h6>
+          <table class="table table-sm mb-0">
+            <thead><tr><th>Вакансия</th><th>Этап</th><th>Статус</th></tr></thead>
+            <tbody>
+              {% for a in apps %}
+                <tr><td>{{ a.vacancy.title }}</td><td class="small">{{ a.stage.name }}</td>
+                  <td><span class="badge bg-light text-dark">{{ a.get_status_display }}</span></td></tr>
+              {% empty %}<tr><td colspan="3" class="text-muted">Вы ещё не откликались.
+                <a href="{% url 'vacancies' %}">Найти вакансии</a></td></tr>{% endfor %}
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+      <div class="col-md-5">
+        <div class="card h-100"><div class="card-body">
+          <h6 class="fw-bold">Рекомендуем</h6>
+          {% for v in recommended %}
+            <p class="small mb-2"><a href="{% url 'vacancy_detail' v.pk %}" class="text-decoration-none">
+              {{ v.title }}</a><br><span class="text-muted">{{ v.salary_range }}</span></p>
+          {% empty %}<p class="text-muted small">Нет рекомендаций.</p>{% endfor %}
+        </div></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

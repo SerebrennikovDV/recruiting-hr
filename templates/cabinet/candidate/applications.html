@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Мои отклики — личный кабинет{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-3">{% include 'partials/_candidate_nav.html' with active='applications' %}</div>
+  <div class="col-lg-9">
+    <h3 class="section-title mb-3">Мои отклики</h3>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-light"><tr><th>Вакансия</th><th>Дата отклика</th>
+          <th>Этап</th><th>Статус</th></tr></thead>
+        <tbody>
+          {% for a in apps %}
+          <tr>
+            <td><a href="{% url 'vacancy_detail' a.vacancy.pk %}" class="text-decoration-none">{{ a.vacancy.title }}</a></td>
+            <td class="small">{{ a.applied_at|date:"d.m.Y" }}</td>
+            <td>{{ a.stage.name }}</td>
+            <td><span class="badge bg-light text-dark">{{ a.get_status_display }}</span></td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="4" class="text-muted">Откликов пока нет.
+            <a href="{% url 'vacancies' %}">Перейти к вакансиям</a>.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

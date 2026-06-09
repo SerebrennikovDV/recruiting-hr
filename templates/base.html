@@ -1,0 +1,139 @@
+{% load static %}<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ SITE_NAME }} — {{ SITE_TAGLINE }}{% endblock %}</title>
+  <meta name="description" content="UnitHire — рекрутинговая информационная система с HR-аналитикой ООО ЮНИТКОД">
+  {# Локально подключённые библиотеки (без CMS и внешних CDN) #}
+  <link rel="stylesheet" href="{% static 'vendor/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/bootstrap-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+{# ---------- Верхнее меню навигации (≥10 пунктов) ---------- #}
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark unit-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="{% url 'home' %}">
+        <i class="bi bi-people-fill me-1"></i>{{ SITE_NAME }}
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNav" aria-controls="mainNav"
+              aria-expanded="false" aria-label="Меню">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {% for name, label, icon in MAIN_MENU %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url name %}"><i class="bi bi-{{ icon }} me-1"></i>{{ label }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <ul class="navbar-nav">
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'dashboard' %}">
+                <i class="bi bi-speedometer2 me-1"></i>Кабинет</a>
+            </li>
+            <li class="nav-item">
+              <span class="nav-link disabled small">{{ user.short_name }}</span>
+            </li>
+            <li class="nav-item">
+              <form action="{% url 'logout' %}" method="post" class="d-inline">
+                {% csrf_token %}
+                <button class="btn btn-sm btn-outline-light mt-1" type="submit">
+                  <i class="bi bi-box-arrow-right"></i> Выход</button>
+              </form>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}"><i class="bi bi-box-arrow-in-right me-1"></i>Вход</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-light btn-sm mt-1 ms-lg-2" href="{% url 'register' %}">Регистрация</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+{# ---------- Хлебные крошки (на каждой странице) ---------- #}
+{% if breadcrumbs %}
+<div class="bg-light border-bottom">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb my-2 small">
+        {% for label, url in breadcrumbs %}
+          {% if url %}
+            <li class="breadcrumb-item"><a href="{{ url }}">{{ label }}</a></li>
+          {% else %}
+            <li class="breadcrumb-item active" aria-current="page">{{ label }}</li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+    </nav>
+  </div>
+</div>
+{% endif %}
+
+{# ---------- Всплывающие уведомления (flash) ---------- #}
+{% if messages %}
+<div class="container mt-3">
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{# ---------- Основное содержимое ---------- #}
+<main class="container my-4 flex-grow-1">
+  {% block content %}{% endblock %}
+</main>
+
+{# ---------- Подвал с указанием ФИО автора ---------- #}
+<footer class="unit-footer mt-auto text-light">
+  <div class="container py-4">
+    <div class="row gy-3">
+      <div class="col-md-5">
+        <h5 class="fw-bold"><i class="bi bi-people-fill me-1"></i>{{ SITE_NAME }}</h5>
+        <p class="small mb-1">{{ SITE_TAGLINE }}.</p>
+        <p class="small text-secondary mb-0">{{ SITE_ORG }}, г. Москва.</p>
+      </div>
+      <div class="col-md-4">
+        <h6 class="text-uppercase small fw-bold text-secondary">Разделы</h6>
+        <ul class="list-unstyled small">
+          <li><a class="footer-link" href="{% url 'vacancies' %}">Вакансии</a></li>
+          <li><a class="footer-link" href="{% url 'analytics_demo' %}">HR-аналитика</a></li>
+          <li><a class="footer-link" href="{% url 'employers' %}">Работодателям</a></li>
+          <li><a class="footer-link" href="{% url 'help' %}">Справка</a></li>
+          <li><a class="footer-link" href="{% url 'contacts' %}">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h6 class="text-uppercase small fw-bold text-secondary">Разработка</h6>
+        <p class="small mb-1">Автор работы:</p>
+        <p class="small fw-bold mb-0">{{ SITE_AUTHOR }}</p>
+        <p class="small text-secondary">Бизнес-информатика, МУ им. С.Ю. Витте</p>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <p class="small text-secondary text-center mb-0">
+      © {{ CURRENT_YEAR }} {{ SITE_ORG }}. Разработал: {{ SITE_AUTHOR }}.
+      Учебный проект преддипломной практики.
+    </p>
+  </div>
+</footer>
+
+<script src="{% static 'vendor/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

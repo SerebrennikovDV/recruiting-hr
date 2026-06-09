@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Мои собеседования — личный кабинет{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-3">{% include 'partials/_candidate_nav.html' with active='interviews' %}</div>
+  <div class="col-lg-9">
+    <h3 class="section-title mb-3">Мои собеседования</h3>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-light"><tr><th>Вакансия</th><th>Тип</th><th>Дата и время</th>
+          <th>Интервьюер</th><th>Результат</th></tr></thead>
+        <tbody>
+          {% for iv in interviews %}
+          <tr>
+            <td>{{ iv.application.vacancy.title }}</td>
+            <td>{{ iv.get_kind_display }}</td>
+            <td>{{ iv.scheduled_at|date:"d.m.Y H:i" }}</td>
+            <td class="small">{{ iv.interviewer.short_name|default:"—" }}</td>
+            <td><span class="badge bg-light text-dark">{{ iv.get_result_display }}</span></td>
+          </tr>
+          {% empty %}<tr><td colspan="5" class="text-muted">Собеседования пока не назначены.</td></tr>{% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{# Боковое меню кабинета рекрутёра. Передайте active = имя маршрута. #}
+<div class="list-group cabinet-menu shadow-sm">
+  <a href="{% url 'rec_dashboard' %}" class="list-group-item list-group-item-action {% if active == 'dashboard' %}active{% endif %}">
+    <i class="bi bi-speedometer2 me-2"></i>Сводка</a>
+  <a href="{% url 'rec_vacancies' %}" class="list-group-item list-group-item-action {% if active == 'vacancies' %}active{% endif %}">
+    <i class="bi bi-briefcase me-2"></i>Вакансии</a>
+  <a href="{% url 'rec_candidates' %}" class="list-group-item list-group-item-action {% if active == 'candidates' %}active{% endif %}">
+    <i class="bi bi-people me-2"></i>Кандидаты</a>
+  <a href="{% url 'rec_applications' %}" class="list-group-item list-group-item-action {% if active == 'applications' %}active{% endif %}">
+    <i class="bi bi-kanban me-2"></i>Отклики</a>
+  <a href="{% url 'rec_interviews' %}" class="list-group-item list-group-item-action {% if active == 'interviews' %}active{% endif %}">
+    <i class="bi bi-calendar-check me-2"></i>Собеседования</a>
+  <a href="{% url 'rec_analytics' %}" class="list-group-item list-group-item-action {% if active == 'analytics' %}active{% endif %}">
+    <i class="bi bi-bar-chart-line me-2"></i>HR-аналитика</a>
+</div>
+<div class="card mt-3 shadow-sm">
+  <div class="card-body small">
+    <p class="mb-1 fw-bold"><i class="bi bi-download me-1"></i>Выгрузка отчётов</p>
+    <a class="d-block" href="{% url 'export_analytics_xlsx' %}"><i class="bi bi-file-earmark-excel"></i> Аналитика (Excel)</a>
+    <a class="d-block" href="{% url 'export_vacancies_xlsx' %}"><i class="bi bi-file-earmark-excel"></i> Вакансии (Excel)</a>
+  </div>
+</div>

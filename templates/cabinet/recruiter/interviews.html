@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Собеседования — кабинет рекрутёра{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-3">{% include 'partials/_recruiter_nav.html' with active='interviews' %}</div>
+  <div class="col-lg-9">
+    <h3 class="section-title mb-3">Собеседования</h3>
+
+    <div class="card p-4 mb-4">
+      <h6 class="fw-bold mb-3">Назначить собеседование</h6>
+      <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="row g-3">
+          {% for field in form %}
+            <div class="{% if field.name == 'notes' %}col-12{% else %}col-md-4{% endif %}">
+              <label class="form-label">{{ field.label }}</label>
+              {{ field }}
+              {% for e in field.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+        <button class="btn btn-primary mt-3"><i class="bi bi-calendar-plus"></i> Назначить</button>
+      </form>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-light"><tr>
+          <th>Кандидат</th><th>Вакансия</th><th>Тип</th><th>Дата</th><th>Интервьюер</th>
+          <th>Результат</th><th>Балл</th></tr></thead>
+        <tbody>
+          {% for iv in interviews %}
+          <tr>
+            <td>{{ iv.application.candidate.full_name }}</td>
+            <td class="small">{{ iv.application.vacancy.title }}</td>
+            <td>{{ iv.get_kind_display }}</td>
+            <td>{{ iv.scheduled_at|date:"d.m.Y H:i" }}</td>
+            <td class="small">{{ iv.interviewer.short_name|default:"—" }}</td>
+            <td><span class="badge bg-light text-dark">{{ iv.get_result_display }}</span></td>
+            <td>{{ iv.score }}</td></tr>
+          {% empty %}<tr><td colspan="7" class="text-muted">Собеседований нет.</td></tr>{% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
