@@ -8,8 +8,9 @@ HR-аналитики».
 
 Настройки рассчитаны на два режима работы:
 1. Локальная разработка/проверка — СУБД SQLite (не требует установки сервера БД).
-2. Промышленная эксплуатация на бесплатном хостинге (Render.com) — СУБД
-   PostgreSQL, адрес которой передаётся через переменную окружения DATABASE_URL.
+2. Промышленная эксплуатация в Yandex Cloud (Compute Cloud VM + PostgreSQL 15
+   в Docker-контейнере либо Managed Service for PostgreSQL) — адрес БД
+   передаётся через переменную окружения DATABASE_URL.
 Выбор СУБД выполняется автоматически по наличию переменной DATABASE_URL,
 поэтому один и тот же код работает и локально, и в облаке.
 """
@@ -44,20 +45,16 @@ SECRET_KEY = os.environ.get(
 # Режим отладки по умолчанию выключен; включается переменной окружения.
 DEBUG = env_bool("DJANGO_DEBUG", True)
 
-# Список разрешённых хостов. Локально разрешаем стандартные адреса, а в облаке
-# имя сервиса Render автоматически попадает в ALLOWED_HOSTS через RENDER_EXTERNAL_HOSTNAME.
+# Список разрешённых хостов. Локально — стандартные адреса, в продакшене на
+# Yandex Cloud — публичный IP или домен ВМ через DJANGO_ALLOWED_HOSTS.
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]", "testserver"]
 _extra_hosts = os.environ.get("DJANGO_ALLOWED_HOSTS", "")
 if _extra_hosts:
     ALLOWED_HOSTS += [h.strip() for h in _extra_hosts.split(",") if h.strip()]
-_render_host = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
-if _render_host:
-    ALLOWED_HOSTS.append(_render_host)
 
-# Доверенные источники для защиты от CSRF при работе по HTTPS на хостинге.
+# Доверенные источники CSRF: указываются полной строкой включая схему,
+# например "http://111.88.244.202" или "https://unithire.example.ru".
 CSRF_TRUSTED_ORIGINS = []
-if _render_host:
-    CSRF_TRUSTED_ORIGINS.append(f"https://{_render_host}")
 for _origin in os.environ.get("DJANGO_CSRF_TRUSTED", "").split(","):
     if _origin.strip():
         CSRF_TRUSTED_ORIGINS.append(_origin.strip())
@@ -113,7 +110,7 @@ WSGI_APPLICATION = "recruiting.wsgi.application"
 
 # --- База данных ------------------------------------------------------------
 # По умолчанию — локальный файл SQLite. Если задана переменная DATABASE_URL
-# (как это делает Render для PostgreSQL), используется именно она.
+# (Yandex Cloud — Managed PG или PostgreSQL в Docker-контейнере), используется именно она.
 DATABASES = {
     "default": dj_database_url.config(
         default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
