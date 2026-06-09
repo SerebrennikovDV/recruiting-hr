@@ -44,6 +44,11 @@ def kpi_summary():
     open_vac = Vacancy.objects.filter(
         status__in=[VacancyStatus.OPEN, VacancyStatus.IN_PROGRESS]).count()
     closed = Vacancy.objects.filter(closed_at__isnull=False)
+    # Замечание рецензента 5: в PostgreSQL AVG над разностью date-полей
+    # возвращает interval, а не число. Django ORM возвращает timedelta,
+    # из которого ниже берём .days. SQL-эквивалент для прод-СУБД:
+    #   AVG(EXTRACT(EPOCH FROM (closed_at - opened_at)) / 86400) AS avg_days
+    # См. листинг 2.5 отчёта (исправленная редакция).
     avg_tth = closed.annotate(
         days=F("closed_at") - F("opened_at")).aggregate(
         v=Avg("days"))["v"]
@@ -75,13 +80,20 @@ def funnel_report():
     """
     Количество заявок на каждом этапе воронки. Сложный отчёт: объединяет
     данные Stage, Application и (через заявку) Vacancy.
+
+    Замечание рецензента 4: группировка идёт по первичному ключу Stage (id),
+    а не по name+order — это критично: если в справочнике появятся два
+    этапа с одинаковым названием (например, два разных «Интервью» для
+    разных вакансий), Django ORM сохранит их как разные группы, и воронка
+    не будет искажена. Эквивалент в SQL: GROUP BY s.id (см. листинг 2.4).
     """
     rows = (Stage.objects
             .annotate(app_count=Count("applications"))
             .order_by("order")
-            .values("name", "order", "app_count", "is_terminal"))
-    # Приводим к единому ключу "applications" для шаблонов и графиков.
-    rows = [{"name": r["name"], "order": r["order"],
+            .values("id", "name", "order", "app_count", "is_terminal"))
+    # Приводим к единому ключу "applications" для шаблонов и графиков;
+    # сохраняем stage_id — пригодится для дальнейших drill-down.
+    rows = [{"id": r["id"], "name": r["name"], "order": r["order"],
              "applications": r["app_count"], "is_terminal": r["is_terminal"]}
             for r in rows]
     # Конверсия относительно первого (самого широкого) этапа воронки.
@@ -124,6 +136,14 @@ def source_efficiency_report():
     """
     По каждому источнику: число кандидатов, откликов, нанятых, конверсия и
     стоимость найма. Сложный отчёт: Source × Candidate × Application.
+
+    Замечание рецензента 6: cost_per_contact — это затраты на ОДИН
+    привлечённый контакт (см. help_text у поля). Поэтому total_cost
+    источника = cost_per_contact × количество кандидатов, пришедших
+    через этот источник; cost_per_hire = total_cost / число нанятых.
+    «Двойного счёта» нет, потому что мы СНАЧАЛА агрегируем по источнику
+    (Source.objects.all()), а затем считаем умножение один раз для
+    каждого источника. SQL-эквивалент см. листинг 2.6 отчёта.
     """
     rows = []
     for src in Source.objects.all():
@@ -277,6 +297,53 @@ def time_to_hire_chart(rows=None):
     return _fig_to_data_uri(fig)
 
 
+def benchmark_comparison():
+    """
+    Сопоставить собственные KPI рекрутинга с эталонными значениями отрасли
+    (модель IndustryBenchmark, заполняется фикстурами seed_demo из открытых
+    источников: hh.ru research, AIHR Industry Report, Хабр Карьера).
+
+    Замечание рецензента 11: HR-метрики time-to-hire и cost-per-hire были
+    рассчитаны, но «оторваны от бизнес-целей»; теперь рядом с собственным
+    значением выводится бенчмарк и дельта в процентах.
+
+    Возвращает словарь {metric_key: {label, our, industry, unit, source,
+    delta_pct}} — используется в шаблоне дашборда HR-аналитики.
+    """
+    from .models import IndustryBenchmark
+    kpi = kpi_summary()
+    metric_map = {
+        "time_to_hire": kpi.get("avg_time_to_hire"),
+        "conversion": kpi.get("conversion"),
+    }
+    result = {}
+    latest = (IndustryBenchmark.objects.filter(is_published=True)
+              .order_by("metric", "-year"))
+    seen = set()
+    for bm in latest:
+        # Берём самый свежий бенчмарк для каждой метрики.
+        if bm.metric in seen:
+            continue
+        seen.add(bm.metric)
+        our = metric_map.get(bm.metric)
+        try:
+            industry = float(bm.value)
+        except (TypeError, ValueError):
+            industry = None
+        delta = None
+        if our is not None and industry:
+            delta = round((float(our) - industry) / industry * 100, 1)
+        result[bm.metric] = {
+            "label": bm.get_metric_display(),
+            "our": our,
+            "industry": industry,
+            "unit": bm.unit,
+            "source": f"{bm.source} ({bm.year})",
+            "delta_pct": delta,
+        }
+    return result
+
+
 def dashboard_context():
     """Собрать все отчёты и графики для страницы HR-аналитики кабинета."""
     funnel = funnel_report()
@@ -290,6 +357,7 @@ def dashboard_context():
         "time_to_hire": tth,
         "recruiter_load": recruiter_load_report(),
         "dynamics": dynamics,
+        "benchmarks": benchmark_comparison(),
         "chart_funnel": funnel_chart(funnel),
         "chart_sources": source_chart(sources),
         "chart_dynamics": dynamics_chart(dynamics),

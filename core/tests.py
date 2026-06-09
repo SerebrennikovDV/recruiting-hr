@@ -383,3 +383,26 @@ class ApplicationTransactionTests(BaseData):
         self.vac.refresh_from_db()
         self.assertEqual(self.vac.status, VacancyStatus.OPEN)
         self.assertIsNone(self.vac.closed_at)
+
+
+class BenchmarkComparisonTests(BaseData):
+    """benchmark_comparison: KPI с парой (our, industry, delta_pct)."""
+
+    def test_returns_metric_pairs(self):
+        from .analytics import benchmark_comparison
+        from .models import IndustryBenchmark
+        IndustryBenchmark.objects.create(
+            metric="time_to_hire", industry="ИТ в России",
+            value=30, unit="дней", source="test", year=2024,
+        )
+        IndustryBenchmark.objects.create(
+            metric="conversion", industry="ИТ в России",
+            value=8.5, unit="%", source="test", year=2024,
+        )
+        result = benchmark_comparison()
+        self.assertIn("time_to_hire", result)
+        self.assertIn("conversion", result)
+        self.assertEqual(result["time_to_hire"]["industry"], 30)
+        self.assertEqual(result["time_to_hire"]["unit"], "дней")
+        # KPI без данных — our может быть 0, но ключ есть.
+        self.assertIn("our", result["time_to_hire"])
