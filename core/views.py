@@ -189,16 +189,27 @@ def vacancy_detail(request, pk):
 
 
 def analytics_demo(request):
-    """Публичная демонстрация возможностей HR-аналитики (без приватных данных)."""
-    funnel = analytics.funnel_report()
+    """Публичная демонстрация возможностей HR-аналитики (без приватных данных).
+
+    Тяжёлые отчёты и графики matplotlib кешируются на 60 секунд, чтобы под
+    параллельной нагрузкой не пересчитываться на каждый запрос.
+    """
+    from django.core.cache import cache
+    cached = cache.get("public_analytics_demo")
+    if cached is None:
+        funnel = analytics.funnel_report()
+        cached = {
+            "kpi": analytics.kpi_summary(),
+            "funnel": funnel,
+            "chart_funnel": analytics.funnel_chart(funnel),
+            "chart_dynamics": analytics.dynamics_chart(),
+            "sources": analytics.source_efficiency_report(),
+        }
+        cache.set("public_analytics_demo", cached, 60)
     context = {
         "breadcrumbs": _crumbs(("Главная", reverse("home")),
                                ("HR-аналитика", None)),
-        "kpi": analytics.kpi_summary(),
-        "funnel": funnel,
-        "chart_funnel": analytics.funnel_chart(funnel),
-        "chart_dynamics": analytics.dynamics_chart(),
-        "sources": analytics.source_efficiency_report(),
+        **cached,
     }
     return render(request, "public/analytics_demo.html", context)
 
