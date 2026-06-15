@@ -205,7 +205,7 @@ def analytics_demo(request):
             "chart_dynamics": analytics.dynamics_chart(),
             "sources": analytics.source_efficiency_report(),
         }
-        cache.set("public_analytics_demo", cached, 60)
+        cache.set("public_analytics_demo", cached, 300)
     context = {
         "breadcrumbs": _crumbs(("Главная", reverse("home")),
                                ("HR-аналитика", None)),

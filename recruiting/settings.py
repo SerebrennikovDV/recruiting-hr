@@ -156,6 +156,19 @@ MEDIA_ROOT = BASE_DIR / "media"                   # загруженные по�
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Кэш — file-based: разделяется между worker'ами gunicorn (в отличие от
+# locmem, у которого у каждого процесса своя память). Используется для
+# тяжёлых вычислений HR-аналитики и matplotlib-графиков под параллельной
+# нагрузкой (см. core.views.analytics_demo и tools/load_test.py).
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+        "LOCATION": str(BASE_DIR / ".cache"),
+        "TIMEOUT": 300,
+        "OPTIONS": {"MAX_ENTRIES": 1000},
+    }
+}
+
 # --- Аутентификация: маршруты входа/выхода ---------------------------------
 LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = "dashboard"                  # после входа — общий диспетчер кабинетов
