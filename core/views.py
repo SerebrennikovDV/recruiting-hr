@@ -28,7 +28,8 @@ from .forms import (ApplicationCandidateForm, ApplicationStageForm,
                     CandidateForm, CandidateProfileForm, FeedbackForm,
                     InterviewForm, ResumeUploadForm, SignUpForm, VacancyForm)
 from .models import (Application, ApplicationStatus, Article, Candidate,
-                     Interview, Role, Stage, Vacancy, VacancyStatus)
+                     Department, ExternalVacancy, Interview, Role, Stage,
+                     Vacancy, VacancyStatus)
 
 
 def _crumbs(*pairs):
@@ -670,3 +671,72 @@ def cand_apply(request, vacancy_pk):
                       (vacancy.title, reverse("vacancy_detail", args=[vacancy.pk])),
                       ("Отклик", None)),
                    "form": form, "vacancy": vacancy})
+
+
+# ---------------------------------------------------------------------------
+#  Импорт вакансий с внешних площадок подбора
+# ---------------------------------------------------------------------------
+@login_required
+@recruiter_required
+def rec_import(request):
+    """Поиск вакансий на площадке и просмотр загруженной выборки."""
+    from .connectors import get_connector
+    from .forms import VacancyImportForm
+
+    form = VacancyImportForm(request.POST or None)
+    if request.method == "POST" and form.is_valid():
+        source = form.cleaned_data["source"]
+        query = form.cleaned_data["query"]
+        connector = get_connector(source)
+        vacancies = connector.search(query, form.cleaned_data["limit"])
+        if vacancies:
+            saved = connector.cache_to_db(vacancies, query)
+            messages.success(
+                request,
+                f"С площадки {connector.display_name} загружено "
+                f"вакансий: {saved}")
+        else:
+            # Пустой ответ - штатная ситуация: площадка может быть
+            # недоступна или требовать ключ доступа.
+            messages.warning(
+                request,
+                f"Площадка {connector.display_name} не вернула вакансий. "
+                "Проверьте запрос или режим работы коннектора.")
+        return redirect("rec_import")
+
+    loaded = ExternalVacancy.objects.select_related(
+        "imported_vacancy").order_by("-loaded_at")[:50]
+    return render(request, "cabinet/recruiter/import.html",
+                  {"form": form, "loaded": loaded})
+
+
+@login_required
+@recruiter_required
+@transaction.atomic
+def rec_import_transfer(request, pk):
+    """Переносит внешнюю вакансию во внутренний реестр.
+
+    Перенос делает рекрутёр вручную: открытый поиск площадки возвращает
+    объявления всего рынка, и автоматический перенос засорил бы реестр
+    вакансиями других работодателей.
+    """
+    external = get_object_or_404(ExternalVacancy, pk=pk)
+    if external.imported_vacancy is not None:
+        messages.info(request, "Эта вакансия уже перенесена в реестр")
+        return redirect("rec_import")
+
+    department = Department.objects.order_by("id").first()
+    vacancy = Vacancy.objects.create(
+        title=external.title[:150],
+        department=department,
+        description=external.description,
+        salary_min=external.salary_from,
+        salary_max=external.salary_to,
+        status=VacancyStatus.OPEN,
+        recruiter=request.user,
+    )
+    external.imported_vacancy = vacancy
+    external.save(update_fields=["imported_vacancy"])
+    messages.success(request, f"Вакансия «{vacancy.title}» перенесена "
+                              "в реестр и открыта для откликов")
+    return redirect("rec_vacancy_edit", pk=vacancy.pk)

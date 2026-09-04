@@ -59,6 +59,10 @@ urlpatterns = [
          name="export_vacancies_xlsx"),
 
     # --- Кабинет кандидата ---
+    path("cabinet/recruiter/import/", views.rec_import, name="rec_import"),
+    path("cabinet/recruiter/import/<int:pk>/transfer/",
+         views.rec_import_transfer, name="rec_import_transfer"),
+
     path("cabinet/candidate/", views.cand_dashboard, name="cand_dashboard"),
     path("cabinet/candidate/profile/", views.cand_profile, name="cand_profile"),
     path("cabinet/candidate/resumes/", views.cand_resumes, name="cand_resumes"),
