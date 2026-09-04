@@ -61,7 +61,8 @@ def score_application(application) -> Match | None:
     parsed = getattr(resume, "parsed", None) or parse_resume(resume)
 
     requirements = []
-    for link in application.vacancy.vacancy_skills.select_related("skill"):
+    links = application.vacancy.vacancyskill_set.select_related("skill")
+    for link in links:
         lemma = lemmatize_keywords([link.skill.name])[0]
         requirements.append((lemma, 1.0, link.is_required))
 
