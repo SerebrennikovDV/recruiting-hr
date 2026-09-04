@@ -229,3 +229,21 @@ class ApplicationStageForm(BootstrapMixin, forms.ModelForm):
         model = Application
         fields = ["stage", "status", "score", "comment"]
         widgets = {"comment": forms.Textarea(attrs={"rows": 3})}
+
+
+class VacancyImportForm(BootstrapMixin, forms.Form):
+    """Поиск вакансий на внешней площадке подбора."""
+
+    source = forms.ChoiceField(label="Площадка", choices=())
+    query = forms.CharField(label="Поисковый запрос", max_length=200,
+                            initial="Python-разработчик")
+    limit = forms.IntegerField(label="Сколько загрузить", min_value=1,
+                               max_value=50, initial=10)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Список площадок берётся из реестра коннекторов: при добавлении
+        # новой площадки форма меняться не должна.
+        from core.connectors import available_sources
+
+        self.fields["source"].choices = available_sources()
