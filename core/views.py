@@ -22,6 +22,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
 
+import logging
+
 from . import analytics, documents
 from .decorators import candidate_required, recruiter_required
 from .forms import (ApplicationCandidateForm, ApplicationStageForm,
@@ -30,6 +32,9 @@ from .forms import (ApplicationCandidateForm, ApplicationStageForm,
 from .models import (Application, ApplicationStatus, Article, Candidate,
                      Department, ExternalVacancy, Interview, Role, Stage,
                      Vacancy, VacancyStatus)
+
+
+logger = logging.getLogger(__name__)
 
 
 def _crumbs(*pairs):
@@ -660,6 +665,19 @@ def cand_apply(request, vacancy_pk):
             app.stage = first_stage
             app.status = ApplicationStatus.NEW
             app.save()
+
+            # Первичный отбор запускается сразу после отклика: рекрутёр
+            # получает очередь, отранжированную по соответствию, а не
+            # список в порядке поступления. Ошибка разбора резюме не должна
+            # мешать самому отклику, поэтому исключения гасятся.
+            try:
+                from .screening.services import score_application
+
+                score_application(app)
+            except Exception as exc:  # noqa: BLE001
+                logger.warning("Отбор для отклика %s не выполнен: %s",
+                               app.pk, exc)
+
             messages.success(
                 request, f"Отклик на вакансию «{vacancy.title}» отправлен!")
             return redirect("cand_applications")
