@@ -50,3 +50,35 @@ class ConnectorMockModeTests(TestCase):
     def test_limit_is_respected(self):
         items = get_connector("hh").search("", limit=2)
         self.assertLessEqual(len(items), 2)
+
+
+class ConnectorCacheTests(TestCase):
+    """Сохранение выборки в хранилище внешних вакансий."""
+
+    def test_cache_creates_records(self):
+        connector = get_connector("hh")
+        items = connector.search("разработчик", limit=3)
+        saved = connector.cache_to_db(items, "разработчик")
+
+        self.assertEqual(saved, len(items))
+        self.assertEqual(ExternalVacancy.objects.count(), len(items))
+        record = ExternalVacancy.objects.first()
+        self.assertEqual(record.source, "hh")
+        self.assertEqual(record.query, "разработчик")
+
+    def test_repeated_import_updates_records(self):
+        """Повторная загрузка не плодит дубликаты."""
+        connector = get_connector("hh")
+        items = connector.search("разработчик", limit=3)
+        connector.cache_to_db(items, "разработчик")
+        connector.cache_to_db(items, "python")
+
+        self.assertEqual(ExternalVacancy.objects.count(), len(items))
+        self.assertEqual(ExternalVacancy.objects.first().query, "python")
+
+    def test_records_from_different_sources_coexist(self):
+        for name in ("hh", "superjob"):
+            connector = get_connector(name)
+            connector.cache_to_db(connector.search("", limit=2), "")
+        self.assertEqual(
+            ExternalVacancy.objects.values("source").distinct().count(), 2)
