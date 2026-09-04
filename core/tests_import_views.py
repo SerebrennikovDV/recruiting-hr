@@ -77,3 +77,41 @@ class ImportTransferTests(TestCase):
         before = Vacancy.objects.count()
         self.client.get(url, follow=True)
         self.assertEqual(Vacancy.objects.count(), before)
+
+
+class ImportedVacancyContentTests(TestCase):
+    """Содержание вакансии, перенесённой в реестр."""
+
+    @classmethod
+    def setUpTestData(cls):
+        cls.dep = Department.objects.create(name="Отдел разработки")
+        cls.recruiter = User.objects.create_user(
+            "rec", password="Hr#Unitcode2026", role=Role.RECRUITER)
+
+    def test_fields_copied_from_external(self):
+        external = ExternalVacancy.objects.create(
+            source="hh", external_id="777", title="Инженер данных",
+            description="Требуется опыт работы с PostgreSQL",
+            salary_from=180000, salary_to=250000,
+            keywords=["PostgreSQL", "Python"])
+        self.client.login(username="rec", password="Hr#Unitcode2026")
+        self.client.get(reverse("rec_import_transfer", args=[external.pk]),
+                        follow=True)
+
+        external.refresh_from_db()
+        vacancy = external.imported_vacancy
+        self.assertEqual(vacancy.title, "Инженер данных")
+        self.assertEqual(vacancy.salary_min, 180000)
+        self.assertEqual(vacancy.salary_max, 250000)
+        self.assertIn("PostgreSQL", vacancy.description)
+
+    def test_long_title_is_truncated(self):
+        """Название на площадке длиннее, чем допускает поле вакансии."""
+        external = ExternalVacancy.objects.create(
+            source="hh", external_id="778", title="И" * 200)
+        self.client.login(username="rec", password="Hr#Unitcode2026")
+        self.client.get(reverse("rec_import_transfer", args=[external.pk]),
+                        follow=True)
+
+        external.refresh_from_db()
+        self.assertLessEqual(len(external.imported_vacancy.title), 150)
