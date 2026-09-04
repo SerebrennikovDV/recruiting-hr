@@ -96,3 +96,59 @@ class ScoringTests(TestCase):
         result = self._score("", [("python", 1.0, True)])
         self.assertEqual(float(result.score), 0.0)
         self.assertTrue(result.reasons)
+
+
+class ExperienceBonusTests(TestCase):
+    """Поправка за стаж работы."""
+
+    def _score(self, actual, required):
+        return calculate_score(
+            resume_text="python",
+            required_keywords=[("python", 1.0, True)],
+            min_experience_years=required,
+            experience_years=actual,
+        )
+
+    def test_surplus_experience_gives_bonus(self):
+        result = self._score(actual=6, required=2)
+        self.assertTrue(result.experience_match)
+        self.assertEqual(float(result.score), 100.0)
+
+    def test_insufficient_experience_penalised(self):
+        result = self._score(actual=1, required=5)
+        self.assertFalse(result.experience_match)
+        self.assertLess(float(result.score), 100.0)
+
+    def test_unknown_experience_penalised_slightly(self):
+        unknown = self._score(actual=None, required=3)
+        insufficient = self._score(actual=1, required=3)
+        self.assertGreater(float(unknown.score), float(insufficient.score))
+
+    def test_no_requirement_no_penalty(self):
+        result = self._score(actual=None, required=0)
+        self.assertTrue(result.experience_match)
+        self.assertEqual(float(result.score), 100.0)
+
+
+class VerdictThresholdTests(TestCase):
+    """Пороговые значения решения."""
+
+    def _verdict(self, matched, total):
+        requirements = [(f"skill{i}", 1.0, False) for i in range(total)]
+        resume = " ".join(f"skill{i}" for i in range(matched))
+        return calculate_score(
+            resume_text=resume or "нет совпадений",
+            required_keywords=requirements,
+            min_experience_years=0,
+            experience_years=None,
+        ).verdict
+
+    def test_high_score_recommended(self):
+        self.assertEqual(self._verdict(matched=8, total=10), "recommended")
+
+    def test_middle_score_left_to_recruiter(self):
+        """Промежуточные значения решает рекрутёр, а не программа."""
+        self.assertEqual(self._verdict(matched=6, total=10), "review")
+
+    def test_low_score_rejected(self):
+        self.assertEqual(self._verdict(matched=2, total=10), "rejected")
