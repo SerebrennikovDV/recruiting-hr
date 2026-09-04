@@ -10,10 +10,11 @@ from django.contrib import admin, messages
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils import timezone
 
-from .models import (Application, Article, Candidate, CandidateSkill,
-                     Department, Evaluation, Feedback, IndustryBenchmark,
-                     Interview, Offer, Role, ResumeFile, Skill, Source, Stage,
-                     User, Vacancy, VacancySkill, VacancyStatus)
+from .models import (
+    Application, Article, Candidate, CandidateSkill, Department,
+    Evaluation, ExternalVacancy, Feedback, IndustryBenchmark, Interview,
+    Match, Offer, ResumeFile, ResumeParse, Role, Skill, Source, Stage,
+    User, Vacancy, VacancySkill, VacancyStatus)
 
 
 # ---------------------------------------------------------------------------
@@ -290,3 +291,40 @@ class IndustryBenchmarkAdmin(admin.ModelAdmin):
                     "source", "is_published")
     list_filter = ("metric", "industry", "year", "is_published")
     search_fields = ("source", "industry")
+
+
+# ---------------------------------------------------------------------------
+#  Подсистемы интеграции и первичного отбора
+# ---------------------------------------------------------------------------
+@admin.register(ExternalVacancy)
+class ExternalVacancyAdmin(admin.ModelAdmin):
+    """Вакансии, загруженные с внешних площадок подбора."""
+
+    list_display = ("title", "source", "query", "salary_from", "salary_to",
+                    "imported_vacancy", "loaded_at")
+    list_filter = ("source", "loaded_at")
+    search_fields = ("title", "description", "query")
+    readonly_fields = ("loaded_at",)
+
+
+@admin.register(ResumeParse)
+class ResumeParseAdmin(admin.ModelAdmin):
+    """Результаты разбора файлов резюме."""
+
+    list_display = ("resume", "years_experience", "parser_version",
+                    "parsed_at")
+    list_filter = ("parser_version", "parsed_at")
+    search_fields = ("resume__candidate__last_name",)
+    readonly_fields = ("parsed_at",)
+
+
+@admin.register(Match)
+class MatchAdmin(admin.ModelAdmin):
+    """Оценки соответствия резюме требованиям вакансий."""
+
+    list_display = ("application", "score", "verdict", "experience_match",
+                    "calculated_at")
+    list_filter = ("verdict", "experience_match", "calculated_at")
+    search_fields = ("application__candidate__last_name",
+                     "application__vacancy__title")
+    readonly_fields = ("calculated_at",)
