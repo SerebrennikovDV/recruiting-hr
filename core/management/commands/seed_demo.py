@@ -17,6 +17,8 @@ from django.core.management.base import BaseCommand
 from django.utils import timezone
 from django.utils.text import slugify
 
+from core.connectors import get_connector
+from core.screening.services import score_application
 from core.models import (Application, ApplicationStatus, Article, Candidate,
                          CandidateSkill, Department, Evaluation, Feedback,
                          Grade, IndustryBenchmark, Interview, InterviewResult,
@@ -372,6 +374,31 @@ class Command(BaseCommand):
                 metric=b["metric"], industry=b["industry"], year=b["year"],
                 defaults=b,
             )
+
+        # Внешние вакансии: без них страница импорта пуста, и на защите
+        # подсистему интеграции пришлось бы показывать вживую с площадки.
+        external_created = 0
+        for name in ("hh", "superjob", "avito"):
+            try:
+                connector = get_connector(name)
+                items = connector.search("разработчик", limit=5)
+                external_created += connector.cache_to_db(items,
+                                                          "разработчик")
+            except Exception as exc:  # noqa: BLE001
+                self.stdout.write(self.style.WARNING(
+                    f"Площадка {name} недоступна: {exc}"))
+
+        # Оценки соответствия для откликов с приложенным резюме.
+        scored = 0
+        for application in Application.objects.select_related("candidate"):
+            try:
+                if score_application(application) is not None:
+                    scored += 1
+            except Exception:  # noqa: BLE001
+                continue
+
+        self.stdout.write(self.style.SUCCESS(
+            f"Внешних вакансий: {external_created}, оценок отбора: {scored}"))
 
         self.stdout.write(self.style.SUCCESS(
             "Демо-данные загружены: "
