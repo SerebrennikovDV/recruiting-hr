@@ -19,6 +19,7 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
+from django.db.models import Q
 from django.urls import reverse
 from django.utils import timezone
 
@@ -639,3 +640,136 @@ class IndustryBenchmark(models.Model):
     def __str__(self):
         return (f"{self.get_metric_display()} · {self.industry} · "
                 f"{self.year}: {self.value} {self.unit}")
+
+
+# ---------------------------------------------------------------------------
+#  Подсистема интеграции с внешними площадками подбора
+# ---------------------------------------------------------------------------
+class ExternalVacancy(models.Model):
+    """Вакансия, загруженная с внешней площадки.
+
+    Загруженные записи не попадают в рабочий реестр автоматически:
+    открытый поиск площадки возвращает объявления всего рынка, и такой
+    перенос засорил бы реестр вакансиями других работодателей. Решение
+    о переносе принимает рекрутёр.
+    """
+
+    SOURCE_CHOICES = [
+        ("hh", "hh.ru"),
+        ("superjob", "SuperJob"),
+        ("avito", "Avito Работа"),
+    ]
+
+    source = models.CharField("Площадка", max_length=20,
+                              choices=SOURCE_CHOICES)
+    external_id = models.CharField("Идентификатор на площадке",
+                                   max_length=64)
+    query = models.CharField("Поисковый запрос", max_length=200, blank=True)
+    title = models.CharField("Название вакансии", max_length=200)
+    description = models.TextField("Описание", blank=True)
+    url = models.URLField("Ссылка на объявление", max_length=500, blank=True)
+    salary_from = models.PositiveIntegerField("Зарплата от, р.", default=0)
+    salary_to = models.PositiveIntegerField("Зарплата до, р.", default=0)
+    keywords = models.JSONField("Ключевые слова требований", default=list,
+                                blank=True)
+    imported_vacancy = models.ForeignKey(
+        "Vacancy", verbose_name="Перенесена во внутренний реестр",
+        on_delete=models.SET_NULL, null=True, blank=True,
+        related_name="external_origins")
+    loaded_at = models.DateTimeField("Дата загрузки", default=timezone.now)
+
+    class Meta:
+        verbose_name = "Внешняя вакансия"
+        verbose_name_plural = "Внешние вакансии"
+        ordering = ["-loaded_at"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["source", "external_id"],
+                name="uniq_external_source_id",
+            )
+        ]
+        indexes = [
+            models.Index(fields=["loaded_at"], name="ext_loaded_at_idx"),
+        ]
+
+    def __str__(self):
+        return f"{self.get_source_display()}: {self.title}"
+
+
+# ---------------------------------------------------------------------------
+#  Подсистема первичного отбора резюме
+# ---------------------------------------------------------------------------
+class ResumeParse(models.Model):
+    """Результат разбора файла резюме.
+
+    Текст хранится в нормализованном виде: слова приведены к начальной
+    форме, поэтому «разработчик», «разработчику» и «разработчиком»
+    сопоставляются с требованием вакансии как одно слово.
+    """
+
+    resume = models.OneToOneField(ResumeFile, verbose_name="Резюме",
+                                  on_delete=models.CASCADE,
+                                  related_name="parsed")
+    raw_text = models.TextField("Извлечённый текст", blank=True)
+    normalized_text = models.TextField("Нормализованный текст", blank=True)
+    years_experience = models.DecimalField(
+        "Стаж по резюме, лет", max_digits=4, decimal_places=1,
+        null=True, blank=True)
+    parser_version = models.CharField("Версия разборщика", max_length=10,
+                                      default="1.0")
+    parsed_at = models.DateTimeField("Дата разбора", default=timezone.now)
+
+    class Meta:
+        verbose_name = "Результат разбора резюме"
+        verbose_name_plural = "Результаты разбора резюме"
+        ordering = ["-parsed_at"]
+
+    def __str__(self):
+        return f"Разбор резюме №{self.resume_id}"
+
+
+class Match(models.Model):
+    """Оценка соответствия резюме требованиям вакансии.
+
+    Помимо числа сохраняются найденные и недостающие требования: рекрутёр
+    должен видеть обоснование оценки, а не только её значение.
+    """
+
+    VERDICT_CHOICES = [
+        ("recommended", "Рекомендован"),
+        ("review", "На решение рекрутёра"),
+        ("rejected", "Не прошёл первичный отбор"),
+    ]
+
+    application = models.OneToOneField(
+        Application, verbose_name="Отклик", on_delete=models.CASCADE,
+        related_name="match")
+    score = models.DecimalField("Оценка соответствия", max_digits=5,
+                                decimal_places=2, default=0,
+                                help_text="От 0 до 100")
+    verdict = models.CharField("Решение", max_length=20,
+                               choices=VERDICT_CHOICES, default="review")
+    matched_keywords = models.JSONField("Найденные требования",
+                                        default=list, blank=True)
+    missing_keywords = models.JSONField("Недостающие требования",
+                                        default=list, blank=True)
+    experience_match = models.BooleanField("Стаж соответствует",
+                                           default=False)
+    reasons = models.JSONField("Обоснование решения", default=list,
+                               blank=True)
+    calculated_at = models.DateTimeField("Дата расчёта",
+                                         default=timezone.now)
+
+    class Meta:
+        verbose_name = "Оценка соответствия"
+        verbose_name_plural = "Оценки соответствия"
+        ordering = ["-score"]
+        constraints = [
+            models.CheckConstraint(
+                check=Q(score__gte=0) & Q(score__lte=100),
+                name="match_score_range",
+            )
+        ]
+
+    def __str__(self):
+        return f"Отклик №{self.application_id}: {self.score}"
