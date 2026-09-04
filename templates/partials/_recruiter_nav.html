@@ -12,6 +12,8 @@
     <i class="bi bi-calendar-check me-2"></i>Собеседования</a>
   <a href="{% url 'rec_analytics' %}" class="list-group-item list-group-item-action {% if active == 'analytics' %}active{% endif %}">
     <i class="bi bi-bar-chart-line me-2"></i>HR-аналитика</a>
+  <a href="{% url 'rec_import' %}" class="list-group-item list-group-item-action {% if active == 'import' %}active{% endif %}">
+    <i class="bi bi-cloud-download"></i> Импорт с площадок</a>
 </div>
 <div class="card mt-3 shadow-sm">
   <div class="card-body small">

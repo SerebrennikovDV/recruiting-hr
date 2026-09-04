@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}Импорт вакансий — кабинет рекрутёра{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-3">{% include 'partials/_recruiter_nav.html' with active='import' %}</div>
+  <div class="col-lg-9">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'rec_dashboard' %}">Кабинет рекрутёра</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Импорт с площадок</li>
+      </ol>
+    </nav>
+
+    <h3 class="section-title mb-3">Импорт вакансий с внешних площадок</h3>
+    <p class="text-muted">
+      Загруженные вакансии не попадают в реестр автоматически: поиск площадки
+      возвращает объявления всего рынка. Нужные позиции переносятся вручную.
+    </p>
+
+    <form method="post" class="row g-2 mb-4">
+      {% csrf_token %}
+      <div class="col-md-3">{{ form.source }}</div>
+      <div class="col-md-5">{{ form.query }}</div>
+      <div class="col-md-2">{{ form.limit }}</div>
+      <div class="col-md-2 d-grid">
+        <button class="btn btn-primary">Загрузить</button>
+      </div>
+    </form>
+
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr>
+            <th>Площадка</th>
+            <th>Вакансия</th>
+            <th>Требования</th>
+            <th>Зарплата, р.</th>
+            <th>Загружена</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for item in loaded %}
+          <tr>
+            <td>{{ item.get_source_display }}</td>
+            <td>
+              {% if item.url %}<a href="{{ item.url }}" target="_blank"
+                 rel="noopener">{{ item.title }}</a>
+              {% else %}{{ item.title }}{% endif %}
+            </td>
+            <td class="small text-muted">
+              {% for word in item.keywords|slice:":6" %}
+                <span class="badge bg-light text-dark">{{ word }}</span>
+              {% empty %}—{% endfor %}
+            </td>
+            <td>
+              {% if item.salary_from or item.salary_to %}
+                {{ item.salary_from }}–{{ item.salary_to }}
+              {% else %}не указана{% endif %}
+            </td>
+            <td class="small">{{ item.loaded_at|date:"d.m.Y H:i" }}</td>
+            <td class="text-end">
+              {% if item.imported_vacancy %}
+                <span class="badge bg-success">в реестре</span>
+              {% else %}
+                <a class="btn btn-sm btn-outline-primary"
+                   href="{% url 'rec_import_transfer' item.pk %}">Перенести</a>
+              {% endif %}
+            </td>
+          </tr>
+        {% empty %}
+          <tr><td colspan="6" class="text-center text-muted py-4">
+            Вакансии ещё не загружались</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
