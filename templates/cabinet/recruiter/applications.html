@@ -18,7 +18,21 @@
                 <a href="{% url 'rec_application_edit' a.pk %}" class="text-decoration-none fw-bold d-block">
                   {{ a.candidate.full_name }}</a>
                 <span class="text-muted">{{ a.vacancy.title|truncatechars:28 }}</span>
-                <div class="mt-1"><span class="badge bg-light text-dark">оценка {{ a.score }}</span></div>
+                <div class="mt-1">
+                  <span class="badge bg-light text-dark">оценка {{ a.score }}</span>
+                  {% if a.match %}
+                    {% if a.match.verdict == 'recommended' %}
+                      <span class="badge bg-success" title="Первичный отбор: рекомендован">
+                        отбор {{ a.match.score|floatformat:0 }}</span>
+                    {% elif a.match.verdict == 'review' %}
+                      <span class="badge bg-warning text-dark" title="Первичный отбор: на решение рекрутёра">
+                        отбор {{ a.match.score|floatformat:0 }}</span>
+                    {% else %}
+                      <span class="badge bg-secondary" title="Первичный отбор: соответствие ниже порога">
+                        отбор {{ a.match.score|floatformat:0 }}</span>
+                    {% endif %}
+                  {% endif %}
+                </div>
               </div>
             {% empty %}<p class="small text-muted mb-0">—</p>{% endfor %}
           </div>

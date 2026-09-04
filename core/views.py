@@ -427,8 +427,11 @@ def candidate_detail(request, pk):
 @recruiter_required
 def rec_applications(request):
     """Список откликов (канбан по этапам) с фильтрами."""
+    # Оценка соответствия подтягивается одним запросом: на канбане она
+    # выводится в каждой карточке, и без select_related это дало бы
+    # обращение к базе на каждый отклик.
     qs = Application.objects.select_related(
-        "candidate", "vacancy", "stage").all()
+        "candidate", "vacancy", "stage", "match").all()
     status = request.GET.get("status", "")
     if status:
         qs = qs.filter(status=status)
