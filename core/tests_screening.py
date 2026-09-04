@@ -28,3 +28,29 @@ class LemmatizerTests(TestCase):
     def test_keywords_normalized(self):
         self.assertEqual(lemmatize_keywords(["Тестирование", "Docker"]),
                          ["тестирование", "docker"])
+
+
+class ExperienceExtractionTests(TestCase):
+    """Определение стажа по тексту резюме."""
+
+    def test_common_wordings(self):
+        cases = {
+            "Опыт работы 5 лет в разработке": 5,
+            "Стаж: 3 года": 3,
+            "7+ лет опыта коммерческой разработки": 7,
+        }
+        for text, expected in cases.items():
+            with self.subTest(text=text):
+                self.assertEqual(extract_experience_years(text), expected)
+
+    def test_largest_value_wins(self):
+        """Кандидаты указывают и общий стаж, и стаж по местам работы."""
+        text = "Опыт работы 8 лет. В последней компании стаж 3 года."
+        self.assertEqual(extract_experience_years(text), 8)
+
+    def test_no_experience_mentioned(self):
+        self.assertIsNone(extract_experience_years("Резюме без стажа"))
+        self.assertIsNone(extract_experience_years(""))
+
+    def test_unrealistic_values_ignored(self):
+        self.assertIsNone(extract_experience_years("Опыт работы 99 лет"))
