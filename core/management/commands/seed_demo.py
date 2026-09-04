@@ -346,21 +346,26 @@ class Command(BaseCommand):
 
         # Эталонные значения отраслевых HR-метрик для дашборда (замечание 11).
         benchmarks = [
-            dict(metric="time_to_hire", industry="ИТ в России", value=30,
+            # Единственный показатель, по которому есть публикуемая
+            # отраслевая статистика. Остальные значения - целевые
+            # ориентиры организации, что и указано в поле источника:
+            # выдавать их за среднеотраслевые данные некорректно.
+            dict(metric="time_to_hire", industry="ИТ в России", value=44.5,
                  unit="дней",
-                 source="hh.ru research 2024 «Рынок ИТ-найма»", year=2024),
-            dict(metric="time_to_hire", industry="Финтех", value=28,
-                 unit="дней",
-                 source="AIHR Industry Report 2024", year=2024),
-            dict(metric="cost_per_hire", industry="ИТ в России", value=85000,
-                 unit="₽",
-                 source="Хабр Карьера, обзор 2024", year=2024),
-            dict(metric="conversion", industry="ИТ в России", value=8.5,
+                 source="Поток Рекрутмент, отчёт о скорости закрытия "
+                        "вакансий за 2025 год", year=2025),
+            dict(metric="cost_per_hire", industry="ООО «ЮНИТКОД»",
+                 value=85000, unit="р.",
+                 source="Целевое значение организации, экспертная оценка",
+                 year=2026),
+            dict(metric="conversion", industry="ООО «ЮНИТКОД»", value=8.5,
                  unit="%",
-                 source="hh.ru research 2024", year=2024),
-            dict(metric="offer_acceptance", industry="ИТ в России", value=72.0,
-                 unit="%",
-                 source="AIHR Industry Report 2024", year=2024),
+                 source="Целевое значение организации, экспертная оценка",
+                 year=2026),
+            dict(metric="offer_acceptance", industry="ООО «ЮНИТКОД»",
+                 value=75.0, unit="%",
+                 source="Целевое значение организации, экспертная оценка",
+                 year=2026),
         ]
         for b in benchmarks:
             IndustryBenchmark.objects.update_or_create(

@@ -1,0 +1,32 @@
+[
+  {
+    "external_id": "sj-58102",
+    "title": "Python разработчик (Django/Flask)",
+    "description": "Разработка backend на Python с использованием Django и Flask. БД PostgreSQL, MongoDB. Опыт интеграции с внешними сервисами по REST. Работа с Docker, Linux.",
+    "keywords": ["python", "django", "flask", "postgresql", "mongodb", "rest", "docker", "linux"],
+    "url": "https://www.superjob.ru/vakansii/python-58102.html",
+    "salary_from": 140000,
+    "salary_to": 220000,
+    "employer": "DataAnalytics LLC"
+  },
+  {
+    "external_id": "sj-58103",
+    "title": "Веб-разработчик PHP / Python",
+    "description": "Разработка корпоративных веб-сервисов. PHP, Python, MySQL, JavaScript. Опыт интеграции с 1С приветствуется.",
+    "keywords": ["php", "python", "mysql", "javascript", "1c"],
+    "url": "https://www.superjob.ru/vakansii/python-58103.html",
+    "salary_from": 110000,
+    "salary_to": 180000,
+    "employer": "АйТи Сервис"
+  },
+  {
+    "external_id": "sj-58104",
+    "title": "Backend Engineer (FastAPI)",
+    "description": "Разработка микросервисов на FastAPI. PostgreSQL, Redis, Celery, Kubernetes. Покрытие тестами pytest. Опыт код-ревью.",
+    "keywords": ["fastapi", "python", "postgresql", "redis", "celery", "kubernetes", "pytest"],
+    "url": "https://www.superjob.ru/vakansii/python-58104.html",
+    "salary_from": 200000,
+    "salary_to": 320000,
+    "employer": "MicroServ"
+  }
+]

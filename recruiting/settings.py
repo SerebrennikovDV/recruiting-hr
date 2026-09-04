@@ -216,3 +216,35 @@ if not DEBUG:
         CSRF_COOKIE_SECURE = True
         SECURE_HSTS_SECONDS = 60 * 60 * 24 * 30  # 30 дней
         SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+
+# --- Подсистема интеграции с внешними площадками подбора -----------------
+# Режим воспроизведения включён по умолчанию: промышленные интерфейсы
+# SuperJob и Avito требуют ключа доступа, привязанного к юридическому лицу,
+# поэтому тесты и демонстрация работают на сохранённых ответах площадок.
+CONNECTORS = {
+    "MOCK_MODE": env_bool("CONNECTORS_MOCK_MODE", True),
+    "FIXTURES_PATH": BASE_DIR / "core" / "connectors" / "fixtures",
+    "HH_API_BASE": os.environ.get("HH_API_BASE", "https://api.hh.ru"),
+    "SUPERJOB_API_BASE": os.environ.get("SUPERJOB_API_BASE",
+                                        "https://api.superjob.ru/2.0"),
+    "SUPERJOB_SECRET": os.environ.get("SUPERJOB_SECRET", ""),
+    "AVITO_API_BASE": os.environ.get("AVITO_API_BASE",
+                                     "https://api.avito.ru"),
+    "AVITO_TOKEN": os.environ.get("AVITO_TOKEN", ""),
+    "REQUEST_TIMEOUT": 10,
+}
+
+# --- Подсистема первичного отбора резюме ---------------------------------
+# Пороговые значения оценки соответствия: ниже нижнего порога отклик
+# помечается не прошедшим отбор, выше верхнего - рекомендованным.
+# Промежуточные значения остаются на решение рекрутёра.
+SCREENING = {
+    "PARSER_VERSION": "1.0",
+    "AUTO_REJECT_THRESHOLD": float(
+        os.environ.get("SCREENING_AUTO_REJECT", "50")),
+    "RECOMMEND_THRESHOLD": float(
+        os.environ.get("SCREENING_RECOMMEND", "70")),
+    "EXPERIENCE_BONUS": 15.0,
+    "MAX_TEXT_LENGTH": 50_000,
+}

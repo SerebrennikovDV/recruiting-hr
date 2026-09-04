@@ -1,0 +1,52 @@
+[
+  {
+    "external_id": "hh-92341001",
+    "title": "Python-разработчик (Django, Backend)",
+    "description": "Разработка и поддержка веб-сервиса на Python 3.12 и Django 5. Опыт работы с PostgreSQL, Redis, Celery, REST API. Понимание принципов CI/CD, опыт работы с Docker. Желателен опыт работы с микросервисной архитектурой и Kubernetes.",
+    "keywords": ["python", "django", "postgresql", "redis", "celery", "rest", "docker", "ci/cd", "kubernetes"],
+    "url": "https://hh.ru/vacancy/92341001",
+    "salary_from": 180000,
+    "salary_to": 280000,
+    "employer": "OpenSource Tech"
+  },
+  {
+    "external_id": "hh-92341002",
+    "title": "Senior Backend Developer (Python / Django / DRF)",
+    "description": "Разработка backend на Django и Django REST Framework. PostgreSQL, миграции, оптимизация запросов. Опыт работы с очередями Celery / RabbitMQ. Уверенное владение Git, опыт код-ревью. Английский intermediate+.",
+    "keywords": ["python", "django", "drf", "postgresql", "celery", "rabbitmq", "git", "rest"],
+    "url": "https://hh.ru/vacancy/92341002",
+    "salary_from": 250000,
+    "salary_to": 400000,
+    "employer": "FinTech Solutions"
+  },
+  {
+    "external_id": "hh-92341003",
+    "title": "Middle Python Developer",
+    "description": "Разработка и поддержка CRM-системы на Python/Django/PostgreSQL. Реализация бизнес-логики, написание тестов pytest, работа с Docker. Опыт 2+ года.",
+    "keywords": ["python", "django", "postgresql", "pytest", "docker"],
+    "url": "https://hh.ru/vacancy/92341003",
+    "salary_from": 150000,
+    "salary_to": 230000,
+    "employer": "CRM Lab"
+  },
+  {
+    "external_id": "hh-92341004",
+    "title": "Frontend Developer (React / TypeScript)",
+    "description": "Frontend на React 18 + TypeScript. Работа с REST API, Redux Toolkit, Tailwind CSS. Адаптивная вёрстка, тестирование Vitest/Jest. Желателен опыт работы с Storybook.",
+    "keywords": ["react", "typescript", "redux", "rest", "css", "jest"],
+    "url": "https://hh.ru/vacancy/92341004",
+    "salary_from": 170000,
+    "salary_to": 260000,
+    "employer": "WebStudio"
+  },
+  {
+    "external_id": "hh-92341005",
+    "title": "DevOps Engineer (Linux / Docker / Kubernetes)",
+    "description": "Развёртывание и сопровождение инфраструктуры: Docker, Kubernetes (k8s), CI/CD на GitHub Actions / GitLab CI, мониторинг (Prometheus, Grafana), Linux-администрирование, Bash, Python.",
+    "keywords": ["docker", "kubernetes", "ci/cd", "linux", "python", "bash", "prometheus", "grafana"],
+    "url": "https://hh.ru/vacancy/92341005",
+    "salary_from": 220000,
+    "salary_to": 350000,
+    "employer": "Cloud Native"
+  }
+]

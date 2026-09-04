@@ -1,0 +1,22 @@
+[
+  {
+    "external_id": "av-7720011",
+    "title": "Python-разработчик в продуктовую команду",
+    "description": "Развитие платформы интернет-сервиса. Python 3.12, Django 5, PostgreSQL, Redis, Celery. Покрытие тестами, ревью, грамотный Git-flow. Опыт работы с CRM-системами приветствуется.",
+    "keywords": ["python", "django", "postgresql", "redis", "celery", "git", "crm"],
+    "url": "https://www.avito.ru/work/python_7720011",
+    "salary_from": 170000,
+    "salary_to": 250000,
+    "employer": "Avito"
+  },
+  {
+    "external_id": "av-7720012",
+    "title": "Fullstack Developer (Django + React)",
+    "description": "Полный цикл разработки: backend Django REST + frontend React. PostgreSQL, Docker, GitHub Actions. Опыт 3+ лет.",
+    "keywords": ["django", "react", "rest", "postgresql", "docker", "github actions"],
+    "url": "https://www.avito.ru/work/fullstack_7720012",
+    "salary_from": 200000,
+    "salary_to": 280000,
+    "employer": "Domclick"
+  }
+]
