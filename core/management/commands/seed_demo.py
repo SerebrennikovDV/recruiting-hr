@@ -265,8 +265,16 @@ class Command(BaseCommand):
             3: ApplicationStatus.INTERVIEW, 4: ApplicationStatus.INTERVIEW,
             5: ApplicationStatus.OFFER, 6: ApplicationStatus.HIRED,
         }
+        # Число откликов фиксировано, чтобы конверсия найма совпадала
+        # с показателем организации из главы 1 работы. При 58 откликах
+        # и 3 нанятых конверсия составляет 3 / 58 = 5,2 %.
+        TOTAL_APPLICATIONS = 58
+        stage5 = next(s for s in stages if s.order == 5)
+        created = []
         pairs = set()
-        for _ in range(70):
+        attempts = 0
+        while len(created) < TOTAL_APPLICATIONS and attempts < 400:
+            attempts += 1
             c = rnd.choice(candidates)
             v = rnd.choice(vacancies)
             if (c.id, v.id) in pairs:
@@ -303,14 +311,28 @@ class Command(BaseCommand):
                             interview=iv, criterion=crit,
                             score=rnd.randint(5, 10),
                             comment="")
-            # Офферы для финальных этапов.
-            if stage.order >= 5 and status in (ApplicationStatus.OFFER,
-                                               ApplicationStatus.HIRED):
+            created.append(app)
+
+        # Выравниваем число нанятых под целевую конверсию 5,2 %: лишних
+        # переводим со стадии «Принят» обратно на «Оффер», чтобы воронка
+        # и показатель конверсии соответствовали данным главы 1.
+        target_hired = round(len(created) * 0.052)
+        hired_apps = [a for a in created if a.status == ApplicationStatus.HIRED]
+        for extra in hired_apps[target_hired:]:
+            extra.status = ApplicationStatus.OFFER
+            extra.stage = stage5
+            extra.save(update_fields=["status", "stage"])
+
+        # Офферы создаём после выравнивания статусов.
+        for app in created:
+            if app.stage.order >= 5 and app.status in (ApplicationStatus.OFFER,
+                                                       ApplicationStatus.HIRED):
                 Offer.objects.create(
                     application=app,
-                    salary=rnd.randint(v.salary_min // 1000, v.salary_max // 1000) * 1000,
+                    salary=rnd.randint(app.vacancy.salary_min // 1000,
+                                       app.vacancy.salary_max // 1000) * 1000,
                     start_date=timezone.localdate() + timedelta(days=rnd.randint(7, 30)),
-                    status=OfferStatus.ACCEPTED if status == ApplicationStatus.HIRED
+                    status=OfferStatus.ACCEPTED if app.status == ApplicationStatus.HIRED
                     else OfferStatus.SENT,
                     sent_at=timezone.localdate() - timedelta(days=rnd.randint(1, 15)))
 
