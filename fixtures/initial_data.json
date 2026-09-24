@@ -450,9 +450,9 @@
   "model": "core.skill",
   "pk": 18,
   "fields": {
-    "name": "Коммуникabельность",
+    "name": "Коммуникабельность",
     "category": "soft",
-    "description": "Навык: Коммуникabельность"
+    "description": "Навык: Коммуникабельность"
   }
 },
 {

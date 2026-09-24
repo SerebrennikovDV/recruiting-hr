@@ -69,7 +69,7 @@ SKILLS = [
     ("React", "framework"), ("FastAPI", "framework"), ("Docker", "tool"),
     ("Kubernetes", "tool"), ("Git", "tool"), ("Linux", "tool"),
     ("CI/CD", "tool"), ("Pandas", "framework"), ("Machine Learning", "tool"),
-    ("REST API", "tool"), ("Коммуникabельность", "soft"),
+    ("REST API", "tool"), ("Коммуникабельность", "soft"),
     ("Аналитическое мышление", "soft"), ("Английский язык", "soft"),
 ]
 
