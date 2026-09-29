@@ -1,0 +1,13 @@
+# В образ попадает только то, что нужно для работы сервиса.
+# Секреты передаются контейнеру через env_file в docker-compose.yml.
+.git
+.venv
+venv
+__pycache__
+*.pyc
+.env
+media
+staticfiles
+db.sqlite3
+.cache
+docs
