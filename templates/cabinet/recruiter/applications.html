@@ -7,9 +7,9 @@
     <h3 class="section-title mb-3">Канбан откликов по этапам</h3>
     <p class="text-muted small">Перетаскивать карточки не нужно — нажмите на кандидата,
       чтобы изменить этап, статус и оценку.</p>
-    <div class="row g-2 flex-nowrap overflow-auto pb-2">
+    <div class="kanban-board">
       {% for stage, apps in by_stage.items %}
-        <div class="col" style="min-width:230px">
+        <div>
           <div class="kanban-col">
             <h6 class="small fw-bold d-flex justify-content-between">
               {{ stage.name }} <span class="badge bg-primary">{{ apps|length }}</span></h6>

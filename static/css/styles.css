@@ -56,7 +56,30 @@ body {
 .badge-grade { background: #e0e7ff; color: var(--unit-primary-dark); }
 .badge-soft { background: #dcfce7; color: #166534; }
 
-/* Канбан-доска откликов */
+/* Канбан-доска откликов.
+   Колонки занимают доступную ширину и переносятся в следующий ряд, если
+   не помещаются: в одну строку шесть этапов по 230 px не влезали даже при
+   масштабе 100 %, а полоса прокрутки оказывалась ниже края экрана.
+   Высота колонки ограничена, заголовок этапа закреплён сверху. */
+.kanban-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: .5rem;
+    align-items: start;
+}
+.kanban-board .kanban-col {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+.kanban-board .kanban-col h6 {
+    position: sticky;
+    top: -.6rem;
+    margin: -.6rem -.6rem .5rem;
+    padding: .6rem;
+    align-items: flex-start;
+    background: #f1f5f9;
+    z-index: 1;
+}
 .kanban-col {
     background: #f1f5f9;
     border-radius: .7rem;
