@@ -60,20 +60,17 @@ body {
    Колонки занимают доступную ширину и переносятся в следующий ряд, если
    не помещаются: в одну строку шесть этапов по 230 px не влезали даже при
    масштабе 100 %, а полоса прокрутки оказывалась ниже края экрана.
-   Высота колонки ограничена, заголовок этапа закреплён сверху. */
+   Своей прокрутки у колонок нет - листается вся страница, а название
+   этапа остаётся вверху экрана, пока видна его колонка. */
 .kanban-board {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: .5rem;
     align-items: start;
 }
-.kanban-board .kanban-col {
-    max-height: 70vh;
-    overflow-y: auto;
-}
 .kanban-board .kanban-col h6 {
     position: sticky;
-    top: -.6rem;
+    top: 0;
     margin: -.6rem -.6rem .5rem;
     padding: .6rem;
     align-items: flex-start;

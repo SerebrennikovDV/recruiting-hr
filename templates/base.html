@@ -8,9 +8,8 @@
   {# Локально подключённые библиотеки (без CMS и внешних CDN) #}
   <link rel="stylesheet" href="{% static 'vendor/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'vendor/bootstrap-icons.css' %}">
-  {# Номер версии в адресе: nginx разрешает браузеру хранить статику 7 дней,
-     без него изменения стилей до пользователей не доходили бы. #}
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=2">
+  {# ?v - версия стилей: браузер хранит статику 7 дней, при правке CSS номер увеличивается #}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=3">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
