@@ -7,7 +7,7 @@
 «многие-ко-многим» реализованы через ассоциативные сущности с собственными
 реквизитами (CandidateSkill, VacancySkill, Application).
 
-Состав таблиц (16 прикладных + системные таблицы Django):
+Состав таблицы (16 прикладных + системные таблицы Django):
     User, Department, Source, Skill, Stage, Candidate, Vacancy, Application,
     Interview, Evaluation, Offer, ResumeFile, CandidateSkill, VacancySkill,
     Feedback, Article.
