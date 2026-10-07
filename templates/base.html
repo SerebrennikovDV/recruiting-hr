@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="{% static 'vendor/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'vendor/bootstrap-icons.css' %}">
   {# ?v - версия стилей: браузер хранит статику 7 дней, при правке CSS номер увеличивается #}
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=3">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=4">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -66,7 +66,7 @@
 {# ---------- Хлебные крошки (на каждой странице) ---------- #}
 {% if breadcrumbs %}
 <div class="bg-light border-bottom">
-  <div class="container">
+  <div class="{{ wide_layout|yesno:'container-fluid px-lg-4,container' }}">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb my-2 small">
         {% for label, url in breadcrumbs %}
@@ -84,7 +84,7 @@
 
 {# ---------- Всплывающие уведомления (flash) ---------- #}
 {% if messages %}
-<div class="container mt-3">
+<div class="{{ wide_layout|yesno:'container-fluid px-lg-4,container' }} mt-3">
   {% for message in messages %}
     <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
       {{ message }}
@@ -95,7 +95,8 @@
 {% endif %}
 
 {# ---------- Основное содержимое ---------- #}
-<main class="container my-4 flex-grow-1">
+{# wide_layout - страница во всю ширину окна (доска откликов) #}
+<main class="{{ wide_layout|yesno:'container-fluid px-lg-4,container' }} my-4 flex-grow-1">
   {% block content %}{% endblock %}
 </main>
 

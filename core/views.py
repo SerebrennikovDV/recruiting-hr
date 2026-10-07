@@ -444,7 +444,10 @@ def rec_applications(request):
                       ("Кабинет рекрутёра", reverse("rec_dashboard")),
                       ("Отклики", None)),
                    "by_stage": by_stage, "status": status,
-                   "status_choices": ApplicationStatus.choices})
+                   "status_choices": ApplicationStatus.choices,
+                   # Доска во всю ширину окна: шесть колонок этапов
+                   # не помещаются в обычный центральный контейнер.
+                   "wide_layout": True})
 
 
 @recruiter_required
