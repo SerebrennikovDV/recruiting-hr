@@ -383,6 +383,12 @@ class Application(models.Model):
         "Оценка соответствия (0–100)", default=0,
         validators=[MaxValueValidator(100)])
     cover_letter = models.TextField("Сопроводительное письмо", blank=True)
+    # Резюме, которое кандидат приложил к этому отклику. У кандидата может
+    # быть несколько резюме под разные должности; оценка соответствия
+    # считается по выбранному. Пустое значение - у старых откликов.
+    resume = models.ForeignKey(
+        "ResumeFile", verbose_name="Резюме", on_delete=models.SET_NULL,
+        null=True, blank=True, related_name="applications")
     comment = models.TextField("Комментарий рекрутёра", blank=True)
     applied_at = models.DateTimeField("Дата отклика", default=timezone.now)
     updated_at = models.DateTimeField("Обновлено", auto_now=True)

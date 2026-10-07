@@ -10,6 +10,18 @@
       <hr>
       <form method="post" novalidate>
         {% csrf_token %}
+        <label class="form-label">{{ form.resume.label }}</label>
+        {% if form.resume.field.queryset.exists %}
+          {{ form.resume }}
+          <div class="form-text mb-3">Оценка соответствия вакансии считается
+            по выбранному резюме.</div>
+        {% else %}
+          <div class="alert alert-warning small">Резюме не загружено.
+            <a href="{% url 'cand_resumes' %}">Загрузить резюме</a> - без него
+            первичный отбор по вакансии не выполняется.</div>
+        {% endif %}
+        {% for e in form.resume.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+
         <label class="form-label">{{ form.cover_letter.label }}</label>
         {{ form.cover_letter }}
         {% for e in form.cover_letter.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}

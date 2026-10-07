@@ -159,13 +159,30 @@ class ResumeUploadForm(BootstrapMixin, forms.ModelForm):
 
 
 class ApplicationCandidateForm(BootstrapMixin, forms.ModelForm):
-    """Отклик кандидата на вакансию (сопроводительное письмо)."""
+    """Отклик кандидата на вакансию: выбор резюме и сопроводительное письмо.
+
+    В списке только резюме этого кандидата, свежие сверху. Если резюме
+    есть, выбор обязателен; если нет - отклик отправляется без резюме,
+    и первичный отбор для него не выполняется.
+    """
 
     class Meta:
         model = Application
-        fields = ["cover_letter"]
+        fields = ["resume", "cover_letter"]
         widgets = {"cover_letter": forms.Textarea(
             attrs={"rows": 4, "placeholder": "Почему вы подходите на эту позицию?"})}
+
+    def __init__(self, *args, candidate=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        resumes = (candidate.resumes.order_by("-uploaded_at")
+                   if candidate is not None else ResumeFile.objects.none())
+        field = self.fields["resume"]
+        field.queryset = resumes
+        field.required = resumes.exists()
+        field.empty_label = None
+        field.label_from_instance = (
+            lambda r: f"{r.title or r.filename()} · загружено "
+                      f"{r.uploaded_at:%d.%m.%Y}")
 
 
 class VacancyForm(BootstrapMixin, forms.ModelForm):

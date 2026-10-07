@@ -50,9 +50,10 @@ def score_application(application) -> Match | None:
     и отклик остаётся на обычном ручном рассмотрении.
     """
     candidate = application.candidate
-    # Берётся последнее загруженное резюме: признака основного файла
-    # в модели нет, а актуальным кандидат считает свежий.
-    resume = candidate.resumes.order_by("-uploaded_at").first()
+    # Оценивается резюме, которое кандидат приложил к отклику. У старых
+    # откликов его нет - тогда берётся последнее загруженное.
+    resume = (application.resume
+              or candidate.resumes.order_by("-uploaded_at").first())
     if resume is None:
         logger.info("У кандидата %s нет резюме, отбор не выполняется",
                     candidate.pk)

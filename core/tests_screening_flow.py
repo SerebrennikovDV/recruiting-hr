@@ -92,9 +92,13 @@ class ScreeningFlowTests(TestCase):
         self.assertIn("postgresql", parsed_pdf.normalized_text.lower())
 
     def test_matching_resume_gets_high_score(self):
-        self._attach_resume("Python Django PostgreSQL. Опыт работы 5 лет.")
+        good = self._attach_resume(
+            "Python Django PostgreSQL. Опыт работы 5 лет.")
+        # Более свежее, но слабое резюме не должно влиять на оценку:
+        # считается то резюме, которое кандидат приложил к отклику.
+        self._attach_resume("Бухгалтерский учёт. Опыт работы 1 год.")
         application = Application.objects.create(
-            candidate=self.candidate, vacancy=self.vacancy,
+            candidate=self.candidate, vacancy=self.vacancy, resume=good,
             stage=self.stage, status=ApplicationStatus.NEW)
 
         match = score_application(application)

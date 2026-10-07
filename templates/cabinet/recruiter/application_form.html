@@ -29,6 +29,15 @@
       </div>
       <div class="col-md-5">
         <div class="card p-3">
+          <h6 class="fw-bold">Резюме к отклику</h6>
+          {% if app.resume %}
+            <p class="small mb-0"><a href="{{ app.resume.file.url }}" target="_blank">
+              <i class="bi bi-file-earmark-text"></i> {{ app.resume.title|default:app.resume.filename }}</a></p>
+          {% else %}
+            <p class="small text-muted mb-0">Не выбрано: отклик отправлен до появления выбора резюме или без резюме.</p>
+          {% endif %}
+        </div>
+        <div class="card p-3 mt-3">
           <h6 class="fw-bold">Сопроводительное письмо</h6>
           <p class="small">{{ app.cover_letter|default:"—" }}</p>
         </div>

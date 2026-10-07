@@ -231,13 +231,31 @@ class ScenarioTests(BaseData):
 
     def test_candidate_apply_flow(self):
         """Сценарий: кандидат откликается на вакансию."""
+        from django.core.files.uploadedfile import SimpleUploadedFile
+
+        from .models import ResumeFile
+
+        # У кандидата два резюме: к отклику прикладывается выбранное,
+        # а не последнее загруженное.
+        chosen = ResumeFile.objects.create(
+            candidate=self.cand, title="Резюме аналитика",
+            file=SimpleUploadedFile("analyst.docx", b"x"))
+        ResumeFile.objects.create(
+            candidate=self.cand, title="Резюме разработчика",
+            file=SimpleUploadedFile("developer.docx", b"x"))
+
         self.client.login(username="cand", password="User#Unitcode2026")
+        page = self.client.get(reverse("cand_apply", args=[self.vac.pk]))
+        self.assertContains(page, "Резюме аналитика")
+        self.assertContains(page, "Резюме разработчика")
+
         resp = self.client.post(
             reverse("cand_apply", args=[self.vac.pk]),
-            {"cover_letter": "Готов приступить."}, follow=True)
+            {"cover_letter": "Готов приступить.", "resume": chosen.pk},
+            follow=True)
         self.assertEqual(resp.status_code, 200)
-        self.assertTrue(Application.objects.filter(
-            candidate=self.cand, vacancy=self.vac).exists())
+        app = Application.objects.get(candidate=self.cand, vacancy=self.vac)
+        self.assertEqual(app.resume, chosen)
 
     def test_recruiter_creates_vacancy(self):
         """Сценарий: рекрутёр создаёт вакансию."""

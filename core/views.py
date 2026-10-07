@@ -663,7 +663,7 @@ def cand_apply(request, vacancy_pk):
         return redirect("vacancy_detail", pk=vacancy.pk)
     first_stage = Stage.objects.order_by("order").first()
     if request.method == "POST":
-        form = ApplicationCandidateForm(request.POST)
+        form = ApplicationCandidateForm(request.POST, candidate=candidate)
         if form.is_valid():
             app = form.save(commit=False)
             app.candidate = candidate
@@ -688,7 +688,7 @@ def cand_apply(request, vacancy_pk):
                 request, f"Отклик на вакансию «{vacancy.title}» отправлен!")
             return redirect("cand_applications")
     else:
-        form = ApplicationCandidateForm()
+        form = ApplicationCandidateForm(candidate=candidate)
     return render(request, "cabinet/candidate/apply.html",
                   {"breadcrumbs": _crumbs(
                       ("Вакансии", reverse("vacancies")),
