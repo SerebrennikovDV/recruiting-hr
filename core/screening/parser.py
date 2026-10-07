@@ -64,14 +64,17 @@ def _extract_docx(path: Path) -> str:
 
 
 def _extract_pdf(path: Path) -> str:
+    # pypdf написана на чистом Python и ставится из requirements.txt.
+    # Прежде здесь была PyMuPDF, которой не было в зависимостях:
+    # на сервере любое резюме в PDF разбиралось в пустую строку.
     try:
-        import fitz  # PyMuPDF
+        from pypdf import PdfReader
     except ImportError:
         logger.info("Разбор PDF недоступен: библиотека не установлена")
         return ""
 
-    with fitz.open(str(path)) as document:
-        return "\n".join(page.get_text() for page in document)
+    reader = PdfReader(str(path))
+    return "\n".join(page.extract_text() or "" for page in reader.pages)
 
 
 def extract_experience_years(text: str) -> float | None:

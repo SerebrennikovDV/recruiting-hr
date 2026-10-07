@@ -58,7 +58,11 @@ def score_application(application) -> Match | None:
                     candidate.pk)
         return None
 
-    parsed = getattr(resume, "parsed", None) or parse_resume(resume)
+    # Пустой разбор не переиспользуется: текст мог не извлечься из-за
+    # временной причины (например, не было библиотеки для PDF).
+    parsed = getattr(resume, "parsed", None)
+    if parsed is None or not parsed.raw_text:
+        parsed = parse_resume(resume)
 
     requirements = []
     links = application.vacancy.vacancyskill_set.select_related("skill")

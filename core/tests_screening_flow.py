@@ -8,6 +8,32 @@ from core.models import (Application, ApplicationStatus, Candidate,
 from core.screening.services import parse_resume, score_application
 
 
+def _pdf_bytes(text: str) -> bytes:
+    """Минимальный PDF с одной строкой текста стандартным шрифтом."""
+    content = f"BT /F1 12 Tf 72 720 Td ({text}) Tj ET".encode("latin-1")
+    objects = [
+        b"<< /Type /Catalog /Pages 2 0 R >>",
+        b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+        b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] "
+        b"/Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>",
+        b"<< /Length %d >>\nstream\n" % len(content) + content
+        + b"\nendstream",
+        b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
+    ]
+    out = bytearray(b"%PDF-1.4\n")
+    offsets = []
+    for number, body in enumerate(objects, start=1):
+        offsets.append(len(out))
+        out += b"%d 0 obj\n" % number + body + b"\nendobj\n"
+    xref = len(out)
+    out += b"xref\n0 %d\n0000000000 65535 f \n" % (len(objects) + 1)
+    for offset in offsets:
+        out += b"%010d 00000 n \n" % offset
+    out += (b"trailer\n<< /Size %d /Root 1 0 R >>\nstartxref\n%d\n%%%%EOF\n"
+            % (len(objects) + 1, xref))
+    return bytes(out)
+
+
 class ScreeningFlowTests(TestCase):
     """Разбор резюме и расчёт оценки на реальных объектах системы."""
 
@@ -55,6 +81,15 @@ class ScreeningFlowTests(TestCase):
 
         self.assertIn("python", parsed.normalized_text.lower())
         self.assertEqual(float(parsed.years_experience), 4.0)
+
+        # Резюме в PDF разбирается так же, как в .docx: кандидаты чаще
+        # всего загружают именно PDF.
+        pdf = ResumeFile.objects.create(
+            candidate=self.candidate, title="Резюме PDF",
+            file=SimpleUploadedFile("resume.pdf",
+                                    _pdf_bytes("Python Django PostgreSQL")))
+        parsed_pdf = parse_resume(pdf)
+        self.assertIn("postgresql", parsed_pdf.normalized_text.lower())
 
     def test_matching_resume_gets_high_score(self):
         self._attach_resume("Python Django PostgreSQL. Опыт работы 5 лет.")
