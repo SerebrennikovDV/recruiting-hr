@@ -259,13 +259,30 @@ class ScenarioTests(BaseData):
 
     def test_recruiter_creates_vacancy(self):
         """Сценарий: рекрутёр создаёт вакансию."""
+        from .models import Skill
+
+        python = Skill.objects.create(name="Python", category="lang")
+        sql = Skill.objects.create(name="SQL", category="db")
         self.client.login(username="rec", password="Hr#Unitcode2026")
         resp = self.client.post(reverse("rec_vacancy_create"), {
             "title": "Новая вакансия", "department": self.dep.id,
             "grade": "junior", "salary_min": 80000, "salary_max": 120000,
-            "status": "open", "city": "Москва"}, follow=True)
+            "status": "open", "city": "Москва",
+            # Требуемые навыки задаются прямо в форме вакансии: по ним
+            # считается оценка резюме при отклике.
+            f"skill_{python.pk}": "required", f"skill_{sql.pk}": "optional",
+        }, follow=True)
         self.assertEqual(resp.status_code, 200)
-        self.assertTrue(Vacancy.objects.filter(title="Новая вакансия").exists())
+        vac = Vacancy.objects.get(title="Новая вакансия")
+        self.assertEqual(
+            {(vs.skill.name, vs.is_required)
+             for vs in vac.vacancyskill_set.select_related("skill")},
+            {("Python", True), ("SQL", False)})
+
+        # В форме редактирования сохранённый выбор виден.
+        page = self.client.get(reverse("rec_vacancy_edit", args=[vac.pk]))
+        self.assertContains(page, "Требуемые навыки")
+        self.assertContains(page, 'value="required" selected')
 
 
 # --------------------------------------------------------------------------

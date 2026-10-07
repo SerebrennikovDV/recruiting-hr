@@ -354,6 +354,7 @@ def rec_vacancy_form(request, pk=None):
                 obj.recruiter = request.user
             obj.save()
             form.save_m2m()
+            form.save_skills(obj)
             messages.success(request, "Вакансия сохранена.")
             return redirect("rec_vacancies")
         messages.error(request, "Проверьте поля формы.")

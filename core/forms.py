@@ -13,7 +13,7 @@ from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm
 
 from .models import (Application, Candidate, Feedback, Interview, ResumeFile,
-                     Role, User, Vacancy)
+                     Role, Skill, User, Vacancy, VacancySkill)
 
 
 class BootstrapMixin:
@@ -197,6 +197,54 @@ class VacancyForm(BootstrapMixin, forms.ModelForm):
             "description": forms.Textarea(attrs={"rows": 5}),
             "planned_close": forms.DateInput(attrs={"type": "date"}),
         }
+
+    # Требуемые навыки: по ним считается оценка резюме при отклике.
+    # Для каждого навыка справочника - отдельное поле skill_<id>.
+    SKILL_LEVELS = [("", "не нужен"), ("optional", "желательный"),
+                    ("required", "обязательный")]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        current = {}
+        if self.instance.pk:
+            current = {link.skill_id: ("required" if link.is_required
+                                       else "optional")
+                       for link in self.instance.vacancyskill_set.all()}
+        self._skills = list(Skill.objects.all())
+        for skill in self._skills:
+            field = forms.ChoiceField(label=skill.name,
+                                      choices=self.SKILL_LEVELS,
+                                      required=False,
+                                      initial=current.get(skill.pk, ""))
+            field.widget.attrs["class"] = "form-select form-select-sm"
+            self.fields[f"skill_{skill.pk}"] = field
+
+    def main_fields(self):
+        """Поля самой вакансии - без полей навыков."""
+        return [self[name] for name in self.Meta.fields]
+
+    def skill_groups(self):
+        """Поля навыков, сгруппированные по категориям справочника."""
+        labels = dict(Skill.CATEGORY_CHOICES)
+        groups = []
+        for skill in self._skills:
+            label = labels.get(skill.category, skill.category)
+            if not groups or groups[-1][0] != label:
+                groups.append((label, []))
+            groups[-1][1].append(self[f"skill_{skill.pk}"])
+        return groups
+
+    def save_skills(self, vacancy):
+        """Привести требуемые навыки вакансии к выбору в форме."""
+        for skill in self._skills:
+            level = self.cleaned_data.get(f"skill_{skill.pk}") or ""
+            if level:
+                VacancySkill.objects.update_or_create(
+                    vacancy=vacancy, skill=skill,
+                    defaults={"is_required": level == "required"})
+            else:
+                VacancySkill.objects.filter(vacancy=vacancy,
+                                            skill=skill).delete()
 
     def clean(self):
         cleaned = super().clean()
